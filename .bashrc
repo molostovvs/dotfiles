@@ -120,10 +120,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH=~/opt/Rider/bin:$PATH
-export PATH=~/opt/DataGrip/bin:$PATH
-
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 . "$HOME/.cargo/env"
 source /home/concrete/source/playground/alacritty/extra/completions/alacritty.bash
 alias dotfiles='/usr/bin/git --git-dir=/home/concrete/.dotfiles/ --work-tree=/home/concrete'
