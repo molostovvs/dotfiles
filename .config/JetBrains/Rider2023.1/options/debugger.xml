@@ -1,0 +1,34 @@
+<application>
+  <component name="XDebuggerSettings">
+    <data-views>
+      <option name="showLibraryStackFrames" value="false" />
+      <option name="valueLookupDelay" value="150" />
+    </data-views>
+    <general>
+      <option name="hideDebuggerOnProcessTermination" value="true" />
+    </general>
+    <debuggers>
+      <debugger id="dotnet_debugger">
+        <configuration>
+          <option name="breakOnUserUnhandledExceptions" value="true" />
+          <option name="clusterArrays" value="false" />
+          <option name="enableExternalSourceDebug" value="false" />
+          <option name="objectsFlattenHierarchy" value="false" />
+          <option name="pinToTopShouldChangePresentation" value="false" />
+          <option name="showRawNodeForDebuggerBrowsableValues" value="true" />
+          <option name="showTypeVariables" value="false" />
+        </configuration>
+      </debugger>
+      <debugger id="ObjectiveC">
+        <configuration>
+          <nt-symbol-settings />
+        </configuration>
+      </debugger>
+      <debugger id="javascript">
+        <configuration>
+          <custom-object-presentation />
+        </configuration>
+      </debugger>
+    </debuggers>
+  </component>
+</application>

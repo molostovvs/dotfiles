@@ -1,0 +1,258 @@
+<application>
+  <component name="RiderPerAppToolWindowLayoutV2"><![CDATA[{
+  "layouts": {
+    "Custom": {
+      "v1": [
+        {
+          "id": "Bookmarks",
+          "order": 0,
+          "isSplit": true
+        },
+        {
+          "id": "Structure",
+          "order": 0,
+          "isSplit": true
+        },
+        {
+          "id": "Version Control",
+          "order": 0,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Find",
+          "order": 1,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Run",
+          "order": 2,
+          "anchor": "BOTTOM",
+          "isVisible": true,
+          "weight": 0.6640173
+        },
+        {
+          "id": "Debug",
+          "order": 3,
+          "anchor": "BOTTOM",
+          "weight": 0.4
+        },
+        {
+          "id": "TODO",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Unit Tests",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "dotTrace Profiler",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Inspection",
+          "order": 4,
+          "anchor": "BOTTOM",
+          "weight": 0.4
+        },
+        {
+          "id": "Problems View",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Terminal",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "NuGet",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Services",
+          "order": 4,
+          "anchor": "BOTTOM",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "Build",
+          "order": 4,
+          "anchor": "BOTTOM",
+          "weight": 0.3301006
+        },
+        {
+          "id": "dotMemory Profiler",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Dynamic Program Analysis",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Project",
+          "order": 0,
+          "anchor": "RIGHT",
+          "contentUiType": "COMBO",
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.3984919
+        },
+        {
+          "id": "Unit Tests Coverage",
+          "order": 1,
+          "anchor": "RIGHT"
+        },
+        {
+          "id": "Endpoints",
+          "order": 1,
+          "anchor": "RIGHT",
+          "isShowStripeButton": false
+        },
+        {
+          "id": "IL Viewer",
+          "order": 1,
+          "anchor": "RIGHT"
+        },
+        {
+          "id": "Database",
+          "order": 1,
+          "anchor": "RIGHT"
+        },
+        {
+          "id": "Notifications",
+          "order": 1,
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
+          "weight": 0.25022602
+        }
+      ],
+      "v2": [
+        {
+          "id": "Commit",
+          "order": 1,
+          "weight": 0.25
+        },
+        {
+          "id": "Structure",
+          "order": 2,
+          "weight": 0.25
+        },
+        {
+          "id": "Unit Tests",
+          "anchor": "BOTTOM",
+          "weight": 0.23239943
+        },
+        {
+          "id": "NuGet",
+          "anchor": "BOTTOM",
+          "weight": 0.23239943
+        },
+        {
+          "id": "Version Control",
+          "order": 0,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Problems",
+          "order": 1,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Problems View",
+          "order": 2,
+          "anchor": "BOTTOM",
+          "weight": 0.23239943
+        },
+        {
+          "id": "Terminal",
+          "order": 3,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Run",
+          "order": 4,
+          "anchor": "BOTTOM",
+          "weight": 0.1411638
+        },
+        {
+          "id": "Services",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Build",
+          "order": 4,
+          "anchor": "BOTTOM",
+          "weight": 0.23239943
+        },
+        {
+          "id": "Debug",
+          "order": 4,
+          "anchor": "BOTTOM",
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.23239943
+        },
+        {
+          "id": "Meet New UI",
+          "anchor": "RIGHT",
+          "isShowStripeButton": false,
+          "weight": 0.28086036,
+          "isSplit": true
+        },
+        {
+          "id": "Project",
+          "order": 0,
+          "anchor": "RIGHT",
+          "contentUiType": "COMBO",
+          "isActiveOnStart": true,
+          "isVisible": true,
+          "weight": 0.25814447
+        },
+        {
+          "id": "Notifications",
+          "order": 1,
+          "anchor": "RIGHT",
+          "weight": 0.28086036
+        },
+        {
+          "id": "Database",
+          "order": 2,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "Gradle",
+          "order": 3,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "Maven",
+          "order": 4,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "Web Inspector",
+          "order": 5,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        }
+      ],
+      "unifiedWeights": {
+        "top": 0.33,
+        "left": 0.12312968,
+        "bottom": 0.23239943,
+        "right": 0.25814447
+      }
+    }
+  }
+}]]></component>
+</application>

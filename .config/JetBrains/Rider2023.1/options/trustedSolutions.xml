@@ -1,0 +1,16 @@
+<application>
+  <component name="TrustedSolutionStore">
+    <option name="trustedLocations">
+      <set>
+        <option value="$USER_HOME$/source/courses/asp.net-in-action/Course/.idea/.idea.Course" />
+        <option value="$USER_HOME$/source/courses/asp.net-in-action/Course/.idea/.idea.SourceCode" />
+        <option value="$USER_HOME$/source/courses/asp.net-in-action/SourceCode/.idea/.idea.SourceCode" />
+        <option value="$USER_HOME$/source/courses/asp.net-in-action/chapter03/WelcomePageMiddleware/.idea/.idea.WelcomePageMiddleware.dir" />
+        <option value="$USER_HOME$/source/courses/asp.net-in-action/chapter2/.idea/.idea.FirstWebApp" />
+        <option value="$USER_HOME$/source/courses/asp.net-in-action/source2ndEdition/chapter06/2.0/ValidatingWithDataAnnotations/.idea/.idea.ValidatingWithDataAnnotations" />
+        <option value="$USER_HOME$/source/playground/ClipboardParse/.idea/.idea.ClipboardParse" />
+        <option value="$USER_HOME$/source/playground/avaloniaTest/.idea/.idea.avaloniaTest" />
+      </set>
+    </option>
+  </component>
+</application>

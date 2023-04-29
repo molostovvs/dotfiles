@@ -1,0 +1,18 @@
+<application>
+  <component name="Trusted.Paths">
+    <option name="TRUSTED_PROJECT_PATHS">
+      <map>
+        <entry key="$USER_HOME$/source/courses/asp.net-in-action/Course" value="true" />
+        <entry key="$USER_HOME$/source/courses/asp.net-in-action/SourceCode" value="true" />
+        <entry key="$USER_HOME$/source/courses/asp.net-in-action/SourceCode/.idea/.idea.SourceCode" value="true" />
+        <entry key="$USER_HOME$/source/courses/asp.net-in-action/chapter03/WelcomePageMiddleware" value="true" />
+        <entry key="$USER_HOME$/source/courses/asp.net-in-action/chapter2" value="true" />
+        <entry key="$USER_HOME$/source/courses/asp.net-in-action/chapter2/.idea/.idea.FirstWebApp" value="true" />
+        <entry key="$USER_HOME$/source/courses/asp.net-in-action/source2ndEdition/chapter06/2.0/ValidatingWithDataAnnotations" value="true" />
+        <entry key="$USER_HOME$/source/playground/ClipboardParse" value="true" />
+        <entry key="$USER_HOME$/source/playground/ClipboardParse/.idea/.idea.ClipboardParse" value="true" />
+        <entry key="$USER_HOME$/source/playground/avaloniaTest" value="true" />
+      </map>
+    </option>
+  </component>
+</application>

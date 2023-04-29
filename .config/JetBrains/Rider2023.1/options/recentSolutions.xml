@@ -1,0 +1,48 @@
+<application>
+  <component name="RiderRecentProjectsManager">
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/source/courses/asp.net-in-action/source2ndEdition/chapter06/2.0/ValidatingWithDataAnnotations/ValidatingWithDataAnnotations.sln">
+          <value>
+            <RecentProjectMetaInfo opened="true" projectWorkspaceId="2P1E7dAIpErLlIgLrhSGAQI5IqO">
+              <option name="activationTimestamp" value="1682616021418" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="RD-231.8109.212" />
+              <option name="buildTimestamp" value="1680615767921" />
+              <option name="productionCode" value="RD" />
+              <option name="projectOpenTimestamp" value="1682616021565" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/source/courses/asp.net-in-action/SourceCode/SourceCode.sln">
+          <value>
+            <RecentProjectMetaInfo frameTitle="SourceCode – Convert.cshtml" projectWorkspaceId="2OufDDJ2IDfuVUtlPaXGgMYeUo8">
+              <option name="activationTimestamp" value="1682669677686" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="RD-231.8109.212" />
+              <option name="buildTimestamp" value="1680615767277" />
+              <frame x="2020" y="40" width="1412" height="1392" />
+              <option name="productionCode" value="RD" />
+              <option name="projectOpenTimestamp" value="1682669150323" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/source/playground/ClipboardParse/ClipboardParse.sln">
+          <value>
+            <RecentProjectMetaInfo frameTitle="ClipboardParse – Program" opened="true" projectWorkspaceId="2P2uTdCY61H9NB9LmUEXXYrYJ7o">
+              <option name="activationTimestamp" value="1682670513406" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="RD-231.8109.212" />
+              <option name="buildTimestamp" value="1680615767277" />
+              <frame x="8" y="40" width="3424" height="1392" />
+              <option name="productionCode" value="RD" />
+              <option name="projectOpenTimestamp" value="1682669678187" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastOpenedProject" value="$USER_HOME$/source/playground/ClipboardParse/ClipboardParse.sln" />
+    <option name="lastProjectLocation" value="$USER_HOME$/source/playground" />
+  </component>
+</application>

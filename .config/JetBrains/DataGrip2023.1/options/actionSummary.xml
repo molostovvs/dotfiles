@@ -1,0 +1,268 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="$Delete">
+      <i c="3" l="1681748072754" />
+    </e>
+    <e n="$Paste">
+      <i c="1" l="1681572617978" />
+    </e>
+    <e n="$SelectAll">
+      <i c="71" l="1681748066045" />
+    </e>
+    <e n="$Undo">
+      <i c="60" l="1681748047849" />
+    </e>
+    <e n="ActivateProjectToolWindow">
+      <i c="1" l="1681745130133" />
+    </e>
+    <e n="CloseProject">
+      <i c="1" l="1681717676327" />
+    </e>
+    <e n="CommentByBlockComment">
+      <i c="9" l="1681739201166" />
+    </e>
+    <e n="CommentByLineComment">
+      <i c="16" l="1681739443148" />
+    </e>
+    <e n="Console.Jdbc.Execute">
+      <i c="443" l="1681747424019" />
+    </e>
+    <e n="Console.TableResult.ColumnSortAsc">
+      <i c="2" l="1681719290791" />
+    </e>
+    <e n="ContextHelp">
+      <i c="3" l="1681740482830" />
+    </e>
+    <e n="CopyElement">
+      <i c="2" l="1681718447922" />
+    </e>
+    <e n="DatabaseView.AddActionGroupPopup">
+      <i c="1" l="1681572232731" />
+    </e>
+    <e n="DatabaseView.Refresh">
+      <i c="1" l="1681572564586" />
+    </e>
+    <e n="EditorBackSpace">
+      <i c="643" l="1681748066337" />
+    </e>
+    <e n="EditorChooseLookupItem">
+      <i c="4" l="1681747384746" />
+    </e>
+    <e n="EditorChooseLookupItemReplace">
+      <i c="94" l="1681745503248" />
+    </e>
+    <e n="EditorCopy">
+      <i c="49" l="1681747672233" />
+    </e>
+    <e n="EditorCut">
+      <i c="4" l="1681739388018" />
+    </e>
+    <e n="EditorDelete">
+      <i c="15" l="1681738835094" />
+    </e>
+    <e n="EditorDeleteLine">
+      <i c="38" l="1681741275667" />
+    </e>
+    <e n="EditorDeleteToWordEnd">
+      <i c="17" l="1681748021955" />
+    </e>
+    <e n="EditorDeleteToWordStart">
+      <i c="868" l="1681748019905" />
+    </e>
+    <e n="EditorDown">
+      <i c="1523" l="1681748057982" />
+    </e>
+    <e n="EditorDownWithSelection">
+      <i c="14" l="1681738902959" />
+    </e>
+    <e n="EditorEnter">
+      <i c="264" l="1681748034588" />
+    </e>
+    <e n="EditorEscape">
+      <i c="139" l="1681747404510" />
+    </e>
+    <e n="EditorLeft">
+      <i c="254" l="1681748033739" />
+    </e>
+    <e n="EditorLeftWithSelection">
+      <i c="20" l="1681737182938" />
+    </e>
+    <e n="EditorLineEnd">
+      <i c="182" l="1681748044437" />
+    </e>
+    <e n="EditorLineEndWithSelection">
+      <i c="1" l="1681720352268" />
+    </e>
+    <e n="EditorLineStart">
+      <i c="57" l="1681745922001" />
+    </e>
+    <e n="EditorLineStartWithSelection">
+      <i c="7" l="1681745574102" />
+    </e>
+    <e n="EditorNextWord">
+      <i c="295" l="1681748043186" />
+    </e>
+    <e n="EditorNextWordWithSelection">
+      <i c="5" l="1681745575976" />
+    </e>
+    <e n="EditorPageDown">
+      <i c="1" l="1681683164303" />
+    </e>
+    <e n="EditorPageUp">
+      <i c="3" l="1681721082382" />
+    </e>
+    <e n="EditorPaste">
+      <i c="48" l="1681748014661" />
+    </e>
+    <e n="EditorPreviousWord">
+      <i c="172" l="1681748042757" />
+    </e>
+    <e n="EditorPreviousWordWithSelection">
+      <i c="4" l="1681736935484" />
+    </e>
+    <e n="EditorRight">
+      <i c="260" l="1681747378181" />
+    </e>
+    <e n="EditorRightWithSelection">
+      <i c="2" l="1681723628503" />
+    </e>
+    <e n="EditorSelectWord">
+      <i c="1" l="1681726006805" />
+    </e>
+    <e n="EditorSplitLine">
+      <i c="2" l="1681736927080" />
+    </e>
+    <e n="EditorTab">
+      <i c="41" l="1681748036255" />
+    </e>
+    <e n="EditorUp">
+      <i c="1565" l="1681748055095" />
+    </e>
+    <e n="EditorUpWithSelection">
+      <i c="27" l="1681739320746" />
+    </e>
+    <e n="FindNext">
+      <i c="1" l="1681718657720" />
+    </e>
+    <e n="GotoClass">
+      <i c="3" l="1681724161888" />
+    </e>
+    <e n="ImportSettings">
+      <i c="1" l="1681717770469" />
+    </e>
+    <e n="NewDatabaseProject">
+      <i c="1" l="1681572167369" />
+    </e>
+    <e n="NewDir">
+      <i c="2" l="1681724396477" />
+    </e>
+    <e n="NewSqlFile">
+      <i c="9" l="1681746366837" />
+    </e>
+    <e n="ProductivityGuide">
+      <i c="1" l="1681569184343" />
+    </e>
+    <e n="ReformatCode">
+      <i c="97" l="1681748045646" />
+    </e>
+    <e n="RenameElement">
+      <i c="3" l="1681724436748" />
+    </e>
+    <e n="Replace">
+      <i c="1" l="1681736455519" />
+    </e>
+    <e n="RunAnything">
+      <i c="2" l="1681719733759" />
+    </e>
+    <e n="SaveAll">
+      <i c="178" l="1681748067013" />
+    </e>
+    <e n="ShowIntentionActions">
+      <i c="9" l="1681738067675" />
+    </e>
+    <e n="ShowSettings">
+      <i c="15" l="1681738541501" />
+    </e>
+    <e n="StatementDown">
+      <i c="3" l="1681718680279" />
+    </e>
+    <e n="StatementUp">
+      <i c="5" l="1681739383242" />
+    </e>
+    <e n="TabList">
+      <i c="1" l="1681720444342" />
+    </e>
+    <e n="ToggleBookmark9">
+      <i c="1" l="1681718801252" />
+    </e>
+    <e n="Tree-selectChild">
+      <i c="2" l="1681573546657" />
+    </e>
+    <e n="Tree-selectParent">
+      <i c="3" l="1681573547506" />
+    </e>
+    <e n="TypeHierarchy">
+      <i c="1" l="1681737508203" />
+    </e>
+    <e n="Vcs.UpdateProject">
+      <i c="1" l="1681717804717" />
+    </e>
+    <e n="WelcomeScreen.CreateDirectoryProject">
+      <i c="1" l="1681569172643" />
+    </e>
+    <e n="com.intellij.database.dataSource.LocalDataSourceManager$3">
+      <i c="1" l="1681572236365" />
+    </e>
+    <e n="com.intellij.find.SearchReplaceComponent$CloseAction">
+      <i c="2" l="1681736456281" />
+    </e>
+    <e n="com.intellij.find.editorHeaderActions.ToggleSelectionOnlyAction">
+      <i c="1" l="1681736455687" />
+    </e>
+    <e n="com.intellij.notification.NotificationAction$Simple">
+      <i c="2" l="1681572296151" />
+    </e>
+    <e n="com.intellij.openapi.fileEditor.impl.tabActions.CloseTab">
+      <i c="10" l="1681748063509" />
+    </e>
+    <e n="com.intellij.openapi.keymap.impl.ui.KeymapPanel$AddKeyboardShortcutAction">
+      <i c="3" l="1681718710305" />
+    </e>
+    <e n="com.intellij.openapi.keymap.impl.ui.KeymapPanel$FindByShortcutAction">
+      <i c="3" l="1681718502396" />
+    </e>
+    <e n="com.intellij.openapi.keymap.impl.ui.KeymapPanel$RemoveShortcutAction">
+      <i c="2" l="1681718673703" />
+    </e>
+    <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
+      <i c="5" l="1681724414375" />
+    </e>
+    <e n="com.intellij.openapi.ui.DialogWrapper$4">
+      <i c="6" l="1681930095531" />
+    </e>
+    <e n="com.intellij.openapi.ui.impl.DialogWrapperPeerImpl$AnCancelAction">
+      <i c="5" l="1681738542118" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.SquareAnActionButton">
+      <i c="4" l="1681740502401" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.customFrameDecorations.header.toolbar.MainMenuButton$ShowMenuAction">
+      <i c="6" l="1681717586074" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.welcomeScreen.WelcomeScreenComponentFactory$3">
+      <i c="1" l="1681717685434" />
+    </e>
+    <e n="com.intellij.toolWindow.ToolWindowHeader$HideAction">
+      <i c="2" l="1681748725349" />
+    </e>
+    <e n="com.intellij.ui.ScrollingUtil$ListMoveDownAction">
+      <i c="17" l="1681740492312" />
+    </e>
+    <e n="com.intellij.ui.ScrollingUtil$ListMoveUpAction">
+      <i c="67" l="1681740491363" />
+    </e>
+    <e n="com.intellij.util.ui.tree.PerFileConfigurableBase$9">
+      <i c="1" l="1681572555153" />
+    </e>
+  </component>
+</application>

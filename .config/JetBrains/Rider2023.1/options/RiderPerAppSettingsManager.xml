@@ -1,0 +1,11 @@
+<application>
+  <component name="RiderPerAppSettingsManager">
+    <option name="enabledBlacklistToolWindowsId">
+      <set>
+        <option value="Unit Tests" />
+      </set>
+    </option>
+    <option name="perIdeMigrationStage" value="1" />
+    <option name="toolWindowsPerApp" value="true" />
+  </component>
+</application>

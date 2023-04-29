@@ -1,0 +1,82 @@
+<application>
+  <component name="NotRoamableUiSettings">
+    <option name="presentationModeIdeScale" value="1.75" />
+  </component>
+  <component name="PropertyService"><![CDATA[{
+  "keyToString": {
+    "CWM_LOGGING_VERSION": "1",
+    "Debug.Allow.Typing": "true",
+    "InstalledPluginsSearchHistory": "system theme",
+    "KEYMAP": "debug\nrun\ncomment",
+    "MarketplacePluginsSearchHistory": "avalonia\n/tag:Framework\naval",
+    "NextRunPlatformUpdateBuild": "RD-231.8770.54",
+    "NextRunPlatformUpdateVersion": "2023.1.1",
+    "NonModalCommitCustomization.IsApplied": "true",
+    "PluginConfigurable.selectionTab": "1",
+    "RD.Init.Cfg.2": "true",
+    "RD.Init.DialogShown.Ide": "true",
+    "Rider.Last.Started.IDE.Build": "RD-231.8109.212",
+    "RunOnceActivity.se.text.search": "true",
+    "SettingsSearchHistory": "comment\nsync with os\nsystem theme\ninline",
+    "Tutorials.In.Recent.Projects.Disabled": "true",
+    "appcds.runOnSecondStart": "RD-231.8109.212-89279c59ef8710eeaa2fc599b90372235ebb71c3a59b835af44a4dd676ce47a7",
+    "ask.about.ctrl.y.shortcut.v2": "true",
+    "bundled.plugins.list.saved.version": "RD-231.8109.212",
+    "evlsprt3.231": "22",
+    "experimental.ui.first.promotion.localdate": "2023-04-15",
+    "experimental.ui.used.once": "true",
+    "experimentalFeature.editor.reader.mode": "false",
+    "file.gist.reindex.count": "13",
+    "fileTypeChangedCounter": "2",
+    "fontSizeToResetConsole": "13.0",
+    "fontSizeToResetEditor": "13.0",
+    "ide.widget.toolbar.first.inclusion": "2",
+    "ignoreUltimateEdition": "true",
+    "input.method.disabler.muted": "true",
+    "last_open_solution_path": "/home/concrete/source/courses/asp.net-in-action/source2ndEdition/chapter06/2.0/ValidatingWithDataAnnotations",
+    "last_opened_file_path": "/home/concrete/source/playground",
+    "last_selected_template": "Console Application|.NET / .NET Core",
+    "last_selected_template_parameters": "TargetFrameworkOverride=net7.0;Type=Web App;Language=C#;DockerSupport=Disabled;Auth=None;Framework=net7.0;",
+    "migrated.non.roamable.values.from.general.settings": "true",
+    "previousColorScheme": "_@user_Rider Light",
+    "registry.to.advanced.settings.migration.build": "RD-231.8109.212",
+    "rider.whats.new.should.shown": "1",
+    "selected.color.option.type": "INLINE_STACK_FRAMES",
+    "settings.code.style.selected.tab.C#": "Other",
+    "tasks.pass.word.conversion.enforced": "true",
+    "toolwindow.stripes.buttons.info.shown": "true",
+    "ts.lib.d.ts.version": "4.8.4"
+  },
+  "keyToStringList": {
+    "file.chooser.recent.files": [
+      "/home/concrete/source/playground",
+      "/home/concrete/source/courses/asp.net-in-action/source2ndEdition/chapter06/2.0/ValidatingWithDataAnnotations/ValidatingWithDataAnnotations.sln",
+      "/home/concrete/source/courses/asp.net-in-action/SourceCode/chapter03/RazorPagesMiddleware/RazorPagesMiddleware.csproj",
+      "/home/concrete/source/courses/asp.net-in-action/SourceCode/chapter03/StaticFilesMiddleware/StaticFilesMiddleware.csproj",
+      "/home/concrete/source/courses/asp.net-in-action/SourceCode/chapter03/WelcomePageMiddleware/WelcomePageMiddleware.csproj",
+      "/home/concrete/source/courses/asp.net-in-action/SourceCode/chapter02/WebApp1/WebApp1.csproj",
+      "/home/concrete/source/courses/asp.net-in-action/SourceCode/SourceCode.sln",
+      "/home/concrete/source/courses/asp.net-in-action/SourceCode/chapter03",
+      "/home/concrete/source/courses/asp.net-in-action",
+      "/home/concrete/source/courses/asp.net-in-action/chapter03/WelcomePageMiddleware/WelcomePageMiddleware.csproj",
+      "/home/concrete/source/courses/asp.net-in-action/chapter3",
+      "/home/concrete/source/courses/asp.net-in-action/chapter2",
+      "/home/concrete/source/courses/asp.net-in-action/chapter2/FirstWebApp.sln",
+      "/home/concrete/Downloads/RiderSettings.zip"
+    ],
+    "fileTypeDetectors": [
+      "com.intellij.ide.scratch.ScratchFileServiceImpl$Detector",
+      "com.jetbrains.rider.cpp.fileType.CppHeaderFileTypeDetector",
+      "com.intellij.javascript.debugger.sourcemap.SourceMapFileType$MyFileTypeDetector",
+      "com.intellij.database.vfs.DbStorageFileType$Detector",
+      "com.intellij.docker.dockerFile.DockerFileTypeDetector",
+      "com.jetbrains.nodejs.util.NodeFileTypeDetector$JavaScriptFileTypeDetector",
+      "com.jetbrains.nodejs.util.NodeFileTypeDetector$TypeScriptFileTypeDetector",
+      "org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector"
+    ]
+  }
+}]]></component>
+  <component name="ToolbarSettingsService">
+    <option name="SHOW_NEW_MAIN_TOOLBAR" value="true" />
+  </component>
+</application>
