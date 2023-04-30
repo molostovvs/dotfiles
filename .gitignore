@@ -3,6 +3,7 @@
 
 #Rider config 
 .config/JetBrains/Rider2023.1/workspace*
+.config/JetBrains/Rider2023.1/options*
 .config/JetBrains/Rider2023.1/ssl
 .config/JetBrains/Rider2023.1/tasks*
 .config/JetBrains/Rider2023.1/resharper-host*
