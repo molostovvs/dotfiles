@@ -1,3 +1,5 @@
 <application>
-  <component name="NotificationConfiguration" systemNotifications="false" />
+  <component name="NotificationConfiguration" showBalloons="false" systemNotifications="false">
+    <notification groupId="Actions" shouldLog="false" />
+  </component>
 </application>

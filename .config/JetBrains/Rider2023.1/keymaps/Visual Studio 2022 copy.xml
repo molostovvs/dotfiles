@@ -8,4 +8,7 @@
   <action id="Debug">
     <keyboard-shortcut first-keystroke="f5" />
   </action>
+  <action id="ParameterInfo">
+    <keyboard-shortcut first-keystroke="ctrl space" />
+  </action>
 </keymap>

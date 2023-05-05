@@ -39,6 +39,38 @@
             </ConfigurationInfo>
           </value>
         </entry>
+        <entry key="$USER_HOME$/source/courses/razor-pages-in-action/RPIA.sln">
+          <value>
+            <ConfigurationInfo>
+              <option name="activeConfiguration" value="Debug" />
+              <option name="activePlatform" value="Any CPU" />
+            </ConfigurationInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/source/courses/razor-pages-in-action/Razor-Pages-In-Action-main/Chapter03/SectionExample/SectionExample.sln">
+          <value>
+            <ConfigurationInfo>
+              <option name="activeConfiguration" value="Debug" />
+              <option name="activePlatform" value="Any CPU" />
+            </ConfigurationInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/source/courses/razor-pages-in-action/Razor-Pages-In-Action-main/Chapter05/RequestQuery/RequestQuery.sln">
+          <value>
+            <ConfigurationInfo>
+              <option name="activeConfiguration" value="Debug" />
+              <option name="activePlatform" value="Any CPU" />
+            </ConfigurationInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/source/courses/razor-pages-in-action/code/RPIA.sln">
+          <value>
+            <ConfigurationInfo>
+              <option name="activeConfiguration" value="Debug" />
+              <option name="activePlatform" value="Any CPU" />
+            </ConfigurationInfo>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/source/playground/ClipboardParse/ClipboardParse.sln">
           <value>
             <ConfigurationInfo>
@@ -48,6 +80,14 @@
           </value>
         </entry>
         <entry key="$USER_HOME$/source/playground/avaloniaTest/avaloniaTest.sln">
+          <value>
+            <ConfigurationInfo>
+              <option name="activeConfiguration" value="Debug" />
+              <option name="activePlatform" value="Any CPU" />
+            </ConfigurationInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/source/projects/ConsolekeyType/ConsolekeyType.sln">
           <value>
             <ConfigurationInfo>
               <option name="activeConfiguration" value="Debug" />
