@@ -124,3 +124,5 @@ MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOP
 . "$HOME/.cargo/env"
 source /home/concrete/source/playground/alacritty/extra/completions/alacritty.bash
 alias dotfiles='/usr/bin/git --git-dir=/home/concrete/.dotfiles/ --work-tree=/home/concrete'
+
+export PATH=$PATH:~/opt
