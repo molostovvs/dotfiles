@@ -1,0 +1,18 @@
+# Move cursor in normal mode
+left: Left
+right: Right
+up: Up
+down: Down
+
+exit: esc
+
+# Mouse buttons (left middle right)
+buttons: h t n
+
+# hint mode
+hint_activation_key: A-M-x
+# normal mode
+activation_key: A-M-c
+
+# drag modes
+drag: d
