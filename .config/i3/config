@@ -72,8 +72,9 @@ bindsym $win+v split v
 bindsym $win+t layout toggle split
 
 # Auto allocate apps to workspaces
-for_window [class="jetbrains-rider"] move to workspace $ws1
 for_window [class="transmission-gtk"] move to workspace $ws9
+for_window [class="qbittorrent"] move to workspace $ws9
+for_window [class="qBittorrent"] move to workspace $ws9
 
 # toggle tiling / floating
 bindsym $win+f floating toggle
@@ -152,3 +153,6 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+bindsym $win+s exec python3 ~/.config/i3/blurlock.py | systemctl suspend
+bindsym $win+l exec python3 ~/.config/i3/blurlock.py
