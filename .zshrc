@@ -106,3 +106,10 @@ export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 alias dotfiles='/usr/bin/git --git-dir=/home/concrete/.dotfiles/ --work-tree=/home/concrete'
 export PATH=$PATH:~/opt
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/home/concrete/yandex-cloud/path.bash.inc' ]; then source '/home/concrete/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/home/concrete/yandex-cloud/completion.zsh.inc' ]; then source '/home/concrete/yandex-cloud/completion.zsh.inc'; fi
+

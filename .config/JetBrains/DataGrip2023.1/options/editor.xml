@@ -1,6 +1,0 @@
-<application>
-  <component name="CodeInsightSettings">
-    <option name="REFORMAT_ON_PASTE" value="1" />
-    <option name="HIGHLIGHT_SCOPE" value="true" />
-  </component>
-</application>
