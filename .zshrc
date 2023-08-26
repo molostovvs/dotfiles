@@ -3,7 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export DOTNET_ROOT=/usr/share/dotnet/
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -114,3 +113,4 @@ if [ -f '/home/hopper/yandex-cloud/path.bash.inc' ]; then source '/home/hopper/y
 # The next line enables shell command completion for yc.
 if [ -f '/home/hopper/yandex-cloud/completion.zsh.inc' ]; then source '/home/hopper/yandex-cloud/completion.zsh.inc'; fi
 
+export DOTNET_ROOT=/usr/share/dotnet/

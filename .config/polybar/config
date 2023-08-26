@@ -100,7 +100,9 @@ label-layout-underline = ${colors.secondary}
 [module/memory]
 type = internal/memory
 interval = 5
-format = <label> <bar-used>
+format = <label>
+; format with bar
+; format = <label> <bar-used>
 bar-used-indicator = 
 bar-used-width = 8
 bar-used-foreground-0 = #55aa55
@@ -115,7 +117,7 @@ label = %gb_used:0:4:%/%gb_total:0:4:%
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU "
+format-prefix = "cpu "
 label = %percentage:2%%
 
 [module/wired-network]

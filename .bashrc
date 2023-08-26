@@ -5,7 +5,6 @@
 set -o vi
 bind '"\t":menu-complete'
 
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -127,3 +126,5 @@ alias dotfiles='/usr/bin/git --git-dir=/home/concrete/.dotfiles/ --work-tree=/ho
 
 export PATH=$PATH:~/opt
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+export DOTNET_ROOT=/usr/share/dotnet
