@@ -114,3 +114,11 @@ if [ -f '/home/hopper/yandex-cloud/path.bash.inc' ]; then source '/home/hopper/y
 if [ -f '/home/hopper/yandex-cloud/completion.zsh.inc' ]; then source '/home/hopper/yandex-cloud/completion.zsh.inc'; fi
 
 export DOTNET_ROOT=/usr/share/dotnet/
+
+setopt nocorrectall
+source /home/hopper/yandex-cloud/completion.zsh.inc
+
+# The next line updates PATH for Yandex Cloud YDB CLI.
+if [ -f '/home/hopper/ydb/path.bash.inc' ]; then source '/home/hopper/ydb/path.bash.inc'; fi
+
+alias lzd=lazydocker

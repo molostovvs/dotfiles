@@ -16,8 +16,9 @@ client.urgent           #ffffff #900000 #ffffff #ffffff   #900000
 client.placeholder      #ffffff #0c0c0c #ffffff #ffffff   #0c0c0c
 client.background       #ffffff
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/hopper/Pictures/ocean.png -f
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -f
 
+exec --no-startup-id conky -c $HOME/.config/conky/conky_green
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -26,25 +27,19 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/i3/layout_switch.sh
 
 exec_always --no-startup-id xfce4-power-manager
-# exec_always alacritty
 
-# Picom compositor
-# exec_always picom --fade-delta=0 --fade-in-step=1 --fade-out-step=1 --no-foding-openclose
 
 # Use pactl to adjust volume in PulseAudio.
-#set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 
 # https://forum.manjaro.org/t/is-there-any-way-to-imitate-media-control-buttons-pause-next-previous/98381
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
+# bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+# bindsym XF86AudioNext exec --no-startup-id playerctl next
 #bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-# use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier $lalt
 
-# start a terminal
 bindcode $win+38 exec alacritty
 
 bindcode $win+56 exec firefox

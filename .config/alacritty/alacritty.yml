@@ -10,14 +10,12 @@ cursor:
 
 live_config_reload: true
 
-
 font:
   size: 12
 
-#light theme
-import:
- - ~/.config/alacritty/themes/themes/github_light_default.yaml
+key_bindings:
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
 
-#dark theme
-#import:
-# - ~/.config/alacritty/themes/themes/github_dark_default.yaml
+#theme
+import:
+ - ~/.config/alacritty/themes/themes/monokai_pro.yaml
