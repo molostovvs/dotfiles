@@ -30,13 +30,14 @@ exec_always --no-startup-id xfce4-power-manager
 
 
 # Use pactl to adjust volume in PulseAudio.
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # https://forum.manjaro.org/t/is-there-any-way-to-imitate-media-control-buttons-pause-next-previous/98381
-# bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-# bindsym XF86AudioNext exec --no-startup-id playerctl next
-#bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 floating_modifier $lalt
 
