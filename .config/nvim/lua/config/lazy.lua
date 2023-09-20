@@ -48,7 +48,7 @@ local config = {
   handlers = {
     ["textDocument/definition"] = require("csharpls_extended").handler,
   },
-  cmd = { csharp_ls },
+  cmd = { csharpls },
   -- rest of your settings
 }
 
