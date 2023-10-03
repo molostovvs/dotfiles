@@ -1,5 +1,7 @@
 {
+  "coq_nvim": { "branch": "coq", "commit": "e7304683400a65e3f85e6973fcc2ad2a1bc811e6" },
   "csharpls-extended-lsp.nvim": { "branch": "master", "commit": "865ace7f8f4069b4965e86005392dc78eec0858f" },
+  "dashboard-nvim": { "branch": "master", "commit": "b2637e92a294068d79cde7929094f050981c5969" },
   "lazy.nvim": { "branch": "main", "commit": "59335c5b9d116f5d3948f833288a89e2a829a005" },
   "lualine.nvim": { "branch": "master", "commit": "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
   "mason.nvim": { "branch": "main", "commit": "d66c60e17dd6fd8165194b1d14d21f7eb2c1697a" },
