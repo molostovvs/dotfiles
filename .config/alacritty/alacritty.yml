@@ -58,4 +58,18 @@ live_config_reload: true
 
 
 font:
+  normal:
+    family: BitstromWera Nerd Font Mono
+    style: Regular
+  bold:
+    family: BitstromWera Nerd Font Mono
+    style: Bold
+  italic:
+    family: BitstromWera Nerd Font Mono
+    style: italic
+  bold_italic:
+    family: BitstromWera Nerd Font Mono
+    style: Bold Italic
+
   size: 12
+
