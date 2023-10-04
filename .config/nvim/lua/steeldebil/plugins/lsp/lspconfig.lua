@@ -8,7 +8,9 @@ return {
       handlers = {
         ["textDocument/definition"] = require('csharpls_extended').handler,
       },
-      cmd = { "csharp-ls" }
+      cmd = { "csharp-ls" },
+      filetypes = { "cs" },
+      init_options = { "AutomaticWorkspaceInit = true" },
     }
 
     local luaconf = {
