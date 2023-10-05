@@ -11,9 +11,11 @@ return {
       cmd = { "csharp-ls" },
       filetypes = { "cs" },
       init_options = { "AutomaticWorkspaceInit = true" },
+      coq.lsp_ensure_capabilities(),
     }
 
     local luaconf = {
+      coq.lsp_ensure_capabilities(),
       on_init = function(client)
         local path = client.workspace_folders[1].name
         if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
@@ -47,7 +49,8 @@ return {
     lspconfig.csharp_ls.setup(csharpconf)
     lspconfig.lua_ls.setup(luaconf)
 
-    lspconfig.csharp_ls.setup(coq.lsp_ensure_capabilities())
+      --setup coq autocompletions
+--    lspconfig.csharp_ls.setup(coq.lsp_ensure_capabilities())
     lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities())
   end,
 }

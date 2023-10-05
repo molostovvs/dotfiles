@@ -5,6 +5,7 @@ vim.g.coq_settings = {
 return {
   {
     "ms-jpq/coq_nvim",
+    enabled = true,
     branch = 'coq',
     config = function()
       vim.g.coq_settings = {
