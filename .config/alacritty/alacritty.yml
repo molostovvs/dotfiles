@@ -12,6 +12,7 @@ live_config_reload: true
 
 font:
   size: 12
+  family: JetBrainsMono Nerd Font
 
 key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
