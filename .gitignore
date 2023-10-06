@@ -1,27 +1,6 @@
 *.lock
-
+lazy-lock.json
 
 #Rider config 
-.config/JetBrains/Rider2023.1/workspace*
-.config/JetBrains/Rider2023.1/options*
-.config/JetBrains/Rider2023.1/ssl
-.config/JetBrains/Rider2023.1/tasks*
-.config/JetBrains/Rider2023.1/resharper-host*
-.config/JetBrains/Rider2023.1/extensions
-.config/JetBrains/Rider2023.1/*.key
-.config/JetBrains/Rider2023.1/*.license
-.config/JetBrains/Rider2023.1/*.db
-.config/JetBrains/Rider2023.1/*.txt
-
-
-#DataGrip config
-.config/JetBrains/DataGrip2023.1/workspace*
-.config/JetBrains/DataGrip2023.1/ssl
-.config/JetBrains/DataGrip2023.1/jdbc-drivers
-.config/JetBrains/DataGrip2023.1/extensions
-.config/JetBrains/DataGrip2023.1/consoles
-.config/JetBrains/DataGrip2023.1/*.key
-.config/JetBrains/DataGrip2023.1/*.license
-.config/JetBrains/DataGrip2023.1/*.db
-.config/JetBrains/DataGrip2023.1/*.txt
+.config/JetBrains/
 
