@@ -100,12 +100,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vpnon="sudo wg-quick up powerpc"
-alias vpnoff="wg-quick down powerpc"
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 alias dotfiles='/usr/bin/git --git-dir=/home/concrete/.dotfiles/ --work-tree=/home/concrete'
-export PATH=$PATH:~/opt
+alias nvim='~/opt/nvim/bin/nvim'
 
 # The next line updates PATH for Yandex Cloud CLI.
 if [ -f '/home/concrete/yandex-cloud/path.bash.inc' ]; then source '/home/concrete/yandex-cloud/path.bash.inc'; fi
