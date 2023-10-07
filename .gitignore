@@ -1,4 +1,5 @@
 *.lock
+lazy-lock.json
 
 
 #Rider config 
