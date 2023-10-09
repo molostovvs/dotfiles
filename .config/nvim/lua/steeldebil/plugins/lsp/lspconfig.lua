@@ -9,8 +9,6 @@ return {
         ["textDocument/definition"] = require('csharpls_extended').handler,
       },
       cmd = { "csharp-ls" },
-      filetypes = { "cs" },
-      init_options = { "AutomaticWorkspaceInit = true" },
       coq.lsp_ensure_capabilities(),
     }
 
@@ -48,9 +46,5 @@ return {
 
     lspconfig.csharp_ls.setup(csharpconf)
     lspconfig.lua_ls.setup(luaconf)
-
-      --setup coq autocompletions
---    lspconfig.csharp_ls.setup(coq.lsp_ensure_capabilities())
-    lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities())
   end,
 }
