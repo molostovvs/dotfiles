@@ -44,15 +44,15 @@ font-1 = "FontAwesome"
 
 ;MODULES LAYOUT
 modules-left = xworkspaces xwindow
-modules-center = xkeyboard date music
-modules-right = memory cpu network wired-network pulseaudio-control-output pulseaudio-control-input
+modules-center = xkeyboard date
+modules-right = memory cpu network pulseaudio-control-output pulseaudio-control-input
 
 [module/pulseaudio-control-output]
 type = custom/script
-exec = ~/.config/polybar/pulseaudio-control.sh  --icons-volume " , " --icon-muted " " --node-nicknames-from "device.description" --node-nickname "alsa_output.pci-0000_00_1b.0.analog-stereo:  Speakers" --node-nickname "alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo:  Headphones" listen
-tail = true
+exec = ~/.config/polybar/pulseaudio-control.sh  --format '${VOL_LEVEL}% $NODE_NICKNAME' listen
 format-underline = ${colors.cyan}
-label-padding = 2
+tail = true
+label-padding = 0
 label-foreground = ${colors.foreground}
 
 click-right = exec pavucontrol &
@@ -63,10 +63,10 @@ scroll-down = ~/.config/polybar/pulseaudio-control.sh --volume-max 130 down
 
 [module/pulseaudio-control-input]
 type = custom/script
-exec = ~/.config/polybar/pulseaudio-control.sh  --node-type input --icons-volume "" --icon-muted "" --node-nickname "alsa_output.pci-0000_0c_00.3.analog-stereo:  Webcam" --node-nickname "alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo:  Headphones" --node-blacklist "*.monitor" listen
+exec = ~/.config/polybar/pulseaudio-control.sh  --node-type input --format '${VOL_LEVEL} $NODE_NICKNAME' listen
 tail = true
 format-underline = ${colors.cyan}
-label-padding = 2
+label-padding = 0
 label-foreground = ${colors.foreground}
 
 # Use --node-blacklist to remove the unwanted PulseAudio .monitor that are child of sinks
@@ -102,11 +102,12 @@ label-empty-padding = 1
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:60:...%
+label = %title:0:12:..%
 
 [module/xkeyboard]
 type = internal/xkeyboard
 
+# label-layout =
 label-layout-padding = 0
 label-layout-underline = ${colors.secondary}
 
@@ -114,12 +115,23 @@ label-layout-underline = ${colors.secondary}
 type = internal/memory
 interval = 5
 format = <label>
+; format with bar
+; format = <label> <bar-used>
+bar-used-indicator = 
+bar-used-width = 8
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #444444
 label = %gb_used:0:4:%/%gb_total:0:4:%
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU "
+format-prefix = "cpu "
 label = %percentage:2%%
 
 [module/wired-network]
@@ -149,7 +161,7 @@ click-middle = ~/.config/polybar/player-mpris-tail.py play-pause &
 type = internal/date
 interval = 1
 
-date = %A
+date = %d %a
 date-alt = %Y/%m/%d
 time = %H:%M:%S
 

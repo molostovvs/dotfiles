@@ -1,7 +1,5 @@
 *.lock
 lazy-lock.json
 
-
 #Rider config 
 .config/JetBrains/
-

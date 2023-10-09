@@ -16,10 +16,9 @@ client.urgent           #ffffff #900000 #ffffff #ffffff   #900000
 client.placeholder      #ffffff #0c0c0c #ffffff #ffffff   #0c0c0c
 client.background       #ffffff
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -f
+
+exec --no-startup-id conky -c $HOME/.config/conky/conky_green
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -27,35 +26,33 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Layout toggle via script
 exec_always --no-startup-id $HOME/.config/i3/layout_switch.sh
 
-# Picom compositor
-exec_always picom --fade-delta=0 --fade-in-step=1 --fade-out-step=1 --no-foding-openclose
+exec_always --no-startup-id xfce4-power-manager
+
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # https://forum.manjaro.org/t/is-there-any-way-to-imitate-media-control-buttons-pause-next-previous/98381
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-
-# use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier $lalt
 
-# start a terminal
-bindsym $win+a exec i3-sensible-terminal
+bindcode $win+38 exec alacritty
 
-# 0xffc1 is F4
-bindsym $lalt+0xffc1 kill
+bindcode $win+56 exec firefox
+
+bindcode $lalt+70 kill
 
 bindsym Print exec --no-startup-id flameshot gui
 
 # TODO: Find alternative for peek
 # bindsym Shift+Print exec peek
 
-bindsym $win+r exec --no-startup-id rofi -show combi
+bindcode $win+32 exec --no-startup-id rofi -show combi
 
 bindsym $win+Left focus left
 bindsym $win+Down focus down
@@ -63,24 +60,20 @@ bindsym $win+Up focus up
 bindsym $win+Right focus right
 
 # split in horizontal orientation
-bindsym $win+h split h
+bindcode $win+44 split h
 
 # split in vertical orientation
-bindsym $win+v split v
+bindcode $win+60 split v
 
 # toggle split
-bindsym $win+t layout toggle split
+bindcode $win+45 layout toggle split
 
 # Auto allocate apps to workspaces
-for_window [class="transmission-gtk"] move to workspace $ws9
 for_window [class="qbittorrent"] move to workspace $ws9
 for_window [class="qBittorrent"] move to workspace $ws9
 
 # toggle tiling / floating
-bindsym $win+f floating toggle
-
-# change focus between tiling / floating windows
-bindsym $win+space focus mode_toggle
+bindcode $win+29 floating toggle
 
 focus_follows_mouse no
 
@@ -98,7 +91,7 @@ set $ws8 "8"
 set $ws9 "9"
 
 # switch to workspace
-bindsym $win+0 workspace number $ws0
+bindsym $win+0 workspace number $ws10
 bindsym $win+1 workspace number $ws1
 bindsym $win+2 workspace number $ws2
 bindsym $win+3 workspace number $ws3
@@ -126,9 +119,9 @@ bindsym $win+Shift+8 move container to workspace number $ws8
 bindsym $win+Shift+9 move container to workspace number $ws9
 
 # reload the configuration file
-bindsym Mod1+Shift+c reload
+bindcode Mod1+Shift+31 reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $win+Ctrl+r restart
+bindcode $win+Ctrl+32 restart
 
 bindsym $win+Return mode "resize"
 
@@ -153,6 +146,3 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-bindsym $win+s exec python3 ~/.config/i3/blurlock.py | systemctl suspend
-bindsym $win+l exec python3 ~/.config/i3/blurlock.py

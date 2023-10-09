@@ -3,7 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -102,12 +101,29 @@ source $ZSH/oh-my-zsh.sh
 
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-alias dotfiles='/usr/bin/git --git-dir=/home/concrete/.dotfiles/ --work-tree=/home/concrete'
 alias nvim='~/opt/nvim/bin/nvim'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+export PATH=$PATH:~/opt
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/home/hopper/yandex-cloud/path.bash.inc' ]; then source '/home/hopper/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/home/hopper/yandex-cloud/completion.zsh.inc' ]; then source '/home/hopper/yandex-cloud/completion.zsh.inc'; fi
+
+export DOTNET_ROOT=/usr/share/dotnet/
+
+setopt nocorrectall
+source /home/hopper/yandex-cloud/completion.zsh.inc
+
+# The next line updates PATH for Yandex Cloud YDB CLI.
+if [ -f '/home/hopper/ydb/path.bash.inc' ]; then source '/home/hopper/ydb/path.bash.inc'; fi
+
+alias lzd=lazydocker
 
 # The next line updates PATH for Yandex Cloud CLI.
 if [ -f '/home/concrete/yandex-cloud/path.bash.inc' ]; then source '/home/concrete/yandex-cloud/path.bash.inc'; fi
 
 # The next line enables shell command completion for yc.
 if [ -f '/home/concrete/yandex-cloud/completion.zsh.inc' ]; then source '/home/concrete/yandex-cloud/completion.zsh.inc'; fi
-
