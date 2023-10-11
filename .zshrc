@@ -99,9 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#home pc
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-alias nvim='~/opt/nvim/bin/nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 export PATH=$PATH:~/opt
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
@@ -112,6 +112,7 @@ if [ -f '/home/hopper/yandex-cloud/path.bash.inc' ]; then source '/home/hopper/y
 # The next line enables shell command completion for yc.
 if [ -f '/home/hopper/yandex-cloud/completion.zsh.inc' ]; then source '/home/hopper/yandex-cloud/completion.zsh.inc'; fi
 
+#laptop
 export DOTNET_ROOT=/usr/share/dotnet/
 
 setopt nocorrectall
