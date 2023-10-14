@@ -95,11 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+alias zshconfig="nvim ~/.zshrc"
 export DOTNET_ROOT=$HOME/.dotnet
+# export DOTNET_ROOT = /usr/share/dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 alias nvim='~/opt/nvim/bin/nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -111,8 +109,6 @@ if [ -f '/home/hopper/yandex-cloud/path.bash.inc' ]; then source '/home/hopper/y
 
 # The next line enables shell command completion for yc.
 if [ -f '/home/hopper/yandex-cloud/completion.zsh.inc' ]; then source '/home/hopper/yandex-cloud/completion.zsh.inc'; fi
-
-export DOTNET_ROOT=/usr/share/dotnet/
 
 setopt nocorrectall
 source /home/hopper/yandex-cloud/completion.zsh.inc
