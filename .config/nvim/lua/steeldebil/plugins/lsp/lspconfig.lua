@@ -5,11 +5,11 @@ return {
     local coq = require("coq")
 
     local csharpconf = {
+      coq.lsp_ensure_capabilities(),
       handlers = {
         ["textDocument/definition"] = require('csharpls_extended').handler,
       },
       cmd = { "csharp-ls" },
-      coq.lsp_ensure_capabilities(),
     }
 
     local luaconf = {
@@ -29,15 +29,10 @@ return {
                 checkThirdParty = false,
                 library = {
                  vim.env.VIMRUNTIME
-                 -- "${3rd}/luv/library"
-                 -- "${3rd}/busted/library",
                 }
-            -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-            -- library = vim.api.nvim_get_runtime_file("", true)
               }
             }
           })
-
           client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
         end
         return true

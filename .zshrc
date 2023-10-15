@@ -61,15 +61,12 @@ ENABLE_CORRECTION="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker fd)
+plugins=(git docker fd zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,35 +87,18 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 alias zshconfig="nvim ~/.zshrc"
-export DOTNET_ROOT=$HOME/.dotnet
-# export DOTNET_ROOT = /usr/share/dotnet
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-export PATH=$PATH:~/opt
+alias nvimconfig="nvim ~/.config/nvim"
+alias lzd=lazydocker
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.config/ --work-tree=$HOME'
+
+export DOTNET_ROOT=/usr/share/dotnet
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 
-# The next line updates PATH for Yandex Cloud CLI.
-if [ -f '/home/hopper/yandex-cloud/path.bash.inc' ]; then source '/home/hopper/yandex-cloud/path.bash.inc'; fi
-
-# The next line enables shell command completion for yc.
-if [ -f '/home/hopper/yandex-cloud/completion.zsh.inc' ]; then source '/home/hopper/yandex-cloud/completion.zsh.inc'; fi
-
-setopt nocorrectall
-source /home/hopper/yandex-cloud/completion.zsh.inc
-
-# The next line updates PATH for Yandex Cloud YDB CLI.
-if [ -f '/home/hopper/ydb/path.bash.inc' ]; then source '/home/hopper/ydb/path.bash.inc'; fi
-
-alias lzd=lazydocker
+source $HOME/yandex-cloud/completion.zsh.inc
 
 # The next line updates PATH for Yandex Cloud CLI.
-if [ -f '/home/concrete/yandex-cloud/path.bash.inc' ]; then source '/home/concrete/yandex-cloud/path.bash.inc'; fi
+if [ -f '$HOME/yandex-cloud/path.bash.inc' ]; then source '$HOME/yandex-cloud/path.bash.inc'; fi
 
 # The next line enables shell command completion for yc.
-if [ -f '/home/concrete/yandex-cloud/completion.zsh.inc' ]; then source '/home/concrete/yandex-cloud/completion.zsh.inc'; fi
+if [ -f '$HOME/yandex-cloud/completion.zsh.inc' ]; then source '$HOME/yandex-cloud/completion.zsh.inc'; fi

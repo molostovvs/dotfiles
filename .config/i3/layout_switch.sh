@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #set dvorak and ru layouts
-setxkbmap -layout dvorak,ru
+setxkbmap -layout ru,us -variant ,dvorak 
 
 #clear current option
 setxkbmap -option

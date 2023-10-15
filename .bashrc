@@ -122,7 +122,7 @@ fi
 MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 . "$HOME/.cargo/env"
 source /home/concrete/source/playground/alacritty/extra/completions/alacritty.bash
-alias dotfiles='/usr/bin/git --git-dir=/home/concrete/.dotfiles/ --work-tree=/home/concrete'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.config/ --work-tree=$HOME'
 
 export PATH=$PATH:~/opt
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
