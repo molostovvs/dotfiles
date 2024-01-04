@@ -93,7 +93,6 @@ alias lzd=lazydocker
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.config/ --work-tree=$HOME'
 
 export DOTNET_ROOT=/usr/share/dotnet
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 
 source $HOME/yandex-cloud/completion.zsh.inc
 
@@ -102,3 +101,4 @@ if [ -f '$HOME/yandex-cloud/path.bash.inc' ]; then source '$HOME/yandex-cloud/pa
 
 # The next line enables shell command completion for yc.
 if [ -f '$HOME/yandex-cloud/completion.zsh.inc' ]; then source '$HOME/yandex-cloud/completion.zsh.inc'; fi
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi

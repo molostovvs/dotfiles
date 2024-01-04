@@ -17,8 +17,11 @@ client.placeholder      #ffffff #0c0c0c #ffffff #ffffff   #0c0c0c
 client.background       #ffffff
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -f
-
 exec --no-startup-id conky -c $HOME/.config/conky/conky_green
+exec --no-startup-id qbittorrent
+exec --no-startup-id blueman-manager
+exec --no-startup-id yandex-disk start
+exec --no-startup-id hiddify
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
