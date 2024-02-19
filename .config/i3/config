@@ -22,13 +22,14 @@ exec --no-startup-id qbittorrent
 exec --no-startup-id blueman-manager
 exec --no-startup-id yandex-disk start
 exec --no-startup-id hiddify
+exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 165
+
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Layout toggle via script
 exec_always --no-startup-id $HOME/.config/i3/layout_switch.sh
-
 exec_always --no-startup-id xfce4-power-manager
 
 
@@ -56,6 +57,7 @@ bindsym Print exec --no-startup-id flameshot gui
 # bindsym Shift+Print exec peek
 
 bindcode $win+32 exec --no-startup-id rofi -show combi
+bindcode $win+$lalt+30 exec warpd --hint
 
 bindsym $win+Left focus left
 bindsym $win+Down focus down

@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -91,6 +92,8 @@ alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig="nvim ~/.config/nvim"
 alias lzd=lazydocker
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.config/ --work-tree=$HOME'
+alias workvpn='sudo openconnect vpn.spgr.ru -u molostov \
+-s 'vpn-slice d-3092''
 
 export DOTNET_ROOT=/usr/share/dotnet
 
