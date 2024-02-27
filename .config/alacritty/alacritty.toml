@@ -16,19 +16,19 @@ shape = "Beam"
 size = 12
 
 [font.bold]
-family = "BitstromWera Nerd Font Mono"
+family = "RobotoMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "BitstromWera Nerd Font Mono"
+family = "RobotoMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "BitstromWera Nerd Font Mono"
+family = "RobotoMono Nerd Font"
 style = "italic"
 
 [font.normal]
-family = "BitstromWera Nerd Font Mono"
+family = "RobotoMono Nerd Font"
 style = "Regular"
 
 [window]
