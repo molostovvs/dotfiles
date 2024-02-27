@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
+
+#add this because dotnet installation doesnt add tools path to PATH
+export PATH=$PATH:~/.dotnet/tools
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
