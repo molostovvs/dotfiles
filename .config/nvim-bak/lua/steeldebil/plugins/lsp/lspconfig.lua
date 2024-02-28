@@ -2,10 +2,12 @@ return {
   "neovim/nvim-lspconfig",
   config = function()
     local lspconfig = require("lspconfig")
-    local coq = require("coq")
+    --local coq = require("coq")
+    local cmp = require("cmp_nvim_lsp").default_capabilities()
 
     local csharpconf = {
-      coq.lsp_ensure_capabilities(),
+      --coq.lsp_ensure_capabilities(),
+      capabilities = cmp,
       handlers = {
         ["textDocument/definition"] = require('csharpls_extended').handler,
       },
@@ -13,7 +15,8 @@ return {
     }
 
     local luaconf = {
-      coq.lsp_ensure_capabilities(),
+      capabilities = cmp,
+      --coq.lsp_ensure_capabilities(),
       on_init = function(client)
         local path = client.workspace_folders[1].name
         if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then

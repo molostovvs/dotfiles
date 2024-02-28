@@ -1,7 +1,7 @@
 vim.g.coq_settings = {
   auto_start = 'shut-up',
   completion = {
-    always = true,
+    always = false,
     replace_prefix_threshold = 10,
     replace_suffix_threshold = 10,
   },
