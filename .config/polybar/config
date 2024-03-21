@@ -49,7 +49,7 @@ modules-right = memory cpu network pulseaudio-control-output pulseaudio-control-
 
 [module/pulseaudio-control-output]
 type = custom/script
-exec = ~/.config/polybar/pulseaudio-control.sh  --format '${VOL_LEVEL}% $NODE_NICKNAME' listen
+exec = ~/.config/polybar/pulseaudio-control.sh  --format '${VOL_LEVEL}% $NODE_NICKNAME' --node-nicknames-from "device.description" listen
 format-underline = ${colors.cyan}
 tail = true
 label-padding = 0
@@ -63,7 +63,7 @@ scroll-down = ~/.config/polybar/pulseaudio-control.sh --volume-max 130 down
 
 [module/pulseaudio-control-input]
 type = custom/script
-exec = ~/.config/polybar/pulseaudio-control.sh  --node-type input --format '${VOL_LEVEL} $NODE_NICKNAME' listen
+exec = ~/.config/polybar/pulseaudio-control.sh  --node-type input --format '${VOL_LEVEL} $NODE_NICKNAME' --node-nicknames-from "device.description" listen
 tail = true
 format-underline = ${colors.cyan}
 label-padding = 0
