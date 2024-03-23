@@ -44,9 +44,11 @@ local function border(hl_name)
   }
 end
 
+-- local preselect = cmp.PreselectMode.None,
+
 local options = {
   completion = {
-    completeopt = "menu,menuone",
+    completeopt = "menu, menuone, noselect",
   },
 
   window = {
