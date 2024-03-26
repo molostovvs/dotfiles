@@ -34,3 +34,7 @@ map('n', '<C-left>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<C-right>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-down>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+map('n', '<leader>fm', function()
+  require('conform').format { async = true, lsp_fallback = true }
+end, { desc = 'Format buffer' })

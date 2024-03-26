@@ -1,16 +1,25 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
---
--- See the kickstart.nvim README for more information
---
+local map = vim.keymap.set
 
-vim.keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>', { desc = '[T]oggle file [T]ree' })
+map('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>', { desc = '[T]oggle file [T]ree' })
 
 -- options for ufo
-vim.o.foldcolumn = '1'
+vim.o.foldcolumn = '0'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+
+-- keymap for barbar
+map('n', '<C-PageUp>', '<cmd>BufferPrevious<CR>', { desc = 'Go to previous tab' })
+map('n', '<C-PageDown>', '<cmd>BufferNext<CR>', { desc = 'Go to next tab' })
+map('n', '<leader>x', '<cmd>BufferClose<CR>', { desc = 'Close buffer' })
+
+-- keymap for lsp_lines
+map('n', '<leader>ll', function()
+  vim.diagnostic.config {
+    virtual_text = not vim.diagnostic.config()['virtual_text'],
+    virtual_lines = not vim.diagnostic.config()['virtual_lines'],
+  }
+end, { desc = 'Toggle [L]sp [L]ines' })
 
 -- function for keymaps of nvim-tree
 local function my_on_attach(bufnr)
@@ -22,11 +31,87 @@ local function my_on_attach(bufnr)
 
   api.config.mappings.default_on_attach(bufnr)
 
-  vim.keymap.set('n', '<left>', api.node.navigate.parent_close, opts 'Close directory')
-  vim.keymap.set('n', '<right>', api.node.open.edit, opts 'Open directory')
+  map('n', '<left>', api.node.navigate.parent_close, opts 'Close directory')
+  map('n', '<right>', api.node.open.edit, opts 'Open directory')
 end
 
 return {
+  {
+    'tpope/vim-sleuth',
+  },
+  {
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    },
+  },
+  {
+    'folke/which-key.nvim',
+    event = 'VimEnter',
+    config = function()
+      require('which-key').setup()
+
+      -- Document existing key chains
+      require('which-key').register {
+        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+      }
+    end,
+  },
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      notify_on_error = true,
+      keys = {
+        '<leader>fm',
+        function()
+          require('conform').format { async = true, lsp_fallback = true }
+        end,
+        mode = '',
+        desc = 'Format buffer',
+      },
+      format_on_save = function(bufnr)
+        -- Disable "format_on_save lsp_fallback" for languages that don't
+        -- have a well standardized coding style. You can add additional
+        -- languages here or re-enable it for the disabled ones.
+        local disable_filetypes = { c = true, cpp = true }
+        return {
+          timeout_ms = 500,
+          lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+        }
+      end,
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        c_sharp = { 'csharpier' },
+      },
+    },
+  },
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
+  {
+    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('tokyonight').setup()
+      vim.cmd.colorscheme 'tokyonight-day'
+    end,
+  },
   {
     'nvim-tree/nvim-tree.lua',
     lazy = false,
@@ -44,7 +129,7 @@ return {
         root_folder_label = true,
         icons = { show = { file = true, folder = true, folder_arrow = true, git = true } },
       },
-      filters = { dotfiles = true },
+      filters = { dotfiles = false },
       git = { enable = true, ignore = true },
     },
   },
@@ -105,5 +190,26 @@ return {
     config = function(_, opts)
       require('lsp_signature').setup(opts)
     end,
+  },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    enable = true,
+    main = 'ibl',
+    opts = {},
+  },
+  {
+    url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    enable = true,
+    lazy = true,
+    keys = {
+      {
+        '<leader>ll',
+        function()
+          require('lsp_lines').toggle()
+        end,
+        { desc = 'Toggle [L]sp [L]ines' },
+      },
+    },
+    opts = {},
   },
 }
