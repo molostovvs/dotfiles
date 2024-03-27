@@ -13,6 +13,11 @@ map('n', '<C-PageUp>', '<cmd>BufferPrevious<CR>', { desc = 'Go to previous tab' 
 map('n', '<C-PageDown>', '<cmd>BufferNext<CR>', { desc = 'Go to next tab' })
 map('n', '<leader>x', '<cmd>BufferClose<CR>', { desc = 'Close buffer' })
 
+-- keymap for actions-preview
+map({ 'v', 'n' }, '<leader>cp', function()
+  require('actions-preview').code_actions()
+end, { desc = '[L]sp [C]ode actions [P]review' })
+
 -- keymap for lsp_lines
 map('n', '<leader>ll', function()
   vim.diagnostic.config {
@@ -211,5 +216,42 @@ return {
       },
     },
     opts = {},
+  },
+  {
+    'jackMort/ChatGPT.nvim',
+    event = 'VeryLazy',
+    opts = {
+      api_key_cmd = 'cat /home/mvs/chatgpt.api',
+      openai_params = {
+        model = 'gpt-3.5-turbo-1106',
+        temperature = 0.3,
+        top_p = 1,
+        max_tokens = 2000,
+      },
+    },
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'nvim-lua/plenary.nvim',
+      'folke/trouble.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+  },
+  {
+    'aznhe21/actions-preview.nvim',
+    opts = {
+      telescope = {
+        sorting_strategy = 'ascending',
+        layout_strategy = 'vertical',
+        layout_config = {
+          width = 0.8,
+          height = 0.9,
+          prompt_position = 'top',
+          preview_cutoff = 20,
+          preview_height = function(_, _, max_lines)
+            return max_lines - 15
+          end,
+        },
+      },
+    },
   },
 }
