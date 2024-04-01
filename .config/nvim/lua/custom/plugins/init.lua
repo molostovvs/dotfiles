@@ -108,13 +108,12 @@ return {
     opts = { signs = false },
   },
   {
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     config = function()
       require('tokyonight').setup()
-      vim.cmd.colorscheme 'tokyonight-day'
+      vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
   {
@@ -253,5 +252,26 @@ return {
         },
       },
     },
+  },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'VeryLazy',
+    opts = {
+      suggestion = {
+        enabled = true,
+        auto_trigger = false,
+        debounce = 10,
+      },
+      filetypes = {
+        vb = true,
+        cs = true,
+        lua = true,
+        ['*'] = false,
+      },
+    },
+  },
+  {
+    'Hoffs/omnisharp-extended-lsp.nvim',
   },
 }
