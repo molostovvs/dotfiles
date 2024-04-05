@@ -259,9 +259,12 @@ return {
     event = 'VeryLazy',
     opts = {
       suggestion = {
-        enabled = true,
+        enabled = false,
         auto_trigger = false,
         debounce = 10,
+      },
+      panel = {
+        enabled = false,
       },
       filetypes = {
         vb = true,
@@ -273,5 +276,13 @@ return {
   },
   {
     'Hoffs/omnisharp-extended-lsp.nvim',
+  },
+  {
+    'onsails/lspkind.nvim',
+  },
+  {
+    'zbirenbaum/copilot-cmp',
+    after = { 'copilot.lua' },
+    opts = {},
   },
 }

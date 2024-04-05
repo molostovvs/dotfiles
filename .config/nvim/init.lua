@@ -317,6 +317,20 @@ require('lazy').setup({
       cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
       cmp.setup {
+        formatting = {
+          format = function(entry, vim_item)
+            if vim.tbl_contains({ 'path' }, entry.source.name) then
+              local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+              if icon then
+                vim_item.kind = icon
+                vim_item.kind_hl_group = hl_group
+                return vim_item
+              end
+            end
+            return require('lspkind').cmp_format { with_text = true }(entry, vim_item)
+          end,
+        },
+
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -327,10 +341,20 @@ require('lazy').setup({
           documentation = cmp.config.window.bordered(),
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+        sorting = {
+          priority_weight = 1.0,
+          comparators = {
+            cmp.config.compare.locality,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.score,
+            cmp.config.compare.offset,
+            cmp.config.compare.order,
+          },
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
-        mapping = cmp.mapping.preset.insert {
+        mapping = cmp.mapping {
           -- Select the [n]ext item
           ['<C-n>'] = cmp.mapping.select_next_item(),
           -- Select the [p]revious item
@@ -373,12 +397,13 @@ require('lazy').setup({
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'path' },
+          { name = 'nvim_lsp', priority = 8 },
+          { name = 'luasnip', 6 },
+          { name = 'path', 5 },
           { name = 'nvim_lsp_signature_help' },
-          { name = 'buffer' },
-          { name = 'nvim_lua' },
+          { name = 'buffer', 6 },
+          { name = 'nvim_lua', 5 },
+          { name = 'copilot', 7 },
         },
       }
     end,
