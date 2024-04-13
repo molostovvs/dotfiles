@@ -11,17 +11,13 @@ map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rr
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 map('n', '<leader>lf', vim.diagnostic.open_float, { desc = 'Lsp floating [D]iagnostics' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
 map('n', ';', ':', { desc = 'Command mode with semicolon' })
+
+-- disable arrow keys
+-- map({ 'n' }, '<Up>', '<nop>')
+-- map({ 'n' }, '<Down>', '<nop>')
+-- map({ 'n' }, '<Left>', '<nop>')
+-- map({ 'n' }, '<Right>', '<nop>')
 
 map('n', '<leader>fm', function()
   require('conform').format { async = true, lsp_fallback = true }

@@ -151,14 +151,10 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
-    enable = true,
-    max_lines = 10,
-    min_window_height = 0,
-    line_numbers = true,
-    trim_scope = 'outer',
-    mode = 'cursor',
-    separator = nil,
-    zindex = 20,
+    enabled = true,
+    opts = {
+      max_lines = 10,
+    },
   },
   {
     'kevinhwang91/nvim-ufo',
@@ -197,13 +193,13 @@ return {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
-    enable = true,
+    enabled = true,
     main = 'ibl',
     opts = {},
   },
   {
     url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    enable = true,
+    enabled = true,
     lazy = true,
     keys = {
       {
@@ -282,7 +278,28 @@ return {
   },
   {
     'zbirenbaum/copilot-cmp',
-    after = { 'copilot.lua' },
     opts = {},
+  },
+  {
+    'lukas-reineke/headlines.nvim',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    opts = {},
+  },
+  {
+    'iamcco/markdown-preview.nvim',
+    enabled = true,
+    cmd = {
+      'MarkdownPreviewToggle',
+      'MarkdownPreview',
+      'MarkdownPreviewStop',
+    },
+    ft = { 'markdown' },
+    build = function()
+      vim.fn['mkdp#util#install']()
+    end,
+    init = function()
+      vim.g.mkdp_refresh_slow = 1
+      vim.g.mkdp_auto_start = 1
+    end,
   },
 }
