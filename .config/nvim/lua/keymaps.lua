@@ -13,12 +13,6 @@ map('n', '<leader>lf', vim.diagnostic.open_float, { desc = 'Lsp floating [D]iagn
 
 map('n', ';', ':', { desc = 'Command mode with semicolon' })
 
--- disable arrow keys
--- map({ 'n' }, '<Up>', '<nop>')
--- map({ 'n' }, '<Down>', '<nop>')
--- map({ 'n' }, '<Left>', '<nop>')
--- map({ 'n' }, '<Right>', '<nop>')
-
 map('n', '<leader>fm', function()
   require('conform').format { async = true, lsp_fallback = true }
 end, { desc = 'Format buffer' })
