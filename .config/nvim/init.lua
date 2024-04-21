@@ -249,7 +249,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
-        'csharpier',
+        -- 'csharpier',
         'jq',
         'prettier',
       })
@@ -311,6 +311,12 @@ require('lazy').setup({
       cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
       cmp.setup {
+        view = {
+          entries = 'custom',
+          docs = {
+            auto_open = true,
+          },
+        },
         formatting = {
           format = function(entry, vim_item)
             if vim.tbl_contains({ 'path' }, entry.source.name) then
@@ -336,13 +342,14 @@ require('lazy').setup({
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
         sorting = {
-          priority_weight = 1.0,
+          priority_weight = 2,
           comparators = {
+            -- require('copilot_cmp.comparators').prioritize,
+            cmp.config.compare.order,
+            cmp.config.compare.score,
             cmp.config.compare.locality,
             cmp.config.compare.recently_used,
-            cmp.config.compare.score,
-            cmp.config.compare.offset,
-            cmp.config.compare.order,
+            cmp.config.compare.kind,
           },
         },
 
@@ -391,13 +398,13 @@ require('lazy').setup({
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
-          { name = 'nvim_lsp', priority = 8 },
-          { name = 'luasnip', 6 },
-          { name = 'path', 5 },
-          { name = 'nvim_lsp_signature_help' },
-          { name = 'buffer', 6 },
-          { name = 'nvim_lua', 5 },
-          { name = 'copilot', 7 },
+          { name = 'nvim_lsp', priority = 20 },
+          { name = 'copilot', priority = 7 },
+          { name = 'luasnip', priority = 6 },
+          { name = 'path', priority = 5 },
+          -- { name = 'nvim_lsp_signature_help' },
+          { name = 'buffer', priority = 6 },
+          { name = 'nvim_lua', priority = 5 },
         },
       }
     end,

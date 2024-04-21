@@ -97,7 +97,7 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        cs = { 'csharpier' },
+        -- cs = { 'csharpier' },
       },
     },
   },
@@ -186,7 +186,17 @@ return {
     -- TODO: add keymaps and config
     'ray-x/lsp_signature.nvim',
     event = 'VeryLazy',
-    opts = {},
+    opts = {
+      floating_window = false,
+      bind = true,
+      handler_opts = {
+        border = 'double',
+      },
+      padding = '',
+      -- this doesnt work
+      -- select_signature_key = '<M-x',
+      toggle_key = '<M-f>',
+    },
     config = function(_, opts)
       require('lsp_signature').setup(opts)
     end,
