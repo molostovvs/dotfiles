@@ -5,8 +5,10 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.opt.number = true
-vim.opt.mouse = 'a'
+-- vim.opt.mouse = 'a'
 vim.opt.showmode = false
+
+vim.opt.smartindent = true
 
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = 'unnamedplus'

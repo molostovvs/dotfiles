@@ -342,13 +342,13 @@ require('lazy').setup({
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
         sorting = {
-          priority_weight = 2,
+          priority_weight = 1,
           comparators = {
             -- require('copilot_cmp.comparators').prioritize,
-            cmp.config.compare.order,
+            cmp.config.compare.recently_used,
             cmp.config.compare.score,
             cmp.config.compare.locality,
-            cmp.config.compare.recently_used,
+            cmp.config.compare.order,
             cmp.config.compare.kind,
           },
         },
@@ -436,7 +436,6 @@ require('lazy').setup({
     build = ':TSUpdate',
     opts = {
       ensure_installed = { 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'c_sharp', 'sql', 'css' },
-      -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
         enable = true,

@@ -189,6 +189,9 @@ return {
     opts = {
       floating_window = false,
       bind = true,
+      max_height = 20,
+      max_width = 120,
+      wrap = true,
       handler_opts = {
         border = 'double',
       },
