@@ -230,7 +230,7 @@ require('lazy').setup({
           },
         },
         sqls = {},
-        --csharp_ls = {},
+        -- csharp_ls = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -249,9 +249,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
-        -- 'csharpier',
         'jq',
-        'prettier',
+        -- 'prettier',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

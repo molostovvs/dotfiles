@@ -41,9 +41,9 @@ local function my_on_attach(bufnr)
 end
 
 return {
-  {
-    'tpope/vim-sleuth',
-  },
+  -- {
+  --   'tpope/vim-sleuth',
+  -- },
   {
     'lewis6991/gitsigns.nvim',
     opts = {

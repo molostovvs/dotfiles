@@ -1,1 +1,2 @@
-set indentexpr =
+set indentexpr=
+set shiftwidth=4

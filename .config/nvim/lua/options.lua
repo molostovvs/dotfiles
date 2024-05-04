@@ -5,8 +5,10 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.opt.number = true
--- vim.opt.mouse = 'a'
 vim.opt.showmode = false
+
+vim.opt.mouse = nil
+vim.opt.mousescroll = 'ver:0,hor:0'
 
 vim.opt.smartindent = true
 
@@ -35,6 +37,7 @@ vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
+vim.opt.updatetime = 250
 vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
