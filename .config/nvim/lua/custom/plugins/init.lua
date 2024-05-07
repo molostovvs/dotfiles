@@ -18,6 +18,23 @@ map({ 'v', 'n' }, '<leader>cp', function()
   require('actions-preview').code_actions()
 end, { desc = '[L]sp [C]ode actions [P]review' })
 
+-- keymap for hover.nvim
+map('n', 'K', function()
+  require('hover').hover()
+end, { desc = 'hover' })
+
+map('n', 'gK', function()
+  require('hover').hover_select()
+end, { desc = 'hover select' })
+
+map('n', 'C-p', function()
+  require('hover').hover_switch 'previous'
+end, { desc = 'hover previous' })
+
+map('n', 'C-n', function()
+  require('hover').hover_switch 'next'
+end, { desc = 'hover next' })
+
 -- keymap for lsp_lines
 map('n', '<leader>ll', function()
   vim.diagnostic.config {
@@ -41,9 +58,9 @@ local function my_on_attach(bufnr)
 end
 
 return {
-  -- {
-  --   'tpope/vim-sleuth',
-  -- },
+  {
+    'tpope/vim-sleuth',
+  },
   {
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -146,7 +163,8 @@ return {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     opts = {
-      map_cr = true,
+      enable_check_bracket_line = false,
+      ignored_next_char = '[%w%.]',
     },
   },
   {
@@ -264,6 +282,7 @@ return {
   },
   {
     'zbirenbaum/copilot.lua',
+    enabled = false,
     cmd = 'Copilot',
     event = 'VeryLazy',
     opts = {
@@ -314,5 +333,21 @@ return {
       vim.g.mkdp_refresh_slow = 1
       vim.g.mkdp_auto_start = 1
     end,
+  },
+  {
+    'lewis6991/hover.nvim',
+    enabled = true,
+    event = 'VeryLazy',
+    opts = {
+      init = function()
+        require 'hover.providers.lsp'
+        require 'hover.providers.man'
+      end,
+      preview_opts = {
+        border = 'single',
+      },
+      title = true,
+      preview_window = true,
+    },
   },
 }
