@@ -69,7 +69,8 @@ label-padding = 0
 label-foreground = ${colors.foreground}
 click-right = exec pavucontrol &
 click-left = ~/.config/polybar/pulseaudio-control.sh --node-type input togmute
-click-middle = ~/.config/polybar/pulseaudio-control.sh --node-blacklist "*.monitor" --node-type input next-node 
+;									all monitors and portable speaker
+click-middle = ~/.config/polybar/pulseaudio-control.sh --node-blacklist "*.monitor","bluez_input.F1:16:44:9C:55:30" --node-type input next-node 
 scroll-up = ~/.config/polybar/pulseaudio-control.sh --node-type input --volume-max 130 up
 scroll-down = ~/.config/polybar/pulseaudio-control.sh --node-type input --volume-max 130 down
 
