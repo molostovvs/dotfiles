@@ -54,10 +54,9 @@ format-underline = ${colors.cyan}
 tail = true
 label-padding = 0
 label-foreground = ${colors.foreground}
-
 click-right = exec pavucontrol &
 click-left = ~/.config/polybar/pulseaudio-control.sh togmute
-click-middle = ~/.config/polybar/pulseaudio-control.sh --node-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-node
+click-middle = ~/.config/polybar/pulseaudio-control.sh next-node
 scroll-up = ~/.config/polybar/pulseaudio-control.sh --volume-max 130 up
 scroll-down = ~/.config/polybar/pulseaudio-control.sh --volume-max 130 down
 
@@ -68,11 +67,9 @@ tail = true
 format-underline = ${colors.cyan}
 label-padding = 0
 label-foreground = ${colors.foreground}
-
-# Use --node-blacklist to remove the unwanted PulseAudio .monitor that are child of sinks
 click-right = exec pavucontrol &
 click-left = ~/.config/polybar/pulseaudio-control.sh --node-type input togmute
-click-middle = ~/.config/polybar/pulseaudio-control.sh --node-type input next-node
+click-middle = ~/.config/polybar/pulseaudio-control.sh --node-blacklist "*.monitor" --node-type input next-node 
 scroll-up = ~/.config/polybar/pulseaudio-control.sh --node-type input --volume-max 130 up
 scroll-down = ~/.config/polybar/pulseaudio-control.sh --node-type input --volume-max 130 down
 
