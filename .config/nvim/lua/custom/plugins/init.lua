@@ -114,6 +114,7 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        fsharp = { 'fantomas' },
         -- cs = { 'csharpier' },
       },
     },
@@ -186,7 +187,16 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
-    opts = {},
+    opts = {
+      sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        lualine_x = { 'filesize', 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
+      },
+    },
   },
   {
     -- TODO: add keymaps because there is no deafult keymaps

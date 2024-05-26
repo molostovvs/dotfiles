@@ -229,6 +229,9 @@ require('lazy').setup({
             ['textDocument/implementation'] = require('omnisharp_extended').implementation_handler,
           },
         },
+        fsautocomplete = {
+          filetypes = { 'fsharp' },
+        },
         sqls = {},
         -- csharp_ls = {},
         lua_ls = {
@@ -447,6 +450,15 @@ require('lazy').setup({
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup(opts)
 
+      local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+      parser_config.fsharp = {
+        install_info = {
+          url = 'https://github.com/Nsidorenco/tree-sitter-fsharp',
+          branch = 'main',
+          files = { 'src/scanner.c', 'src/parser.c' },
+        },
+        filetype = 'fsharp',
+      }
       -- There are additional nvim-treesitter modules that you can use to interact
       -- with nvim-treesitter. You should go explore a few and see what interests you:
       --
@@ -474,6 +486,7 @@ require('lazy').setup({
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'custom.plugins' },
+  --  require 'fsharp-ts',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
