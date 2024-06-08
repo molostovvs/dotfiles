@@ -367,4 +367,21 @@ return {
       { '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', desc = '[F]ile [B]rowser' },
     },
   },
+  { 'Issafalcon/neotest-dotnet' },
+  {
+    'nvim-neotest/neotest',
+    dependencies = {
+      'nvim-neotest/nvim-nio',
+      'nvim-lua/plenary.nvim',
+      -- 'antoinemadec/FixCursorHold.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'Issafalcon/neotest-dotnet',
+    },
+    opts = function()
+      adapters = {
+        require 'neotest-dotnet' {},
+      }
+      loglevel = 1
+    end,
+  },
 }
