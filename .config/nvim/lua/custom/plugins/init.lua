@@ -115,6 +115,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         fsharp = { 'fantomas' },
+        markdown = { 'markdownlint' },
         -- cs = { 'csharpier' },
       },
     },
