@@ -346,7 +346,6 @@ require('lazy').setup({
         sorting = {
           priority_weight = 1,
           comparators = {
-            -- require('copilot_cmp.comparators').prioritize,
             cmp.config.compare.recently_used,
             cmp.config.compare.score,
             cmp.config.compare.locality,
@@ -401,7 +400,7 @@ require('lazy').setup({
         },
         sources = {
           { name = 'nvim_lsp', priority = 20 },
-          { name = 'copilot', priority = 7 },
+          -- { name = 'copilot', priority = 6 },
           { name = 'luasnip', priority = 6 },
           { name = 'path', priority = 5 },
           -- { name = 'nvim_lsp_signature_help' },

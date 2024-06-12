@@ -293,17 +293,18 @@ return {
   },
   {
     'zbirenbaum/copilot.lua',
-    enabled = false,
+    enabled = true,
     cmd = 'Copilot',
     event = 'VeryLazy',
     opts = {
       suggestion = {
-        enabled = false,
+        enabled = true,
         auto_trigger = false,
         debounce = 10,
       },
       panel = {
         enabled = false,
+        auto_refresh = true,
       },
       filetypes = {
         vb = true,
@@ -374,7 +375,7 @@ return {
     dependencies = {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
-      -- 'antoinemadec/FixCursorHold.nvim',
+      'antoinemadec/FixCursorHold.nvim',
       'nvim-treesitter/nvim-treesitter',
       'Issafalcon/neotest-dotnet',
     },
