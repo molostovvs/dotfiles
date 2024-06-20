@@ -3,7 +3,7 @@ local map = vim.keymap.set
 map('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>', { desc = '[T]oggle file [T]ree' })
 
 -- options for ufo
-vim.o.foldcolumn = '0'
+vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
