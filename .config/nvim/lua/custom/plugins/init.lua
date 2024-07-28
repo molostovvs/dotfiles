@@ -1,7 +1,5 @@
 local map = vim.keymap.set
 
-map('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>', { desc = '[T]oggle file [T]ree' })
-
 -- options for ufo
 vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
@@ -9,53 +7,6 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 -- keymap for barbar
-map('n', '<C-PageUp>', '<cmd>BufferPrevious<CR>', { desc = 'Go to previous tab' })
-map('n', '<C-PageDown>', '<cmd>BufferNext<CR>', { desc = 'Go to next tab' })
-map('n', '<leader>x', '<cmd>BufferClose<CR>', { desc = 'Close buffer' })
-
--- keymap for actions-preview
-map({ 'v', 'n' }, '<leader>cp', function()
-  require('actions-preview').code_actions()
-end, { desc = '[L]sp [C]ode actions [P]review' })
-
--- keymap for hover.nvim
-map('n', 'K', function()
-  require('hover').hover()
-end, { desc = 'hover' })
-
-map('n', 'gK', function()
-  require('hover').hover_select()
-end, { desc = 'hover select' })
-
-map('n', 'C-p', function()
-  require('hover').hover_switch 'previous'
-end, { desc = 'hover previous' })
-
-map('n', 'C-n', function()
-  require('hover').hover_switch 'next'
-end, { desc = 'hover next' })
-
--- keymap for lsp_lines
-map('n', '<leader>ll', function()
-  vim.diagnostic.config {
-    virtual_text = not vim.diagnostic.config()['virtual_text'],
-    virtual_lines = not vim.diagnostic.config()['virtual_lines'],
-  }
-end, { desc = 'Toggle [L]sp [L]ines' })
-
--- function for keymaps of nvim-tree
-local function my_on_attach(bufnr)
-  local api = require 'nvim-tree.api'
-
-  local function opts(desc)
-    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
-
-  api.config.mappings.default_on_attach(bufnr)
-
-  map('n', '<left>', api.node.navigate.parent_close, opts 'Close directory')
-  map('n', '<right>', api.node.open.edit, opts 'Open directory')
-end
 
 return {
   {
@@ -73,23 +24,7 @@ return {
       },
     },
   },
-  {
-    'folke/which-key.nvim',
-    event = 'VimEnter',
-    config = function()
-      require('which-key').setup()
-
-      -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-      }
-    end,
-  },
+  'folke/which-key.nvim',
   {
     'stevearc/conform.nvim',
     opts = {
@@ -108,7 +43,7 @@ return {
         -- languages here or re-enable it for the disabled ones.
         local disable_filetypes = { c = true, cpp = true }
         return {
-          timeout_ms = 500,
+          timeout_ms = 1000,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
@@ -134,27 +69,6 @@ return {
       require('tokyonight').setup()
       vim.cmd.colorscheme 'tokyonight-night'
     end,
-  },
-  {
-    'nvim-tree/nvim-tree.lua',
-    lazy = false,
-    opts = {
-      on_attach = my_on_attach,
-      hijack_cursor = true,
-      sync_root_with_cwd = true,
-      sort = { sorter = 'name', folders_first = true },
-      view = { width = 30, side = 'right' },
-      renderer = {
-        group_empty = false,
-        indent_markers = { enable = true },
-        indent_width = 1,
-        highlight_git = true,
-        root_folder_label = true,
-        icons = { show = { file = true, folder = true, folder_arrow = true, git = true } },
-      },
-      filters = { dotfiles = false },
-      git = { enable = true, ignore = true },
-    },
   },
   {
     'numToStr/Comment.nvim',
@@ -243,15 +157,6 @@ return {
     url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     enabled = true,
     lazy = true,
-    keys = {
-      {
-        '<leader>ll',
-        function()
-          require('lsp_lines').toggle()
-        end,
-        { desc = 'Toggle [L]sp [L]ines' },
-      },
-    },
     opts = {},
   },
   {
@@ -386,4 +291,6 @@ return {
       loglevel = 1
     end,
   },
+  -- { 'adelarsq/neofsharp.vim' },
+  { 'ionide/ionide-vim' },
 }
