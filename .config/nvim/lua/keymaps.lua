@@ -7,6 +7,9 @@ local wk = require 'which-key'
 -- map('n', 'C-n', function()
 --   require('hover').hover_switch 'next'
 -- end, { desc = 'hover next' })
+--
+local map = vim.keymap.set
+map('n', ';', ':')
 
 wk.add {
   { '<leader>c', group = '[C]ode' },
@@ -21,7 +24,6 @@ wk.add {
   { ']d', vim.diagnostic.goto_next, desc = 'Next [D]iagnostic message ' },
   { '<leader>ce', vim.diagnostic.open_float, desc = 'Show [C]ode diagnostic [E]rror messages' },
   { '<leader>cq', vim.diagnostic.setloclist, desc = 'Open [C]ode diagnostic [Q]uickfix' },
-  { ';', ':', desc = 'Command mode with semicolon' },
   { '<C-h>', '<cmd>BufferPrevious<cr>', desc = 'Previous buffer' },
   { '<C-l>', '<cmd>BufferNext<cr>', desc = 'Next buffer' },
   { '<leader>x', '<cmd>BufferClose<cr>', desc = 'Close buffer' },

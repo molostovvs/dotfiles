@@ -97,6 +97,7 @@ alias lzd=lazydocker
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.config/ --work-tree=$HOME'
 alias workvpn='sudo openconnect vpn.spgr.ru -u molostov \
 -s 'vpn-slice d-3092''
+alias dotnettu="dotnet tool list -g | awk '{ print \$1 }' | tail +3 | xargs -I % sh -c 'dotnet tool update -g %;'"
 
 export DOTNET_ROOT=/usr/share/dotnet
 

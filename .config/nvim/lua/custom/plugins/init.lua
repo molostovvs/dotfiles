@@ -259,6 +259,10 @@ return {
       init = function()
         require 'hover.providers.lsp'
         require 'hover.providers.man'
+        require 'hover.providers.diagnostic'
+        require 'hover.providers.fold_preview'
+        require 'hover.providers.gh'
+        require 'hover.providers.gh_user'
       end,
       preview_opts = {
         border = 'single',
