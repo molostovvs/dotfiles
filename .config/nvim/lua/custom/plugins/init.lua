@@ -218,6 +218,10 @@ return {
         ['*'] = false,
       },
     },
+    config = function(_, opts)
+      vim.g.copilot_proxy = 'proxy_user:mUFKoymUKX@79.137.199.192:31974'
+      require('copilot').setup(opts)
+    end,
   },
   {
     'Hoffs/omnisharp-extended-lsp.nvim',
@@ -295,6 +299,6 @@ return {
       loglevel = 1
     end,
   },
-  -- { 'adelarsq/neofsharp.vim' },
   { 'ionide/ionide-vim' },
+  { 'pmizio/typescript-tools.nvim' },
 }
