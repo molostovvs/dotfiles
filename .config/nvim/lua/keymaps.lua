@@ -1,13 +1,5 @@
 local wk = require 'which-key'
 
--- map('n', 'C-p', function()
---   require('hover').hover_switch 'previous'
--- end, { desc = 'hover previous' })
---
--- map('n', 'C-n', function()
---   require('hover').hover_switch 'next'
--- end, { desc = 'hover next' })
---
 local map = vim.keymap.set
 map('n', ';', ':')
 
@@ -27,13 +19,13 @@ wk.add {
   { '<C-h>', '<cmd>BufferPrevious<cr>', desc = 'Previous buffer' },
   { '<C-l>', '<cmd>BufferNext<cr>', desc = 'Next buffer' },
   { '<leader>x', '<cmd>BufferClose<cr>', desc = 'Close buffer' },
-  {
-    'gK',
-    function()
-      require('hover').hover_select()
-    end,
-    desc = 'Hover select',
-  },
+  -- {
+  --   'gK',
+  --   function()
+  --     require('hover').hover_select()
+  --   end,
+  --   desc = 'Hover select',
+  -- },
   {
     '<leader>ll',
     function()
@@ -44,13 +36,13 @@ wk.add {
     end,
     desc = 'Toggle [L]sp [L]ines',
   },
-  {
-    'K',
-    function()
-      require('hover').hover()
-    end,
-    desc = 'Hover',
-  },
+  -- {
+  --   'K',
+  --   function()
+  --     require('hover').hover()
+  --   end,
+  --   desc = 'Hover',
+  -- },
   {
     '<leader>tc',
     function()
