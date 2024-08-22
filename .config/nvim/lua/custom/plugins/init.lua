@@ -301,4 +301,15 @@ return {
   },
   { 'ionide/ionide-vim' },
   { 'pmizio/typescript-tools.nvim' },
+  {
+    'seblj/roslyn.nvim',
+    opts = function()
+      require('roslyn').setup {
+        exe = {
+          'dotnet',
+          vim.fs.joinpath(vim.fn.stdpath 'data', 'roslyn', 'Microsoft.CodeAnalysis.LanguageServer.dll'),
+        },
+      }
+    end,
+  },
 }
