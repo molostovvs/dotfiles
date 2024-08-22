@@ -30,7 +30,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 HIST_STAMPS="dd-mm-yyyy"
 
-plugins=(git docker zsh-autosuggestions zsh-syntax-highlighting gh fzf web-search terraform)
+plugins=(git docker zsh-autosuggestions zsh-syntax-highlighting gh fzf web-search terraform aws)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/yandex-cloud/completion.zsh.inc
