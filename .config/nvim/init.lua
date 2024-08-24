@@ -141,7 +141,7 @@ require('lazy').setup({
         --     ['textDocument/implementation'] = require('omnisharp_extended').implementation_handler,
         --   },
         -- },
-        sqls = {},
+        -- sqls = {},
         -- csharp_ls = {
         --   handlers = {
         --     ['textDocument/definition'] = require('csharpls_extended').handler,
@@ -169,6 +169,7 @@ require('lazy').setup({
         'jq',
         'prettier',
         'eslint_d',
+        'sqlfmt',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

@@ -29,6 +29,7 @@ return {
     'stevearc/conform.nvim',
     opts = {
       notify_on_error = true,
+      notify_no_formatters = true,
       keys = {
         '<leader>fm',
         function()
@@ -51,6 +52,7 @@ return {
         lua = { 'stylua' },
         fsharp = { 'fantomas' },
         markdown = { 'markdownlint' },
+        sql = { 'sqlfmt' },
         -- cs = { 'csharpier' },
       },
     },
