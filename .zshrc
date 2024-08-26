@@ -47,6 +47,7 @@ alias nvimconfig="nvim ~/.config/nvim"
 alias lzd=lazydocker
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.config/ --work-tree=$HOME'
 alias dotnettu="dotnet tool list -g | awk '{ print \$1 }' | tail +3 | xargs -I % sh -c 'dotnet tool update -g %;'"
+alias ycs3='aws s3 --endpoint-url=https://storage.yandexcloud.net'
 
 # The next line updates PATH for CLI.
 if [ -f "${HOME}/yandex-cloud/path.bash.inc" ]; then source "${HOME}/yandex-cloud/path.bash.inc"; fi
