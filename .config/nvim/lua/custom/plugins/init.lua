@@ -151,12 +151,6 @@ return {
     opts = {},
   },
   {
-    url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    enabled = true,
-    lazy = true,
-    opts = {},
-  },
-  {
     'aznhe21/actions-preview.nvim',
     opts = {
       telescope = {

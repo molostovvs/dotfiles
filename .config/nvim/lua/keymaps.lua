@@ -20,16 +20,6 @@ wk.add {
   { '<C-l>', '<cmd>BufferNext<cr>', desc = 'Next buffer' },
   { '<leader>x', '<cmd>BufferClose<cr>', desc = 'Close buffer' },
   {
-    '<leader>ll',
-    function()
-      vim.diagnostic.config {
-        virtual_text = not vim.diagnostic.config()['virtual_text'],
-        virtual_lines = not vim.diagnostic.config()['virtual_lines'],
-      }
-    end,
-    desc = 'Toggle [L]sp [L]ines',
-  },
-  {
     '<leader>tc',
     function()
       if vim.o.colorcolumn == '' then
