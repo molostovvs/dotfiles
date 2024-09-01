@@ -157,25 +157,6 @@ return {
     opts = {},
   },
   {
-    'jackMort/ChatGPT.nvim',
-    event = 'VeryLazy',
-    opts = {
-      api_key_cmd = 'cat /home/mvs/chatgpt.api',
-      openai_params = {
-        model = 'gpt-3.5-turbo-1106',
-        temperature = 0.3,
-        top_p = 1,
-        max_tokens = 2000,
-      },
-    },
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'nvim-lua/plenary.nvim',
-      'folke/trouble.nvim',
-      'nvim-telescope/telescope.nvim',
-    },
-  },
-  {
     'aznhe21/actions-preview.nvim',
     opts = {
       telescope = {
