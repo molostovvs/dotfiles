@@ -230,7 +230,6 @@ require('lazy').setup({
       'hrsh7th/cmp-path',
     },
     config = function()
-      -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
@@ -272,42 +271,23 @@ require('lazy').setup({
         sorting = {
           priority_weight = 1,
           comparators = {
-            cmp.config.compare.recently_used,
             cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.scopes,
             cmp.config.compare.locality,
-            cmp.config.compare.order,
-            cmp.config.compare.kind,
           },
         },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
         mapping = cmp.mapping {
-          -- Select the [n]ext item
           ['<C-n>'] = cmp.mapping.select_next_item(),
-          -- Select the [p]revious item
           ['<C-p>'] = cmp.mapping.select_prev_item(),
-
           -- Scroll the documentation window [b]ack / [f]orward
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
-
-          -- Accept ([y]es) the completion.
-          --  This will auto-import if your LSP supports it.
-          --  This will expand snippets if the LSP sent a snippet.
           ['<C-y>'] = cmp.mapping.confirm { select = true },
-
-          -- Manually trigger a completion from nvim-cmp.
-          --  Generally you don't need this, because nvim-cmp will display
-          --  completions whenever it has completion options available.
           ['<C-Space>'] = cmp.mapping.complete {},
-
-          -- Think of <c-l> as moving to the right of your snippet expansion.
-          --  So if you have a snippet that's like:
-          --  function $name($args)
-          --    $body
-          --  end
-          --
           -- <c-l> will move you to the right of each of the expansion locations.
           -- <c-h> is similar, except moving you backwards.
           ['<C-l>'] = cmp.mapping(function()
@@ -326,10 +306,8 @@ require('lazy').setup({
         },
         sources = {
           { name = 'nvim_lsp', priority = 20 },
-          -- { name = 'copilot', priority = 6 },
           { name = 'luasnip', priority = 6 },
           { name = 'path', priority = 5 },
-          -- { name = 'nvim_lsp_signature_help' },
           { name = 'buffer', priority = 6 },
           { name = 'nvim_lua', priority = 5 },
         },
