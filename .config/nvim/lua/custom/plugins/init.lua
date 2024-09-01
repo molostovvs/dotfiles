@@ -128,12 +128,16 @@ return {
       max_height = 20,
       max_width = 120,
       wrap = true,
+      hint_enable = true,
+      hint_prefix = {
+        above = '↙ ',
+        current = '← ',
+        below = '↖ ',
+      },
       handler_opts = {
-        border = 'double',
+        border = 'rounded',
       },
       padding = '',
-      -- this doesnt work
-      -- select_signature_key = '<M-x',
       toggle_key = '<M-f>',
     },
     config = function(_, opts)
