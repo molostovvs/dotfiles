@@ -340,6 +340,12 @@ return {
     version = '*',
     opts = {},
   },
+  {
+    'Exafunction/codeium.vim',
+    enabled = true,
+    -- event = 'BufEnter',
+    config = function()
+      vim.g.codeium_manual = true
     end,
   },
 }
