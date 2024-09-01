@@ -332,7 +332,14 @@ return {
             ['dotnet_navigate_to_decompiled_sources'] = true,
           },
         },
-      }
+      },
+    },
+  },
+  {
+    'echasnovski/mini.surround',
+    version = '*',
+    opts = {},
+  },
     end,
   },
 }
