@@ -43,6 +43,7 @@ return {
         fsharp = { 'fantomas' },
         markdown = { 'markdownlint' },
         sql = { 'sqlfmt' },
+        terraform = { 'hclfmt' },
         -- cs = { 'csharpier' },
       },
     },

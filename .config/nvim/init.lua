@@ -148,6 +148,8 @@ require('lazy').setup({
         --     ['textDocument/typeDefinition'] = require('csharpls_extended').handler,
         --   },
         -- },
+        roslyn = {},
+        terraformls = {},
         lua_ls = {
           settings = {
             Lua = {
