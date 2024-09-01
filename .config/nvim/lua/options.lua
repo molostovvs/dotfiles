@@ -7,10 +7,14 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.showmode = false
 
+-- options for ufo
+vim.o.foldcolumn = '0'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  -- Use a sharp border with `FloatBorder` highlights
   border = 'single',
-  -- add the title in hover float window
   title = 'docs',
 })
 
