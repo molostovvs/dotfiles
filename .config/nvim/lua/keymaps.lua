@@ -19,13 +19,6 @@ wk.add {
   { '<C-h>', '<cmd>BufferPrevious<cr>', desc = 'Previous buffer' },
   { '<C-l>', '<cmd>BufferNext<cr>', desc = 'Next buffer' },
   { '<leader>x', '<cmd>BufferClose<cr>', desc = 'Close buffer' },
-  -- {
-  --   'gK',
-  --   function()
-  --     require('hover').hover_select()
-  --   end,
-  --   desc = 'Hover select',
-  -- },
   {
     '<leader>ll',
     function()
@@ -36,13 +29,6 @@ wk.add {
     end,
     desc = 'Toggle [L]sp [L]ines',
   },
-  -- {
-  --   'K',
-  --   function()
-  --     require('hover').hover()
-  --   end,
-  --   desc = 'Hover',
-  -- },
   {
     '<leader>tc',
     function()
