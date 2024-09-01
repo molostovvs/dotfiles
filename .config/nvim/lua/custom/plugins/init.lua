@@ -195,7 +195,7 @@ return {
   },
   {
     'zbirenbaum/copilot.lua',
-    enabled = true,
+    enabled = false,
     cmd = 'Copilot',
     event = 'VeryLazy',
     opts = {
@@ -216,7 +216,6 @@ return {
       },
     },
     config = function(_, opts)
-      vim.g.copilot_proxy = 'proxy_user:mUFKoymUKX@79.137.199.192:31974'
       require('copilot').setup(opts)
     end,
   },
@@ -228,6 +227,7 @@ return {
   },
   {
     'zbirenbaum/copilot-cmp',
+    enabled = false,
     opts = {},
   },
   {
