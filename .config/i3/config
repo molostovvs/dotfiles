@@ -24,13 +24,15 @@ exec --no-startup-id yandex-disk start
 # exec --no-startup-id hiddify
 exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 165
 
+# start composer
+exec_always picom
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Layout toggle via script
 exec_always --no-startup-id $HOME/.config/i3/layout_switch.sh
-exec_always --no-startup-id xfce4-power-manager
+# exec_always --no-startup-id xfce4-power-manager
 
 
 # Use pactl to adjust volume in PulseAudio.
