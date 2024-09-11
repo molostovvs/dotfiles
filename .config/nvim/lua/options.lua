@@ -69,3 +69,7 @@ vim.opt.hlsearch = true
 
 -- toggle relative numbers
 vim.opt.relativenumber = true
+
+vim.opt.spell = true
+vim.opt.spelllang = 'en,ru'
+vim.opt.spellsuggest = 'best,5'
