@@ -160,6 +160,7 @@ require('lazy').setup({
         -- },
         roslyn = {},
         terraformls = {},
+        bashls = {},
         lua_ls = {
           settings = {
             Lua = {

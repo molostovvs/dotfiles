@@ -44,6 +44,7 @@ return {
         markdown = { 'markdownlint' },
         sql = { 'sqlfmt' },
         terraform = { 'hclfmt' },
+        sh = { 'shfmt' },
         -- cs = { 'csharpier' },
       },
     },
