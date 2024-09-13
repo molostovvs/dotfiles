@@ -129,6 +129,16 @@ require('lazy').setup({
               callback = vim.lsp.buf.clear_references,
             })
           end
+
+          if client and client.server_capabilities.codeLensProvider then
+            vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
+              buffer = 0,
+              group = vim.api.nvim_create_augroup('lsp-autocommands', { clear = true }),
+              callback = function()
+                vim.lsp.codelens.refresh { bufnr = 0 }
+              end,
+            })
+          end
         end,
       })
 

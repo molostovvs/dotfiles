@@ -20,6 +20,13 @@ wk.add {
   { '<C-l>', '<cmd>BufferNext<cr>', desc = 'Next buffer' },
   { '<leader>x', '<cmd>BufferClose<cr>', desc = 'Close buffer' },
   {
+    '<leader>ti',
+    function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    end,
+    desc = '[T]oggle [I]nlay hint',
+  },
+  {
     '<leader>tc',
     function()
       if vim.o.colorcolumn == '' then
