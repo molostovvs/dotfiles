@@ -329,4 +329,16 @@ return {
       vim.g.codeium_manual = true
     end,
   },
+  {
+    'rmagatti/goto-preview',
+    event = 'BufEnter',
+    config = true,
+    opts = {
+      height = 30,
+      width = 120,
+      default_mappings = true,
+      focus_on_open = false,
+      dismiss_on_move = true,
+    },
+  },
 }
