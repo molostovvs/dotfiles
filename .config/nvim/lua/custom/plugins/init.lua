@@ -196,9 +196,6 @@ return {
     end,
   },
   {
-    'Hoffs/omnisharp-extended-lsp.nvim',
-  },
-  {
     'onsails/lspkind.nvim',
   },
   {
