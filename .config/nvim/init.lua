@@ -130,7 +130,7 @@ require('lazy').setup({
           end
 
           if client and client.server_capabilities.codeLensProvider then
-            vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
+            vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
               buffer = 0,
               group = vim.api.nvim_create_augroup('lsp-autocommands', { clear = true }),
               callback = function()
