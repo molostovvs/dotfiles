@@ -275,6 +275,7 @@ return {
   {
     'seblj/roslyn.nvim',
     opts = {
+      filewatching = false,
       config = {
         settings = {
           ['csharp|inlay_hints'] = {
