@@ -117,7 +117,13 @@ return {
     init = function()
       vim.g.barbar_auto_setup = false
     end,
-    opts = {},
+    opts = {
+      animation = false,
+      auto_hide = 1,
+      tabpages = true,
+      focus_on_close = 'previous',
+      maximum_padding = 0,
+    },
   },
   {
     -- TODO: add keymaps and config

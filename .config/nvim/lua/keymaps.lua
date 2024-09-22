@@ -10,6 +10,7 @@ wk.add {
   { '<leader>s', group = '[S]earch' },
   { '<leader>t', group = '[T]oggle' },
   { '<leader>w', group = '[W]orkspace' },
+  { '<leader>b', group = '[B]uffer' },
   { '<leader>tn', '<cmd>set relativenumber!<cr>', desc = '[T]oggle relative [N]umber lines' },
   { '<esc>', '<cmd>nohlsearch<cr>', mode = 'n' },
   { '[d', vim.diagnostic.goto_prev, desc = 'Previous [D]iagnostic message' },
@@ -54,4 +55,8 @@ wk.add {
     desc = '[C]ode actions [P]review',
     mode = { 'n', 'v' },
   },
+  { '<leader>bp', '<Cmd>BufferMovePrevious<CR>', mode = { 'n' }, desc = '[B]uffer [P]revious' },
+  { '<leader>bn', '<Cmd>BufferMoveNext<CR>', mode = { 'n' }, desc = '[B]uffer [N]ext' },
+  { '<leader>bb', '<Cmd>BupperPin<CR>', mode = { 'n' }, desc = '[B]uffer [B]ind' },
+  { '<leader>bg', '<Cmd>BufferPick<CR>', mode = { 'n' }, desc = '[B]uffer [G]oto' },
 }
