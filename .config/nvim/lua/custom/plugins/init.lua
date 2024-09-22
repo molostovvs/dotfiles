@@ -46,7 +46,6 @@ return {
         terraform = { 'hclfmt' },
         sh = { 'shfmt' },
         json = { 'jq' },
-        -- cs = { 'csharpier' },
       },
     },
   },
