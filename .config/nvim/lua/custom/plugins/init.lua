@@ -258,7 +258,6 @@ return {
       { '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', desc = '[F]ile [B]rowser' },
     },
   },
-  { 'Issafalcon/neotest-dotnet' },
   {
     'nvim-neotest/neotest',
     dependencies = {
@@ -268,11 +267,15 @@ return {
       'nvim-treesitter/nvim-treesitter',
       'Issafalcon/neotest-dotnet',
     },
-    opts = function()
-      adapters = {
-        require 'neotest-dotnet' {},
+    config = function()
+      require('neotest').setup {
+        adapters = {
+          require 'neotest-dotnet' {
+            discovery_root = 'solution',
+          },
+        },
+        log_level = 1,
       }
-      loglevel = 1
     end,
   },
   { 'ionide/ionide-vim' },
