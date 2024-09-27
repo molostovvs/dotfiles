@@ -54,7 +54,10 @@ return {
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
-      -- Slightly advanced example of overriding default behavior and theme
+      vim.keymap.set('n', 'gr', function()
+        builtin.lsp_references { include_current_line = false, include_declaration = false }
+      end, { desc = '[G]oto [R]eferences' })
+
       vim.keymap.set('n', '<leader>/', function()
         builtin.current_buffer_fuzzy_find {
           winblend = 0,
@@ -62,8 +65,6 @@ return {
         }
       end, { desc = '[/] Fuzzily search in current buffer' })
 
-      -- It's also possible to pass additional configuration options.
-      --  See `:help telescope.builtin.live_grep()` for information about particular keys
       vim.keymap.set('n', '<leader>s/', function()
         builtin.live_grep {
           grep_open_files = true,
@@ -71,7 +72,6 @@ return {
         }
       end, { desc = '[S]earch [/] in Open Files' })
 
-      -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
