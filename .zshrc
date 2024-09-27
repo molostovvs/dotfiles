@@ -63,3 +63,4 @@ ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_V
 
 # The next line updates PATH for Yandex Cloud YDB CLI.
 if [ -f "${HOME}/ydb/path.bash.inc" ]; then source "${HOME}/ydb/path.bash.inc"; fi
+export PATH=/home/mvs/.local/bin:$PATH
