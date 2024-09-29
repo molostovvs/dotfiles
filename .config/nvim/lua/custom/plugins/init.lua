@@ -365,6 +365,7 @@ return {
       'nvim-treesitter/nvim-treesitter',
       'Issafalcon/neotest-dotnet',
     },
+    version = '5.x',
     config = function()
       require('neotest').setup {
         adapters = {
