@@ -147,12 +147,19 @@ return {
     opts = { signs = false },
   },
   {
-    'folke/tokyonight.nvim',
+    'EdenEast/nightfox.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      require('tokyonight').setup()
-      vim.cmd.colorscheme 'tokyonight-night'
+      require('nightfox').setup {
+        options = {
+          styles = {
+            comments = 'italic',
+            constants = 'bold',
+          },
+        },
+      }
+      vim.cmd.colorscheme 'carbonfox'
     end,
   },
   {
