@@ -18,11 +18,13 @@ return {
     config = function()
       require('telescope').setup {
         defaults = {
-          path_display = { 'smart' },
+          path_display = { 'truncate' },
         },
         extensions = {
           ['ui-select'] = {
-            require('telescope.themes').get_dropdown(),
+            require('telescope.themes').get_dropdown {
+              previewer = true,
+            },
           },
         },
       }
@@ -32,6 +34,13 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+
+      vim.keymap.set('n', '<leader>sb', function()
+        builtin.buffers {
+          sort_mru = true,
+          path_display = { 'tail' },
+        }
+      end, { desc = '[S]earch [B]uffers' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', function()
@@ -52,10 +61,14 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader><leader>', builtin.builtin, { desc = 'Telescope pickers' })
 
       vim.keymap.set('n', 'gr', function()
-        builtin.lsp_references { include_current_line = false, include_declaration = false }
+        builtin.lsp_references {
+          -- this shit is inverted, so include_current_line = true means do not include current line
+          include_current_line = true,
+          include_declaration = false,
+        }
       end, { desc = '[G]oto [R]eferences' })
 
       vim.keymap.set('n', '<leader>/', function()
