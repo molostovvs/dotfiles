@@ -7,6 +7,8 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.showmode = false
 
+vim.opt.fileformats = 'unix,dos,mac'
+
 -- options for ufo
 vim.o.foldcolumn = '0'
 vim.o.foldlevel = 99
