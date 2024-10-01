@@ -111,14 +111,6 @@ return {
     opts = {
       notify_on_error = true,
       notify_no_formatters = true,
-      keys = {
-        '<leader>fm',
-        function()
-          require('conform').format { async = true, lsp_fallback = true }
-        end,
-        mode = '',
-        desc = 'Format buffer',
-      },
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
@@ -137,6 +129,8 @@ return {
         terraform = { 'hclfmt' },
         sh = { 'shfmt' },
         json = { 'jq' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
       },
     },
   },
@@ -378,7 +372,11 @@ return {
     end,
   },
   { 'ionide/ionide-vim' },
-  { 'pmizio/typescript-tools.nvim' },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
   {
     'seblj/roslyn.nvim',
     opts = {
