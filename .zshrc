@@ -64,3 +64,7 @@ ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_V
 # The next line updates PATH for Yandex Cloud YDB CLI.
 if [ -f "${HOME}/ydb/path.bash.inc" ]; then source "${HOME}/ydb/path.bash.inc"; fi
 export PATH=/home/mvs/.local/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
