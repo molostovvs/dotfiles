@@ -68,6 +68,8 @@ return {
           -- this shit is inverted, so include_current_line = true means do not include current line
           include_current_line = true,
           include_declaration = false,
+          path_display = { 'tail' },
+          fname_width = 60,
         }
       end, { desc = '[G]oto [R]eferences' })
 
