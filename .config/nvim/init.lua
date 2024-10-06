@@ -149,6 +149,9 @@ require('lazy').setup({
       cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
       cmp.setup {
+        performance = {
+          max_view_entries = 20,
+        },
         view = {
           entries = 'custom',
           docs = {
@@ -176,7 +179,10 @@ require('lazy').setup({
         },
         window = {
           completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered {
+            max_width = 100,
+            max_height = 50,
+          },
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
         sorting = {
