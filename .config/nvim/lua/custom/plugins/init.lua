@@ -18,7 +18,8 @@ return {
     config = function()
       require('telescope').setup {
         defaults = {
-          path_display = { 'truncate' },
+          path_display = { 'tail' },
+          fname_width = 60,
         },
         extensions = {
           ['ui-select'] = {
@@ -39,6 +40,7 @@ return {
         builtin.buffers {
           sort_mru = true,
           path_display = { 'tail' },
+          fname_width = 60,
         }
       end, { desc = '[S]earch [B]uffers' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
@@ -55,6 +57,12 @@ return {
           },
         }
       end, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', 'gi', function()
+        builtin.lsp_implementations {
+          path_display = { 'tail' },
+          fname_width = 60,
+        }
+      end, { desc = '[G]oto [I]mplementation' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
