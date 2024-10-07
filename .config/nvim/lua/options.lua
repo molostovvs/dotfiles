@@ -7,6 +7,8 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.showmode = false
 
+vim.opt.fixeol = false
+vim.opt.endoffile = false
 vim.opt.fileformats = 'unix,dos,mac'
 
 -- options for ufo
