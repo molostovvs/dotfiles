@@ -377,7 +377,7 @@ return {
             discovery_root = 'solution',
           },
         },
-        log_level = 1,
+        log_level = 5,
       }
     end,
   },
