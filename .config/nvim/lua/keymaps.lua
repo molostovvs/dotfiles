@@ -57,6 +57,6 @@ wk.add {
   },
   { '<leader>bp', '<Cmd>BufferMovePrevious<CR>', mode = { 'n' }, desc = '[B]uffer [P]revious' },
   { '<leader>bn', '<Cmd>BufferMoveNext<CR>', mode = { 'n' }, desc = '[B]uffer [N]ext' },
-  { '<leader>bb', '<Cmd>BupperPin<CR>', mode = { 'n' }, desc = '[B]uffer [B]ind' },
+  { '<leader>bb', '<Cmd>BufferPin<CR>', mode = { 'n' }, desc = '[B]uffer [B]ind' },
   { '<leader>bg', '<Cmd>BufferPick<CR>', mode = { 'n' }, desc = '[B]uffer [G]oto' },
 }
