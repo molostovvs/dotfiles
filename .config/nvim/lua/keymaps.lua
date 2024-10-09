@@ -59,4 +59,6 @@ wk.add {
   { '<leader>bn', '<Cmd>BufferMoveNext<CR>', mode = { 'n' }, desc = '[B]uffer [N]ext' },
   { '<leader>bb', '<Cmd>BufferPin<CR>', mode = { 'n' }, desc = '[B]uffer [B]ind' },
   { '<leader>bg', '<Cmd>BufferPick<CR>', mode = { 'n' }, desc = '[B]uffer [G]oto' },
+  { '<leader>vy', '<cmd>GitLink<cr>', mode = { 'n', 'v' }, desc = '[V]cs [Y]ank' },
+  { '<leader>vY', '<cmd>GitLink!<cr>', mode = { 'n', 'v' }, desc = '[V]cs open [Y]ank in browser' },
 }
