@@ -483,4 +483,11 @@ return {
       { '<leader>gY', '<cmd>GitLink!<cr>', mode = { 'n', 'v' }, desc = 'Open git link' },
     },
   },
+  {
+    'GustavEikaas/easy-dotnet.nvim',
+    dev = false,
+    dir = '~/source/playground/easy-dotnet.nvim/',
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
+    opts = {},
+  },
 }
