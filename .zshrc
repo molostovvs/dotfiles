@@ -9,6 +9,7 @@ alias orca="setsid /usr/bin/orca-slicer"
 
 path+=('$HOME/yandex-cloud/bin')
 path+=('$HOME/.dotnet/tools')
+export PATH="$PATH:/home/mvs/.dotnet/tools"
 
 ZSH_THEME="robbyrussell"
 
