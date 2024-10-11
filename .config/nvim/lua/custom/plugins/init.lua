@@ -212,6 +212,7 @@ return {
   {
     -- TODO: add keymaps because there is no deafult keymaps
     'romgrk/barbar.nvim',
+    event = 'VeryLazy',
     dependencies = {
       'lewis6991/gitsigns.nvim',
       'nvim-tree/nvim-web-devicons',
@@ -313,6 +314,7 @@ return {
   },
   {
     'lukas-reineke/headlines.nvim',
+    event = 'VeryLazy',
     dependencies = 'nvim-treesitter/nvim-treesitter',
     opts = {},
   },
@@ -362,6 +364,7 @@ return {
   },
   {
     'nvim-neotest/neotest',
+    event = 'VeryLazy',
     dependencies = {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
@@ -381,9 +384,13 @@ return {
       }
     end,
   },
-  { 'ionide/ionide-vim' },
+  {
+    'ionide/ionide-vim',
+    event = 'VeryLazy',
+  },
   {
     'pmizio/typescript-tools.nvim',
+    event = 'VeryLazy',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opts = {},
   },
