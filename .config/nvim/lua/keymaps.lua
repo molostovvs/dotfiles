@@ -58,7 +58,10 @@ wk.add {
   { '<leader>bp', '<Cmd>BufferMovePrevious<CR>', mode = { 'n' }, desc = '[B]uffer [P]revious' },
   { '<leader>bn', '<Cmd>BufferMoveNext<CR>', mode = { 'n' }, desc = '[B]uffer [N]ext' },
   { '<leader>bb', '<Cmd>BufferPin<CR>', mode = { 'n' }, desc = '[B]uffer [B]ind' },
-  { '<leader>bg', '<Cmd>BufferPick<CR>', mode = { 'n' }, desc = '[B]uffer [G]oto' },
+  { '<leader>bg', '<cmd>BufferPick<cr>', mode = { 'n' }, desc = '[B]uffer [G]oto' },
+  { '<leader>br', '<cmd>BufferRestore<cr>', mode = { 'n' }, desc = '[B]uffer [R]estore' },
   { '<leader>vy', '<cmd>GitLink<cr>', mode = { 'n', 'v' }, desc = '[V]cs [Y]ank' },
   { '<leader>vY', '<cmd>GitLink!<cr>', mode = { 'n', 'v' }, desc = '[V]cs open [Y]ank in browser' },
+  { '<leader>vB', '<cmd>Gitsigns blame<cr>', mode = { 'n' }, desc = '[V]cs [B]lame' },
+  { '<leader>vb', '<cmd>Gitsigns blame_line<cr>', mode = { 'n' }, desc = '[V]cs [B]lame line' },
 }
