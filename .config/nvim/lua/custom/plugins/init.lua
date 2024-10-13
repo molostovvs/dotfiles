@@ -154,7 +154,7 @@ return {
   {
     'EdenEast/nightfox.nvim',
     lazy = false,
-    priority = 1000,
+    -- priority = 1000,
     config = function()
       require('nightfox').setup {
         options = {
@@ -164,7 +164,16 @@ return {
           },
         },
       }
-      vim.cmd.colorscheme 'carbonfox'
+      -- vim.cmd.colorscheme 'carbonfox'
+    end,
+  },
+  {
+    'projekt0n/github-nvim-theme',
+    name = 'github-theme',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'github_dark_default'
     end,
   },
   {
