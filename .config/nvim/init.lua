@@ -242,7 +242,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'c_sharp', 'sql', 'css' },
+      ensure_installed = { 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'c_sharp', 'sql', 'css', 'json', 'xml' },
       auto_install = true,
       highlight = {
         enable = true,
