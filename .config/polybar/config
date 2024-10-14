@@ -6,6 +6,7 @@ primary = #F0C674
 secondary = #8ABEB7
 alert = #A54242
 disabled = #707880
+trans = #00000000
 
 [bar/mybar]
 override-redirect = true ;its not working
@@ -13,39 +14,35 @@ bottom = true
 wm-restack = i3
 width = 100%
 height = 24pt
-radius = 0
+radius = 12
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3pt
+line-size = 2pt
 
 border-size = 0pt
 border-color = #00000000
 
-padding-left = 0
-padding-right = 0
-
-module-margin = 1
-
-tray-position = right
-tray-maxsize = 20
+padding = 0
+module-margin-left = 1
+module-margin-right = 1
+module-margin-y = 0
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 enable-ipc = true
 
-separator = "/"
+separator = "│"
 separator-foreground = ${colors.disabled}
 
-font-0 = monospace:size=11
-font-1 = "FontAwesome"
+font-0 = "JetBrainsMono Nerd Font:style=Regular:size=12"
 
 ;MODULES LAYOUT
 modules-left = xworkspaces xwindow
 modules-center = xkeyboard date
-modules-right = memory cpu network pulseaudio-control-output pulseaudio-control-input
+modules-right = memory cpu wired-network network pulseaudio-control-output pulseaudio-control-input tray
 
 [module/pulseaudio-control-output]
 type = custom/script
@@ -112,31 +109,21 @@ label-layout-underline = ${colors.secondary}
 [module/memory]
 type = internal/memory
 interval = 5
+format-prefix = "  "
 format = <label>
-; format with bar
-; format = <label> <bar-used>
-bar-used-indicator = 
-bar-used-width = 8
-bar-used-foreground-0 = #55aa55
-bar-used-foreground-1 = #557755
-bar-used-foreground-2 = #f5a70a
-bar-used-foreground-3 = #ff5555
-bar-used-fill = ▐
-bar-used-empty = ▐
-bar-used-empty-foreground = #444444
 label = %gb_used:0:4:%/%gb_total:0:4:%
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "cpu "
+format-prefix = " "
 label = %percentage:2%%
 
 [module/wired-network]
 type = internal/network
 interface = enp37s0
 format-connected = <label-connected>
-label-connected = %downspeed:3% %upspeed:3%
+label-connected =  %downspeed:3%  %upspeed:3%
 label-disconnected = not connected
 label-disconnected-foreground = #66ffff
 
@@ -166,6 +153,12 @@ time = %H:%M:%S
 label = %date% %time%
 label-foreground = ${colors.primary}
 
+[module/tray]
+type = internal/tray
+format-margin = 10px
+tray-spacing = 10px
+tray-size=70%
+
 [settings]
 screenchange-reload = true
-pseudo-transparency = true
+#pseudo-transparency = true
