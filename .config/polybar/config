@@ -46,7 +46,7 @@ modules-right = memory cpu wired-network network pulseaudio-control-output pulse
 
 [module/pulseaudio-control-output]
 type = custom/script
-exec = ~/.config/polybar/pulseaudio-control.sh  --format '${VOL_LEVEL}% $NODE_NICKNAME' --node-nicknames-from "device.description" listen
+exec = ~/.config/polybar/pulseaudio-control.sh  --format '${VOL_LEVEL}% $NODE_NICKNAME' --node-nicknames-from "device.description" --node-nickname "alsa_output.usb-BY_EDIFIER_EDIFIER_G2_II_GAMING_HEADSET_20190628-00.analog-stereo:EDIFIER HEADSET" listen
 format-underline = ${colors.cyan}
 tail = true
 label-padding = 0
@@ -59,7 +59,7 @@ scroll-down = ~/.config/polybar/pulseaudio-control.sh --volume-max 130 down
 
 [module/pulseaudio-control-input]
 type = custom/script
-exec = ~/.config/polybar/pulseaudio-control.sh  --node-type input --format '${VOL_LEVEL} $NODE_NICKNAME' --node-nicknames-from "device.description" listen
+exec = ~/.config/polybar/pulseaudio-control.sh  --node-type input --format '${VOL_LEVEL} $NODE_NICKNAME' --node-nicknames-from "device.description" --node-nickname "alsa_input.usb-BY_EDIFIER_EDIFIER_G2_II_GAMING_HEADSET_20190628-00.mono-fallback:EDIFIER HEADSET" listen
 tail = true
 format-underline = ${colors.cyan}
 label-padding = 0
@@ -67,7 +67,7 @@ label-foreground = ${colors.foreground}
 click-right = exec pavucontrol &
 click-left = ~/.config/polybar/pulseaudio-control.sh --node-type input togmute
 ;									all monitors and portable speaker
-click-middle = ~/.config/polybar/pulseaudio-control.sh --node-blacklist "*.monitor","bluez_input.F1:16:44:9C:55:30" --node-type input next-node 
+click-middle = ~/.config/polybar/pulseaudio-control.sh --node-blacklist "*PowerConf*","*.monitor","bluez_input.F1:16:44:9C:55:30" --node-type input next-node 
 scroll-up = ~/.config/polybar/pulseaudio-control.sh --node-type input --volume-max 130 up
 scroll-down = ~/.config/polybar/pulseaudio-control.sh --node-type input --volume-max 130 down
 
@@ -97,7 +97,7 @@ label-empty-padding = 1
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:12:..%
+label = %title:0:20:..%
 
 [module/xkeyboard]
 type = internal/xkeyboard
