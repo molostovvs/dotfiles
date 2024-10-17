@@ -515,9 +515,23 @@ return {
   },
   {
     'GustavEikaas/easy-dotnet.nvim',
-    dev = false,
+    dev = true,
     dir = '~/source/playground/easy-dotnet.nvim/',
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
-    opts = {},
+    config = function()
+      local dotnet = require 'easy-dotnet'
+
+      dotnet.setup {
+        get_sdk_path = function()
+          return '/usr/share/dotnet/sdk/8.0.302'
+        end,
+        test_runner = {
+          viewmode = 'float',
+          noBuild = false,
+          noRestore = false,
+          enable_buffer_test_execution = true,
+        },
+      }
+    end,
   },
 }
