@@ -148,6 +148,8 @@ require('lazy').setup({
       local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
       cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
+      cmp.register_source('easy-dotnet', require('easy-dotnet').package_completion_source)
+
       cmp.setup {
         performance = {
           max_view_entries = 40,
@@ -227,6 +229,7 @@ require('lazy').setup({
           { name = 'path', priority = 5 },
           { name = 'buffer', priority = 6 },
           { name = 'nvim_lua', priority = 5 },
+          { name = 'easy-dotnet', priority = 4 },
         },
       }
     end,
