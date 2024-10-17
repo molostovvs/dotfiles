@@ -150,7 +150,7 @@ require('lazy').setup({
 
       cmp.setup {
         performance = {
-          max_view_entries = 20,
+          max_view_entries = 40,
         },
         view = {
           entries = 'custom',
