@@ -64,4 +64,5 @@ wk.add {
   { '<leader>vY', '<cmd>GitLink!<cr>', mode = { 'n', 'v' }, desc = '[V]cs open [Y]ank in browser' },
   { '<leader>vB', '<cmd>Gitsigns blame<cr>', mode = { 'n' }, desc = '[V]cs [B]lame' },
   { '<leader>vb', '<cmd>Gitsigns blame_line<cr>', mode = { 'n' }, desc = '[V]cs [B]lame line' },
+  { '<leader>vp', '<cmd>Gitsigns preview_hunk<cr>', mode = { 'n' }, desc = '[V]cs [P]review hunk' },
 }
