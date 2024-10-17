@@ -534,4 +534,14 @@ return {
       }
     end,
   },
+  {
+    'otavioschwanck/arrow.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    opts = {
+      show_icons = true,
+      buffer_leader_key = 'm', -- Per Buffer Mappings
+    },
+  },
 }
