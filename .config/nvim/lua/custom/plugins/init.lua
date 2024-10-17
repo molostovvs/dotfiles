@@ -137,11 +137,26 @@ return {
         fsharp = { 'fantomas' },
         markdown = { 'markdownlint' },
         sql = { 'sqlfmt' },
-        terraform = { 'hclfmt' },
         sh = { 'shfmt' },
         json = { 'jq' },
         typescript = { 'prettier' },
         typescriptreact = { 'prettier' },
+      },
+      formatters = {
+        injected = {
+          options = {
+            ignore_errors = false,
+            -- map of treesitter language to file extension
+            lang_to_ext = {
+              json = 'json',
+              bash = 'sh',
+              c_sharp = 'cs',
+              markdown = 'md',
+              typescript = 'ts',
+              sql = 'sql',
+            },
+          },
+        },
       },
     },
   },
