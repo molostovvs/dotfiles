@@ -3,9 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 export DOTNET_ROOT=/usr/share/dotnet
 
-# fix for orcaslicer
-export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
-alias orca="setsid /usr/bin/orca-slicer"
+alias orca='nohup /opt/orca-slicer-unstable/bin/orca-slicer &'
 
 path+=('$HOME/yandex-cloud/bin')
 path+=('$HOME/.dotnet/tools')
