@@ -29,17 +29,17 @@ shape = "Beam"
 size = 12
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "FiraCode Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "FiraCode Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "FiraCode Nerd Font Mono"
 style = "italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "FiraCode Nerd Font Mono"
 style = "Regular"
