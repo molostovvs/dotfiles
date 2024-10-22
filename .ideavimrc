@@ -1,0 +1,145 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=2
+set clipboard+=unnamed
+
+let mapleader = " "
+
+" Do incremental searching.
+set incsearch
+
+set number                        " line numbers
+
+set hlsearch                      " highlight search occurrences
+set ignorecase                    " ignore case in search patterns
+set smartcase                     " no ignore case when pattern is uppercase
+set incsearch                     " show search results while typing
+set wrapscan                      " searches wrap around the end of the file
+
+map ; :
+
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_duration = "500"
+
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
+
+set quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+let g:qs_primary_color = '#ff0000'
+
+set which-key
+set timeoutlen=5000
+" let g:WhichKey_ShowVimActions = "true"
+
+nmap <silent> <c-x> :nohlsearch<CR>
+nmap <leader>vr <Action>(IdeaVim.ReloadVimRc.reload)
+nmap <leader>va <Action>(VimFindActionIdAction)
+
+map <leader><leader> <Action>(Switcher)
+
+map <leader>gc <Action>(CommentByLineComment)
+
+nmap <c-l> <Action>(NextTab)
+nmap <c-h> <Action>(PreviousTab)
+
+nmap gi <Action>(ReSharperGotoImplementation)
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gu <Action>(ShowUsages)
+nmap gq <Action>(QuickImplementations)
+nmap gb <Action>(GotoSuperMethod)
+
+nmap <leader>ti <Action>(ToggleInlayHintsGloballyAction)
+
+mp zc <Action>(CollapseRegion)
+nmap zo <Action>(ExpandRegion)
+nmap zp <Action>(FoldingGroup)
+nmap zd <Action>(RiderCollapseToDefinitions)
+nmap zrc <Action>(CollapseRegionRecursively)
+nmap zre <Action>(ExpandRegionRecursively)
+
+nmap <leader>ft <C-R>:NERDTreeToggle<CR>
+nmap <leader>ff <C-R>:NERDTreeFocus<CR>
+nmap <leader>fc <C-R>:NERDTreeClose<CR>
+nmap <leader>fs <C-R>:NERDTreeFind<CR>
+
+map <leader>rr <Action>(RenameElement)
+map <leader>rp <Action>(Refactorings.QuickListPopupAction)
+
+nmap K <Action>(ShowHoverInfo)
+
+map <leader>cf <Action>(ReformatCode)
+
+let g:WhichKeyDesc_search        = "<leader>s  [S]earch"
+map <leader>se <Action>(SearchEverywhere)
+map <leader>sb <Action>(Find)
+map <leader>sl <Action>(RecentLocations)
+map <leader>sn <Action>(ShowNavBar)
+map <leader>sm <Action>(FileStructurePopup)
+map <leader>sp <Action>(SelectIn)
+map <leader>sf <Action>(GotoFile)
+
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+nmap ]m <Action>(MethodDown)
+nmap [m <Action>(MethodUp)
+
+let g:WhichKeyDesc_code        = "<leader>c  [C]ode"
+nmap <leader>ce <Action>(ShowErrorDescription)
+map <leader>ca <Action>(ShowIntentionActions)
+
+" VCS actions
+vmap <leader>vh <Action>(Vcs.ShowHistoryForBlock)
+" git blame
+nmap <leader>vb <Action>(Annotate)
+map <leader>vl <Action>(GitHub.Copy.Link)
+
+imap <c-y> <Action>(EditorChooseLookupItem)
+
+" split and windows
+map <leader>x <Action>(CloseContent)
+map <leader>X <Action>(ReopenClosedTab)
+nmap <c-w>w <Action>(NextSplitter)
+nmap <c-w>p <Action>(PrevSplitter)
+nmap <c-w>v <Action>(SplitVertically)
+nmap <c-w>mv <Action>(MoveTabRight)
+nmap <c-w>h <Action>(SplitHorizontally)
+nmap <c-w>mh <Action>(MoveTabDown)
+nmap <c-w><c-h> <Action>(StretchSplitToLeft)
+nmap <c-w><c-l> <Action>(StretchSplitToRight)
+nmap <c-w>k <Action>(StretchSplitToTop)
+nmap <c-w>j <Action>(StretchSplitToBottom)
+
+nmap <leader>tp <Action>(RiderUnitTestQuickListPopupAction)
+
+nmap <leader>dp <Action>(BreakpointActionsGroup)
+nmap <leader>dt <Action>(ToggleLineBreakpoint)
+
+" editor windows
+map <c-t>x <Action>(HideActiveWindow)
+map <c-t>t <Action>(RiderUnitTestFocusExplorerAction)
+
+nmap mt <Action>(ToggleBookmarkWithMnemonic)
+nmap mg <Action>(ShowTypeBookmarks)
+
+" imap <m-]> <Action>(copilot.cycleNextInlays)
+" imap <m-[> <Action>(copilot.cyclePreviousInlays)
+" imap <m-l> <Action>(copilot.applyInlays)
+
+imap <m-[> <Action>(com.codeium.intellij.ShowPreviousCompletionAction)
+imap <m-[> <Action>(com.codeium.intellij.ShowNextCompletionAction)
+imap <m-l> <Action>(com.codeium.intellij.AcceptCompletionAction)
+vmap <m-R> <Action>(com.codeium.intellij.editor_menu.RefactorSelection)
+nmap <m-C> <Action>(com.codeium.intellij.command.CommandAction)
+
+nmap <c-o> <Action>(Back)
+nmap <c-i> <Action>(Forward)
