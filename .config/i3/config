@@ -50,7 +50,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 floating_modifier $lalt
 
-bindcode $win+38 exec alacritty
+# bindcode $win+38 exec alacritty
+bindcode $win+38 exec kitty
 
 bindcode $win+56 exec firefox
 
