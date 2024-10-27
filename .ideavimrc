@@ -54,7 +54,7 @@ nmap <c-h> <Action>(PreviousTab)
 nmap gi <Action>(ReSharperGotoImplementation)
 nmap gd <Action>(GotoDeclaration)
 nmap gD <Action>(GotoTypeDeclaration)
-nmap gu <Action>(ShowUsages)
+nmap gr <Action>(ShowUsages)
 nmap gq <Action>(QuickImplementations)
 nmap gb <Action>(GotoSuperMethod)
 
