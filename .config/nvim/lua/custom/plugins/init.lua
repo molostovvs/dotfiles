@@ -535,6 +535,7 @@ return {
   },
   {
     'otavioschwanck/arrow.nvim',
+    enabled = true,
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },
