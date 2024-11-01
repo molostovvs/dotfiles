@@ -68,7 +68,15 @@ require('lazy').setup({
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local servers = {
-        roslyn = {},
+        docker_compose_language_service = {},
+        roslyn = {
+          name = 'roslyn',
+          flags = {
+            debounce_text_changes = 0,
+            exit_timeout = 5000,
+            allow_incremental_sync = true,
+          },
+        },
         terraformls = {},
         bashls = {},
         lua_ls = {
