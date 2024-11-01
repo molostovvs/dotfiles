@@ -12,7 +12,6 @@ require('lazy').setup({
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       { 'j-hui/fidget.nvim', opts = {} },
-      { 'folke/neodev.nvim', opts = {} },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -165,6 +164,8 @@ require('lazy').setup({
       cmp.setup {
         performance = {
           max_view_entries = 40,
+          debounce = 0,
+          throttle = 0,
         },
         view = {
           entries = 'custom',
@@ -175,7 +176,7 @@ require('lazy').setup({
         formatting = {
           format = function(entry, vim_item)
             if vim.tbl_contains({ 'path' }, entry.source.name) then
-              local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+              local icon, hl_group = require('nvim-web-devicons').get_icon(entry.completion_item.label)
               if icon then
                 vim_item.kind = icon
                 vim_item.kind_hl_group = hl_group
