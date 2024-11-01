@@ -445,9 +445,9 @@ return {
             dotnet_enable_inlay_hints_for_parameters = true,
             dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
             dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
-            dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
+            dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = false,
           },
-          ['csharp|completions'] = {
+          ['csharp|completion'] = {
             dotnet_provide_regex_completions = true,
             dotnet_show_completion_items_from_unimported_namespaces = true,
             dotnet_show_name_completion_suggestions = true,
@@ -462,9 +462,6 @@ return {
           },
           ['navigation'] = {
             dotnet_navigate_to_decompiled_sources = true,
-          },
-          ['dotnet_searh_reference_assemblies'] = {
-            dotnet_search_reference_assemblies = true,
           },
         },
       },
