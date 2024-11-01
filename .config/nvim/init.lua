@@ -255,6 +255,9 @@ require('lazy').setup({
     end,
   },
   {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
@@ -264,6 +267,18 @@ require('lazy').setup({
         enable = true,
       },
       indent = { enable = true },
+      textobjects = {
+        move = {
+          enable = true,
+          set_jumps = true,
+          goto_previous_start = {
+            ['[m'] = '@method_name',
+          },
+          goto_next_start = {
+            [']m'] = '@method_name',
+          },
+        },
+      },
     },
     config = function(_, opts)
       ---@diagnostic disable-next-line: missing-fields
