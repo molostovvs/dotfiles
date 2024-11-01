@@ -518,21 +518,20 @@ return {
     dev = true,
     dir = '~/source/playground/easy-dotnet.nvim/',
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
-    config = function()
-      local dotnet = require 'easy-dotnet'
-
-      dotnet.setup {
-        get_sdk_path = function()
-          return '/usr/share/dotnet/sdk/8.0.302'
-        end,
-        test_runner = {
-          viewmode = 'float',
-          noBuild = false,
-          noRestore = false,
-          enable_buffer_test_execution = true,
+    opts = {
+      get_sdk_path = function()
+        return '/usr/share/dotnet/sdk/8.0.302'
+      end,
+      test_runner = {
+        viewmode = 'float',
+        noBuild = false,
+        noRestore = false,
+        enable_buffer_test_execution = true,
+        mappings = {
+          run_test_from_buffer = { lhs = '<leader>th', desc = 'run test from buffer' },
         },
-      }
-    end,
+      },
+    },
   },
   {
     'otavioschwanck/arrow.nvim',
