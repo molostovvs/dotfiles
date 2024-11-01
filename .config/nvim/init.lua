@@ -298,6 +298,7 @@ require('lazy').setup({
     end,
   },
   require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.debug',
   { import = 'custom.plugins' },
 }, {
   ui = {
