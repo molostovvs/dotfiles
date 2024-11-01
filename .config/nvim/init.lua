@@ -106,6 +106,10 @@ require('lazy').setup({
         'prettier',
         'eslint_d',
         'sqlfmt',
+        'jsonlint',
+        'markdownlint',
+        'netcoredbg',
+        'hadolint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
