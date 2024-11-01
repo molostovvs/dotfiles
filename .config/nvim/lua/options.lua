@@ -18,8 +18,10 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'single',
+  border = 'rounded',
   title = 'docs',
+  max_width = math.floor(vim.fn.winwidth(0) / 1.3),
+  wrap = true,
 })
 
 vim.opt.mouse = nil
@@ -82,3 +84,5 @@ vim.opt.relativenumber = true
 vim.opt.spell = true
 vim.opt.spelllang = 'en,ru'
 vim.opt.spellsuggest = 'best,5'
+
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
