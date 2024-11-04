@@ -109,6 +109,8 @@ require('lazy').setup({
         'markdownlint',
         'netcoredbg',
         'hadolint',
+        'luacheck',
+        'tflint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
