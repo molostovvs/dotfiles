@@ -1,5 +1,5 @@
 " .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
+"  the same commands as the original .vimrc configuration.
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
 
@@ -7,23 +7,23 @@
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
-set scrolloff=2
-set clipboard+=unnamed
 
-let mapleader = " "
-
-" Do incremental searching.
-set incsearch
-
-set number                        " line numbers
 
 set hlsearch                      " highlight search occurrences
 set ignorecase                    " ignore case in search patterns
 set smartcase                     " no ignore case when pattern is uppercase
 set incsearch                     " show search results while typing
 set wrapscan                      " searches wrap around the end of the file
+set scrolloff=10
+set history=1000
+set number relativenumber
+set showmode
+set showcmd
+set smartcase
+set visualbell
 
 map ; :
+let mapleader=" "
 
 Plug 'machakann/vim-highlightedyank'
 let g:highlightedyank_highlight_duration = "500"
@@ -31,16 +31,23 @@ let g:highlightedyank_highlight_duration = "500"
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 
+set keep-english-in-normal[-and-restore-in-insert]
+
 set quickscope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',', '.' ,'-', '+' ,'=', '!', '?']
 let g:qs_primary_color = '#ff0000'
 
 set which-key
+set notimeout
 set timeoutlen=5000
-" let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_ShowTypedSequence = "true"
+let g:WhichKey_DefaultDelay = 100
+let g:WhichKey_ProcessUnknownMappings = "true
+let g:WhichKey_SortOrder = "by_key_prefix_first"
 
-nmap <silent> <c-x> :nohlsearch<CR>
+map <silent> <c-x> :nohlsearch<CR>
 nmap <leader>vr <Action>(IdeaVim.ReloadVimRc.reload)
 nmap <leader>va <Action>(VimFindActionIdAction)
 
@@ -81,6 +88,7 @@ map <leader>cf <Action>(ReformatCode)
 
 let g:WhichKeyDesc_search        = "<leader>s  [S]earch"
 map <leader>se <Action>(SearchEverywhere)
+map <leader>sg <Action>(TextSearchAction)
 map <leader>sb <Action>(Find)
 map <leader>sl <Action>(RecentLocations)
 map <leader>sn <Action>(ShowNavBar)
@@ -140,6 +148,8 @@ imap <m-[> <Action>(com.codeium.intellij.ShowNextCompletionAction)
 imap <m-l> <Action>(com.codeium.intellij.AcceptCompletionAction)
 vmap <m-R> <Action>(com.codeium.intellij.editor_menu.RefactorSelection)
 nmap <m-C> <Action>(com.codeium.intellij.command.CommandAction)
+
+vmap gb <Action>(CommentByBlockComment)
 
 nmap <c-o> <Action>(Back)
 nmap <c-i> <Action>(Forward)
