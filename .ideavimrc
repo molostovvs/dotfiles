@@ -21,7 +21,7 @@ set showmode
 set showcmd
 set smartcase
 set visualbell
-
+set clipboard+=unnamedplus
 map ; :
 let mapleader=" "
 
