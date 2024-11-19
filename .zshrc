@@ -4,7 +4,7 @@ export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 export DOTNET_ROOT=/usr/share/dotnet
 
 alias orca='nohup /opt/orca-slicer-unstable/bin/orca-slicer &'
-alias dotui='gitui -d $(pwd) -w $HOME'
+alias dotui='gitui -d $HOME/.config -w $HOME'
 
 path+=('$HOME/yandex-cloud/bin')
 path+=('$HOME/.dotnet/tools')
