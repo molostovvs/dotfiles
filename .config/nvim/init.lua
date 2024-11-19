@@ -202,13 +202,23 @@ require('lazy').setup({
           },
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+        sources = {
+          { name = 'nvim_lsp', priority = 8 },
+          { name = 'buffer', priority = 7 },
+          { name = 'luasnip', priority = 6 },
+          { name = 'path', priority = 5 },
+          { name = 'nvim_lua', priority = 5 },
+          { name = 'easy-dotnet', priority = 4 },
+          { name = 'calc', priority = 6 },
+        },
         sorting = {
           priority_weight = 1,
           comparators = {
-            cmp.config.compare.score,
-            cmp.config.compare.recently_used,
-            cmp.config.compare.scopes,
             cmp.config.compare.locality,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.score,
+            cmp.config.compare.offset,
+            cmp.config.compare.order,
           },
         },
 
@@ -237,14 +247,6 @@ require('lazy').setup({
 
           -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
-        },
-        sources = {
-          { name = 'nvim_lsp', priority = 20 },
-          { name = 'luasnip', priority = 6 },
-          { name = 'path', priority = 5 },
-          { name = 'buffer', priority = 6 },
-          { name = 'nvim_lua', priority = 5 },
-          { name = 'easy-dotnet', priority = 4 },
         },
       }
     end,
