@@ -39,7 +39,7 @@ let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'
 let g:qs_primary_color = '#ff0000'
 
 set which-key
-set notimeout
+set timeout=3000
 set timeoutlen=5000
 let g:WhichKey_ShowVimActions = "true"
 let g:WhichKey_ShowTypedSequence = "true"
@@ -115,7 +115,9 @@ imap <c-y> <Action>(EditorChooseLookupItem)
 
 " split and windows
 map <leader>x <Action>(CloseContent)
-map <leader>X <Action>(ReopenClosedTab)
+map <leader>br <Action>(ReopenClosedTab)
+map <leader>bp <Action>(PinActiveTab)
+
 nmap <c-w>w <Action>(NextSplitter)
 nmap <c-w>p <Action>(PrevSplitter)
 nmap <c-w>v <Action>(SplitVertically)
