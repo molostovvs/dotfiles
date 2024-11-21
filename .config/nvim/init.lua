@@ -92,9 +92,12 @@ require('lazy').setup({
       }
 
       require('mason').setup {
+        ui = {
+          border = 'rounded',
+        },
         registries = {
           'github:mason-org/mason-registry',
-          'github:syndim/mason-registry',
+          'github:crashdummyy/mason-registry',
         },
       }
 
