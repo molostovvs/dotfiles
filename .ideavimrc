@@ -146,7 +146,7 @@ nmap mg <Action>(ShowTypeBookmarks)
 " imap <m-l> <Action>(copilot.applyInlays)
 
 imap <m-[> <Action>(com.codeium.intellij.ShowPreviousCompletionAction)
-imap <m-[> <Action>(com.codeium.intellij.ShowNextCompletionAction)
+imap <m-]> <Action>(com.codeium.intellij.ShowNextCompletionAction)
 imap <m-l> <Action>(com.codeium.intellij.AcceptCompletionAction)
 vmap <m-R> <Action>(com.codeium.intellij.editor_menu.RefactorSelection)
 nmap <m-C> <Action>(com.codeium.intellij.command.CommandAction)
