@@ -47,7 +47,7 @@ let g:WhichKey_DefaultDelay = 100
 let g:WhichKey_ProcessUnknownMappings = "true
 let g:WhichKey_SortOrder = "by_key_prefix_first"
 
-map <silent> <c-x> :nohlsearch<CR>
+map <silent> <esc> :nohlsearch<CR>
 nmap <leader>vr <Action>(IdeaVim.ReloadVimRc.reload)
 nmap <leader>va <Action>(VimFindActionIdAction)
 
