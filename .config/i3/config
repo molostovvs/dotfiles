@@ -22,9 +22,9 @@ exec --no-startup-id conky -c $HOME/.config/conky/conky_green
 exec --no-startup-id qbittorrent
 exec --no-startup-id blueman-manager
 exec --no-startup-id yandex-disk start
-# exec --no-startup-id hiddify
 exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 165
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id ./overclock.sh
 
 # start composer
 exec_always picom
@@ -66,6 +66,7 @@ bindsym Print exec --no-startup-id flameshot gui
 
 bindcode $win+32 exec --no-startup-id rofi -show combi
 bindcode $win+$lalt+30 exec warpd --hint
+bindcode $win+$lalt+27 exec xprop
 
 bindsym $win+Left focus left
 bindsym $win+Down focus down
@@ -84,6 +85,7 @@ bindcode $win+45 layout toggle split
 # Auto allocate apps to workspaces
 for_window [class="qbittorrent"] move to workspace $ws9
 for_window [class="qBittorrent"] move to workspace $ws9
+for_window [class="Telegram"] move to workspace $ws9
 
 # toggle tiling / floating
 bindcode $win+29 floating toggle
