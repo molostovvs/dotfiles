@@ -16,7 +16,7 @@ client.placeholder      #ffffff #0c0c0c #ffffff #ffffff   #0c0c0c
 client.background       #ffffff
 
 exec --no-startup-id xset s 900
-exec_always --no-startup-id xset r rate 200 40
+exec_always --no-startup-id xset r rate 250 80
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -f
 exec --no-startup-id conky -c $HOME/.config/conky/conky_green
 exec --no-startup-id qbittorrent
@@ -86,6 +86,7 @@ bindcode $win+45 layout toggle split
 for_window [class="qbittorrent"] move to workspace $ws9
 for_window [class="qBittorrent"] move to workspace $ws9
 for_window [class="Telegram"] move to workspace $ws9
+for_window [class="steam"] move to workspace $ws5
 
 # toggle tiling / floating
 bindcode $win+29 floating toggle
