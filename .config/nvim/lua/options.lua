@@ -11,6 +11,8 @@ vim.opt.fixeol = false
 vim.opt.endoffile = false
 vim.opt.fileformats = 'unix,dos,mac'
 
+vim.lsp.set_log_level 'WARN'
+
 -- options for ufo
 vim.o.foldcolumn = '0'
 vim.o.foldlevel = 99
