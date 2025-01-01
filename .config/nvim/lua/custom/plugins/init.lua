@@ -93,12 +93,57 @@ return {
         builtin.live_grep {
           grep_open_files = true,
           prompt_title = 'Live Grep in Open Files',
+          initial_mode = 'insert',
         }
       end, { desc = '[S]earch [/] in Open Files' })
 
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      local function grep_inside_quotes()
+        -- Получить текущую строку под курсором
+        local line = vim.api.nvim_get_current_line()
+        local col = vim.fn.col '.'
+
+        local quote_chars = { ['"'] = true, ["'"] = true }
+
+        local start_pos = nil
+        local end_pos = nil
+        local quote_char = nil
+
+        for i = col, 1, -1 do
+          local c = line:sub(i, i)
+          if quote_chars[c] then
+            start_pos = i
+            quote_char = c
+            break
+          end
+        end
+
+        if start_pos == nil then
+          return nil
+        end
+
+        -- Ищем конец кавычек
+        for i = start_pos + 1, #line do
+          local c = line:sub(i, i)
+          if c == quote_char then
+            end_pos = i
+            break
+          end
+        end
+
+        if end_pos == nil then
+          return nil
+        end
+
+        -- Извлекаем текст внутри кавычек
+        local text_in_quotes = line:sub(start_pos + 1, end_pos - 1)
+        builtin.live_grep { default_text = text_in_quotes }
+      end
+
+      vim.keymap.set('n', '<leader>sq', grep_inside_quotes, { desc = '[S]earch [Q]uotes' })
     end,
   },
   {
