@@ -12,6 +12,13 @@ wk.add {
   { '<leader>w', group = '[W]orkspace' },
   { '<leader>b', group = '[B]uffer' },
   { '<leader>tn', '<cmd>set relativenumber!<cr>', desc = '[T]oggle relative [N]umber lines' },
+  {
+    '<leader>td',
+    function()
+      vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+    end,
+    desc = '[T]oggle [D]iagnostic',
+  },
   { '<esc>', '<cmd>nohlsearch<cr>', mode = 'n' },
   { '[d', vim.diagnostic.goto_prev, desc = 'Previous [D]iagnostic message' },
   { ']d', vim.diagnostic.goto_next, desc = 'Next [D]iagnostic message ' },
