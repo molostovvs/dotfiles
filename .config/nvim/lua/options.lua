@@ -17,6 +17,10 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
+vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#ff0000', bold = true, underline = false })
+vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#ffffff', underline = true })
+
+-- TODO: remove after 0.11 switch
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = 'rounded',
   title = 'docs',
