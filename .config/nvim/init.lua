@@ -27,6 +27,7 @@ require('lazy').setup({
           end
 
           map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+          map('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
           map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
           map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
           map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
@@ -65,6 +66,10 @@ require('lazy').setup({
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = false,
+      }
 
       local servers = {
         docker_compose_language_service = {},
