@@ -54,14 +54,6 @@ wk.add {
     end,
     desc = '[C]ode [F]ormat',
   },
-  {
-    '<leader>cp',
-    function()
-      require('actions-preview').code_actions()
-    end,
-    desc = '[C]ode actions [P]review',
-    mode = { 'n', 'v' },
-  },
   { '<leader>bp', '<Cmd>BufferMovePrevious<CR>', mode = { 'n' }, desc = '[B]uffer [P]revious' },
   { '<leader>bn', '<Cmd>BufferMoveNext<CR>', mode = { 'n' }, desc = '[B]uffer [N]ext' },
   { '<leader>bb', '<Cmd>BufferPin<CR>', mode = { 'n' }, desc = '[B]uffer [B]ind' },
@@ -72,4 +64,12 @@ wk.add {
   { '<leader>vB', '<cmd>Gitsigns blame<cr>', mode = { 'n' }, desc = '[V]cs [B]lame' },
   { '<leader>vb', '<cmd>Gitsigns blame_line<cr>', mode = { 'n' }, desc = '[V]cs [B]lame line' },
   { '<leader>vp', '<cmd>Gitsigns preview_hunk<cr>', mode = { 'n' }, desc = '[V]cs [P]review hunk' },
+  {
+    'zp',
+    function()
+      require('ufo').peekFoldedLinesUnderCursor()
+    end,
+    mode = { 'n' },
+    desc = 'Peek fold',
+  },
 }
