@@ -28,6 +28,13 @@ vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   wrap = true,
 })
 
+vim.filetype.add {
+  pattern = {
+    ['.*/.github/workflows/.*%.yml'] = 'yaml.ghaction',
+    ['.*/.github/workflows/.*%.yaml'] = 'yaml.ghaction',
+  },
+}
+
 vim.opt.mouse = nil
 vim.opt.mousescroll = 'ver:0,hor:0'
 
