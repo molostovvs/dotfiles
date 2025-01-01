@@ -14,12 +14,41 @@ return {
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-telescope/telescope-file-browser.nvim' },
     },
+
     config = function()
+      local get_telescope_width = function()
+        return math.min(math.floor(vim.fn.winwidth(0) * 0.95), 130 + 60)
+      end
+
+      local preview_width = function()
+        local available_cols_for_preview = vim.fn.winwidth(0) * 0.9 - 60
+        return math.min(math.floor(available_cols_for_preview), 130)
+      end
+
       require('telescope').setup {
         defaults = {
+          dynamic_preview_title = true,
           path_display = { 'tail' },
           fname_width = 60,
+          initial_mode = 'normal',
+          layout_strategy = 'horizontal',
+          layout_config = {
+            horizontal = {
+              height = 0.95,
+              preview_cutoff = 120,
+              prompt_position = 'bottom',
+              width = get_telescope_width(),
+              preview_width = preview_width(),
+            },
+            vertical = {
+              height = 0.95,
+              preview_cutoff = 40,
+              prompt_position = 'top',
+              width = get_telescope_width(),
+            },
+          },
         },
         extensions = {
           ['ui-select'] = {
@@ -27,15 +56,27 @@ return {
               previewer = true,
             },
           },
+          file_browser = {
+            grouped = true,
+            -- this doesn't work for some reason
+            -- display_stat = { date = false, size = false, mode = true },
+            display_stat = false,
+            cwd_to_path = true,
+            path = '%:p:h',
+          },
         },
       }
 
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'file_browser')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
 
+      vim.keymap.set('n', '<leader>fb', function()
+        require('telescope').extensions.file_browser.file_browser()
+      end, { desc = '[F]ile [B]rowser' })
       vim.keymap.set('n', '<leader>sb', function()
         builtin.buffers {
           sort_mru = true,
@@ -48,6 +89,7 @@ return {
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', function()
         builtin.find_files {
+          initial_mode = 'insert',
           find_command = {
             'fd',
             '--type',
@@ -64,13 +106,22 @@ return {
           fname_width = 60,
         }
       end, { desc = '[G]oto [I]mplementation' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>sg', function()
+        builtin.live_grep { initial_mode = 'insert' }
+      end, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.builtin, { desc = 'Telescope pickers' })
+      vim.keymap.set('n', 'K', function()
+        vim.lsp.buf.hover {
+          border = 'rounded',
+          title = 'docs',
+          max_width = math.floor(vim.fn.winwidth(0) / 1.3),
+          wrap = true,
+        }
+      end, { desc = 'LSP Hover' })
 
       vim.keymap.set('n', 'gr', function()
         builtin.lsp_references {
@@ -79,6 +130,7 @@ return {
           include_declaration = false,
           path_display = { 'tail' },
           fname_width = 60,
+          show_line = false,
         }
       end, { desc = '[G]oto [R]eferences' })
 
@@ -86,6 +138,7 @@ return {
         builtin.current_buffer_fuzzy_find {
           winblend = 0,
           previewer = false,
+          initial_mode = 'insert',
         }
       end, { desc = '[/] Fuzzily search in current buffer' })
 
@@ -252,10 +305,29 @@ return {
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
-    opts = {
-      enable_check_bracket_line = false,
-      ignored_next_char = '[%w%.]',
-    },
+    config = function()
+      local npairs = require 'nvim-autopairs'
+      local Rule = require 'nvim-autopairs.rule'
+      local cond = require 'nvim-autopairs.conds'
+
+      npairs.setup()
+
+      npairs.add_rule(Rule('<', '>', {
+        -- if you use nvim-ts-autotag, you may want to exclude these filetypes from this rule
+        -- so that it doesn't conflict with nvim-ts-autotag
+        '-html',
+        '-javascriptreact',
+        '-typescriptreact',
+      }):with_pair(
+        -- regex will make it so that it will auto-pair on
+        -- `a<` but not `a <`
+        -- The `:?:?` part makes it also
+        -- work on Rust generics like `some_func::<T>()`
+        cond.before_regex('%a+:?:?$', 3)
+      ):with_move(function(opts)
+        return opts.char == '>'
+      end))
+    end,
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
@@ -266,11 +338,16 @@ return {
   },
   {
     'kevinhwang91/nvim-ufo',
+    enabled = true,
     dependencies = { 'kevinhwang91/promise-async' },
     opts = {
-      provider_select = function(bufnr, filetype, buftype)
-        return { 'treesitter', 'indent' }
-      end,
+      close_fold_kinds_for_ft = {
+        default = {
+          'imports',
+          'comment',
+          'implementation',
+        },
+      },
     },
   },
   {
@@ -280,7 +357,7 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
+        lualine_c = { { 'filename', path = 1 } },
         lualine_x = { 'filesize', 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
@@ -339,55 +416,7 @@ return {
     opts = {},
   },
   {
-    'aznhe21/actions-preview.nvim',
-    opts = {
-      telescope = {
-        sorting_strategy = 'ascending',
-        layout_strategy = 'vertical',
-        layout_config = {
-          width = 0.8,
-          height = 0.9,
-          prompt_position = 'top',
-          preview_cutoff = 20,
-          preview_height = function(_, _, max_lines)
-            return max_lines - 15
-          end,
-        },
-      },
-    },
-  },
-  {
-    'zbirenbaum/copilot.lua',
-    enabled = false,
-    cmd = 'Copilot',
-    event = 'VeryLazy',
-    opts = {
-      suggestion = {
-        enabled = true,
-        auto_trigger = false,
-        debounce = 10,
-      },
-      panel = {
-        enabled = false,
-        auto_refresh = true,
-      },
-      filetypes = {
-        vb = true,
-        cs = true,
-        lua = true,
-        ['*'] = false,
-      },
-    },
-    config = function(_, opts)
-      require('copilot').setup(opts)
-    end,
-  },
-  {
     'onsails/lspkind.nvim',
-  },
-  {
-    'zbirenbaum/copilot-cmp',
-    enabled = false,
     opts = {},
   },
   {
@@ -410,35 +439,8 @@ return {
     end,
     init = function()
       vim.g.mkdp_refresh_slow = 1
-      vim.g.mkdp_auto_start = 1
+      vim.g.mkdp_auto_start = 0
     end,
-  },
-  {
-    'lewis6991/hover.nvim',
-    enabled = false,
-    event = 'VeryLazy',
-    opts = {
-      init = function()
-        require 'hover.providers.lsp'
-        require 'hover.providers.man'
-        require 'hover.providers.diagnostic'
-        require 'hover.providers.fold_preview'
-        require 'hover.providers.gh'
-        require 'hover.providers.gh_user'
-      end,
-      preview_opts = {
-        border = 'single',
-      },
-      title = true,
-      preview_window = true,
-    },
-  },
-  {
-    'nvim-telescope/telescope-file-browser.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-    keys = {
-      { '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', desc = '[F]ile [B]rowser' },
-    },
   },
   {
     'nvim-neotest/neotest',
@@ -446,7 +448,6 @@ return {
     dependencies = {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
-      'antoinemadec/FixCursorHold.nvim',
       'nvim-treesitter/nvim-treesitter',
       'Issafalcon/neotest-dotnet',
     },
@@ -518,14 +519,6 @@ return {
     opts = {},
   },
   {
-    'Exafunction/codeium.vim',
-    enabled = true,
-    -- event = 'BufEnter',
-    config = function()
-      vim.g.codeium_manual = true
-    end,
-  },
-  {
     'rmagatti/goto-preview',
     event = 'BufEnter',
     config = true,
@@ -548,6 +541,8 @@ return {
       suppressed_dirs = { '~/', '~/Downloads', '/' },
       auto_save = true,
       log_level = 'error',
+      use_git_branch = true,
+      close_unsupported_windows = true,
     },
   },
   {
@@ -560,33 +555,19 @@ return {
   },
   {
     'GustavEikaas/easy-dotnet.nvim',
-    dev = true,
-    dir = '~/source/playground/easy-dotnet.nvim/',
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
+    enabled = true,
     opts = {
-      get_sdk_path = function()
-        return '/usr/share/dotnet/sdk/8.0.302'
-      end,
+      -- get_sdk_path = function()
+      --   return '/usr/share/dotnet/sdk/8.0.404'
+      -- end,
       test_runner = {
         viewmode = 'float',
         noBuild = false,
         noRestore = false,
         enable_buffer_test_execution = true,
-        mappings = {
-          run_test_from_buffer = { lhs = '<leader>th', desc = 'run test from buffer' },
-        },
       },
-    },
-  },
-  {
-    'otavioschwanck/arrow.nvim',
-    enabled = true,
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    opts = {
-      show_icons = true,
-      buffer_leader_key = 'm', -- Per Buffer Mappings
+      enable_filetypes = true,
     },
   },
   {
@@ -611,5 +592,161 @@ return {
         group_index = 0, -- set group index to 0 to skip loading LuaLS completions
       })
     end,
+  },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    -- dependencies = { { 'echasnovski/mini.icons', opts = {} } },
+    dependencies = { 'nvim-tree/nvim-web-devicons' }, -- use if prefer nvim-web-devicons
+  },
+  {
+    'stevearc/dressing.nvim',
+    enabled = true,
+    opts = {},
+  },
+  {
+    'Bekaboo/dropbar.nvim',
+    -- optional, but required for fuzzy finder support
+    dependencies = {
+      'nvim-telescope/telescope-fzf-native.nvim',
+    },
+  },
+  { --* the completion engine *--
+    'iguanacucumber/magazine.nvim',
+    name = 'nvim-cmp', -- Otherwise highlighting gets messed up
+    config = function()
+      local cmp = require 'cmp'
+      local compare = require 'cmp.config.compare'
+
+      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+
+      cmp.register_source('easy-dotnet', require('easy-dotnet').package_completion_source)
+
+      local luasnip = require 'luasnip'
+      luasnip.config.setup {}
+
+      local WIDE_HEIGHT = 40
+
+      cmp.setup {
+        performance = {
+          debounce = 10,
+        },
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
+        },
+        view = {
+          entries = 'custom',
+          docs = {
+            auto_open = true,
+          },
+        },
+        mapping = {
+          ['<C-n>'] = cmp.mapping.select_next_item(),
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          ['<C-Space>'] = cmp.mapping(function()
+            if cmp.visible() then
+              cmp.abort()
+            else
+              cmp.complete()
+            end
+          end),
+          -- <c-l> will move you to the right of each of the expansion locations.
+          -- <c-h> is similar, except moving you backwards.
+          ['<C-l>'] = cmp.mapping(function()
+            if luasnip.expand_or_locally_jumpable() then
+              luasnip.expand_or_jump()
+            end
+          end, { 'i', 's' }),
+          ['<C-h>'] = cmp.mapping(function()
+            if luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
+            end
+          end, { 'i', 's' }),
+        },
+
+        formatting = {
+          format = function(entry, vim_item)
+            if vim.tbl_contains({ 'path' }, entry.source.name) then
+              local icon, hl_group = require('nvim-web-devicons').get_icon(entry.completion_item.label)
+              if icon then
+                vim_item.kind = icon
+                vim_item.kind_hl_group = hl_group
+                return vim_item
+              end
+            end
+            return require('lspkind').cmp_format { with_text = true }(entry, vim_item)
+          end,
+        },
+        window = {
+          completion = {
+            border = 'rounded',
+            winhighlight = 'FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
+            scrollbar_winhighlight = 'EndOfBuffer:PmenuSbar,NormalFloat:PmenuSbar',
+            scrollbar_thumb_winhighlight = 'EndOfBuffer:PmenuThumb,NormalFloat:PmenuThumb',
+            winblend = vim.o.pumblend,
+            scrolloff = 0,
+            col_offset = 0,
+            side_padding = 1,
+            scrollbar = true,
+          },
+          documentation = {
+            border = 'rounded',
+            max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
+            max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
+            winhighlight = 'FloatBorder:NormalFloat',
+            scrollbar_winhighlight = 'EndOfBuffer:PmenuSbar,NormalFloat:PmenuSbar',
+            scrollbar_thumb_winhighlight = 'EndOfBuffer:PmenuThumb,NormalFloat:PmenuThumb',
+            winblend = vim.o.pumblend,
+            col_offset = 0,
+          },
+        },
+        matching = {
+          disallow_fuzzy_matching = false,
+          disallow_fullfuzzy_matching = false,
+          disallow_partial_fuzzy_matching = true,
+          disallow_partial_matching = false,
+          disallow_prefix_unmatching = false,
+          disallow_symbol_nonprefix_matching = true,
+        },
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'nvim_lua' },
+          { name = 'buffer' },
+          { name = 'async_path' },
+          { name = 'luasnip' },
+          { name = 'easy-dotnet' },
+          { name = 'calc' },
+        },
+        sorting = {
+          priority_weight = 2,
+          comparators = {
+            compare.offset,
+            compare.exact,
+            compare.score,
+            compare.recently_used,
+            compare.locality,
+            compare.length,
+          },
+        },
+      }
+    end,
+  },
+  { 'iguanacucumber/mag-nvim-lsp', name = 'cmp-nvim-lsp', opts = {} },
+  { 'iguanacucumber/mag-nvim-lua', name = 'cmp-nvim-lua' },
+  { 'iguanacucumber/mag-buffer', name = 'cmp-buffer' },
+  { 'iguanacucumber/mag-cmdline', name = 'cmp-cmdline' },
+  'https://codeberg.org/FelipeLema/cmp-async-path',
+  {
+    'yioneko/nvim-type-fmt',
+    opts = {},
   },
 }
