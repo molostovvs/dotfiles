@@ -73,24 +73,22 @@ require('lazy').setup({
 
       local servers = {
         docker_compose_language_service = {},
-        roslyn = {
-          name = 'roslyn',
-          flags = {
-            debounce_text_changes = 0,
-            exit_timeout = 5000,
-            allow_incremental_sync = true,
-          },
-        },
+        roslyn = {},
         terraformls = {},
         bashls = {},
         lua_ls = {
           settings = {
             Lua = {
               completion = {
-                callSnippet = 'Replace',
+                callSnippet = 'Both',
               },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
+              },
+              hint = {
+                enable = true,
+              },
             },
           },
         },
@@ -119,6 +117,7 @@ require('lazy').setup({
         'hadolint',
         'luacheck',
         'tflint',
+        'actionlint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -172,11 +171,6 @@ require('lazy').setup({
       cmp.register_source('easy-dotnet', require('easy-dotnet').package_completion_source)
 
       cmp.setup {
-        performance = {
-          max_view_entries = 40,
-          debounce = 0,
-          throttle = 0,
-        },
         view = {
           entries = 'custom',
           docs = {
