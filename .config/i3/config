@@ -8,12 +8,12 @@ gaps inner 10px
 
 # colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #ffffff #285577 #ffffff #ffffff   #ff00ff
-client.focused_inactive #ffffff #5f676a #ffffff #ffffff   #d3d3d3
-client.unfocused        #ffffff #222222 #ffffff #ffffff   #222222
-client.urgent           #ffffff #900000 #ffffff #ffffff   #900000
-client.placeholder      #ffffff #0c0c0c #ffffff #ffffff   #0c0c0c
-client.background       #ffffff
+# client.focused          #ffffff #285577 #ffffff #ffffff   #ff00ff
+# client.focused_inactive #ffffff #5f676a #ffffff #ffffff   #d3d3d3
+# client.unfocused        #ffffff #222222 #ffffff #ffffff   #222222
+# client.urgent           #ffffff #900000 #ffffff #ffffff   #900000
+# client.placeholder      #ffffff #0c0c0c #ffffff #ffffff   #0c0c0c
+# client.background       #ffffff
 
 exec --no-startup-id xset s 900
 exec_always --no-startup-id xset r rate 250 80
