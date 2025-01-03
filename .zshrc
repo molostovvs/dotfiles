@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 export DOTNET_ROOT=/usr/share/dotnet
 
-alias dotui='gitui -d $HOME/.config -w $HOME'
+alias dotui='gitui -d $HOME/.cfg/ -w $HOME'
 # fix for orcaslicer
 export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
 alias orca="setsid /usr/bin/orca-slicer"
@@ -39,7 +39,6 @@ HIST_STAMPS="dd-mm-yyyy"
 plugins=(git docker zsh-autosuggestions zsh-syntax-highlighting gh fzf web-search terraform aws)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/yandex-cloud/completion.zsh.inc
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
@@ -51,7 +50,7 @@ source $HOME/yandex-cloud/completion.zsh.inc
 alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig="nvim ~/.config/nvim"
 alias lzd=lazydocker
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.config/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias dotnettu="dotnet tool list -g | awk '{ print \$1 }' | tail +3 | xargs -I % sh -c 'dotnet tool update -g %;'"
 alias ycs3='aws s3 --endpoint-url=https://storage.yandexcloud.net'
 
