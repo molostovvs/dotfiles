@@ -2,6 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 export DOTNET_ROOT=/usr/share/dotnet
+export DOTNET_RUNTIME_ID=linux-x64
 
 alias dotui='gitui -d $HOME/.cfg/ -w $HOME'
 # fix for orcaslicer
