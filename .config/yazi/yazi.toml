@@ -1,0 +1,7 @@
+[manager]
+sort_dir_first = true
+
+[preview]
+wrap = "yes"
+image_delay = 30
+image_filter = "catmull-rom"
