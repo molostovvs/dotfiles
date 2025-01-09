@@ -11,7 +11,9 @@ alias orca="setsid /usr/bin/orca-slicer"
 
 path+=('$HOME/yandex-cloud/bin')
 path+=('$HOME/.dotnet/tools')
+path+=('$HOME/opt')
 export PATH="$PATH:/home/mvs/.dotnet/tools"
+export PATH="$PATH:/home/mvs/opt"
 
 ZSH_THEME="robbyrussell"
 
@@ -61,7 +63,6 @@ if [ -f "${HOME}/yandex-cloud/path.bash.inc" ]; then source "${HOME}/yandex-clou
 # The next line enables shell command completion for yc.
 if [ -f "${HOME}/yandex-cloud/completion.zsh.inc" ]; then source "${HOME}/yandex-cloud/completion.zsh.inc"; fi
 
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 
 # The next line updates PATH for Yandex Cloud YDB CLI.
 if [ -f "${HOME}/ydb/path.bash.inc" ]; then source "${HOME}/ydb/path.bash.inc"; fi
@@ -88,3 +89,4 @@ _dotnet_zsh_complete()
 }
 
 compdef _dotnet_zsh_complete dotnet
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
