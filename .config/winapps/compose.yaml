@@ -6,7 +6,7 @@
 
 # For documentation, FAQ, additional configuration options and technical help, visit: https://github.com/dockur/windows
 
-name: "winapps" # Docker Compose Project Name.
+name: "Windows" # Docker Compose Project Name.
 volumes:
   # Create Volume 'data'.
   # Located @ '/var/lib/docker/volumes/winapps_data/_data' (Docker).
@@ -20,13 +20,13 @@ services:
       # Version of Windows to configure. For valid options, visit:
       # https://github.com/dockur/windows?tab=readme-ov-file#how-do-i-select-the-windows-version
       # https://github.com/dockur/windows?tab=readme-ov-file#how-do-i-install-a-custom-image
-      VERSION: "ltsc10"
+      VERSION: "11l"
       RAM_SIZE: "6G" # RAM allocated to the Windows VM.
       CPU_CORES: "4" # CPU cores allocated to the Windows VM.
       DISK_SIZE: "40G" # Size of the primary hard disk.
       #DISK2_SIZE: "32G" # Uncomment to add an additional hard disk to the Windows VM. Ensure it is mounted as a volume below.
-      #USERNAME: "Docker" # Uncomment to set a custom Windows username. The default is 'Docker'.
-      #PASSWORD: "" # Uncomment to set a password for the Windows user. There is no default password.
+      USERNAME: "Docker" # Uncomment to set a custom Windows username. The default is 'Docker'.
+      PASSWORD: "d0ck3r" # Uncomment to set a password for the Windows user. There is no default password.
       HOME: "${HOME}" # Set path to Linux user home folder.
       REGION: "en-US"
       KEYBOARD: "en-US-Dvorak"
