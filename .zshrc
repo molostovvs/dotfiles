@@ -5,9 +5,7 @@ export DOTNET_ROOT=/usr/share/dotnet
 export DOTNET_RUNTIME_ID=linux-x64
 
 alias dotui='gitui -d $HOME/.cfg/ -w $HOME'
-# fix for orcaslicer
-export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
-alias orca="setsid /usr/bin/orca-slicer"
+alias orca="WEBKIT_DISABLE_DMABUF_RENDERER=1 setsid /usr/bin/orca-slicer"
 
 path+=('$HOME/yandex-cloud/bin')
 path+=('$HOME/.dotnet/tools')
