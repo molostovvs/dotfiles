@@ -95,7 +95,7 @@ vim.opt.hlsearch = true
 vim.opt.relativenumber = true
 
 vim.opt.spell = true
-vim.opt.spelllang = 'en,ru'
+-- vim.opt.spelllang = 'en,ru'
 vim.opt.spellsuggest = 'best,5'
 
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
