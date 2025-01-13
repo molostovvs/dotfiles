@@ -345,7 +345,7 @@ return {
         default = {
           'imports',
           'comment',
-          'implementation',
+          -- 'implementation',
         },
       },
     },
