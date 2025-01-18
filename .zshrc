@@ -3,6 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 export DOTNET_ROOT=/usr/share/dotnet
 export DOTNET_RUNTIME_ID=linux-x64
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 alias dotui='gitui -d $HOME/.cfg/ -w $HOME'
 alias orca="__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json /usr/bin/orca-slicer"
