@@ -7,24 +7,23 @@
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window",
-        "hyprland/submap",
     ],
     "modules-center": [
         "clock",
-        "hyprland/language",
-        "privacy"
+        "hyprland/submap",
+        "privacy",
+        "hyprland/language"
     ],
     "modules-right": [
         "cpu",
         "memory",
         "gpu-usage",
-        // "idle_inhibitor",
-        // "network",
         "pulseaudio",
-        // "temperature",
         "tray",
     ],
-
+    "hyprland/window": {
+        "format":"{initialTitle}"
+    },
     "privacy": {
         "icon-spacing": 4,
         "icon-size": 18,
