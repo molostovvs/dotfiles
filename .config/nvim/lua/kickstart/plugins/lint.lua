@@ -8,7 +8,10 @@ return {
         markdown = { 'markdownlint' },
         json = { 'jsonlint' },
         sql = { 'sqlfluff' },
-        lua = { 'luacheck' },
+        lua = {
+          'selene',
+          -- 'luacheck',
+        },
         terraform = { 'tflint' },
         dockerfile = { 'hadolint' },
         typescript = { 'eslint_d' },

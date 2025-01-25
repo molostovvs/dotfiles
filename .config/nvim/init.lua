@@ -116,6 +116,7 @@ require('lazy').setup({
         'netcoredbg',
         'hadolint',
         'luacheck',
+        'selene',
         'tflint',
         'actionlint',
       })
