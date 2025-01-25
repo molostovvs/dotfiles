@@ -503,7 +503,7 @@ return {
             dotnet_compiler_diagnostics_scope = 'openFiles',
           },
           ['csharp|code_lens'] = {
-            dotnet_enable_references_code_lens = true,
+            dotnet_enable_references_code_lens = false,
             dotnet_enable_tests_code_lens = true,
           },
           ['navigation'] = {
@@ -746,7 +746,15 @@ return {
   { 'iguanacucumber/mag-cmdline', name = 'cmp-cmdline' },
   'https://codeberg.org/FelipeLema/cmp-async-path',
   {
-    'yioneko/nvim-type-fmt',
-    opts = {},
+    'Wansmer/symbol-usage.nvim',
+    event = 'BufReadPre', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
+    config = function()
+      require('symbol-usage').setup {
+        request_pending_text = 'loading...',
+        references = { enabled = true, include_declaration = false },
+        definition = { enabled = true },
+        implementation = { enabled = true },
+      }
+    end,
   },
 }
