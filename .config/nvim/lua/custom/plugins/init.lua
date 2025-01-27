@@ -582,16 +582,6 @@ return {
     },
   },
   { 'Bilal2453/luvit-meta', lazy = true }, -- optional `vim.uv` typings
-  { -- optional completion source for require statements and module annotations
-    'hrsh7th/nvim-cmp',
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-      table.insert(opts.sources, {
-        name = 'lazydev',
-        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-      })
-    end,
-  },
   {
     'stevearc/oil.nvim',
     ---@module 'oil'
@@ -613,137 +603,6 @@ return {
       'nvim-telescope/telescope-fzf-native.nvim',
     },
   },
-  { --* the completion engine *--
-    'iguanacucumber/magazine.nvim',
-    name = 'nvim-cmp', -- Otherwise highlighting gets messed up
-    config = function()
-      local cmp = require 'cmp'
-      local compare = require 'cmp.config.compare'
-
-      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
-      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-
-      cmp.register_source('easy-dotnet', require('easy-dotnet').package_completion_source)
-
-      local luasnip = require 'luasnip'
-      luasnip.config.setup {}
-
-      local WIDE_HEIGHT = 40
-
-      cmp.setup {
-        performance = {
-          debounce = 10,
-        },
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
-        view = {
-          entries = 'custom',
-          docs = {
-            auto_open = true,
-          },
-        },
-        mapping = {
-          ['<C-n>'] = cmp.mapping.select_next_item(),
-          ['<C-p>'] = cmp.mapping.select_prev_item(),
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
-          ['<C-Space>'] = cmp.mapping(function()
-            if cmp.visible() then
-              cmp.abort()
-            else
-              cmp.complete()
-            end
-          end),
-          -- <c-l> will move you to the right of each of the expansion locations.
-          -- <c-h> is similar, except moving you backwards.
-          ['<C-l>'] = cmp.mapping(function()
-            if luasnip.expand_or_locally_jumpable() then
-              luasnip.expand_or_jump()
-            end
-          end, { 'i', 's' }),
-          ['<C-h>'] = cmp.mapping(function()
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            end
-          end, { 'i', 's' }),
-        },
-
-        formatting = {
-          format = function(entry, vim_item)
-            if vim.tbl_contains({ 'path' }, entry.source.name) then
-              local icon, hl_group = require('nvim-web-devicons').get_icon(entry.completion_item.label)
-              if icon then
-                vim_item.kind = icon
-                vim_item.kind_hl_group = hl_group
-                return vim_item
-              end
-            end
-            return require('lspkind').cmp_format { with_text = true }(entry, vim_item)
-          end,
-        },
-        window = {
-          completion = {
-            border = 'rounded',
-            winhighlight = 'FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
-            scrollbar_winhighlight = 'EndOfBuffer:PmenuSbar,NormalFloat:PmenuSbar',
-            scrollbar_thumb_winhighlight = 'EndOfBuffer:PmenuThumb,NormalFloat:PmenuThumb',
-            winblend = vim.o.pumblend,
-            scrolloff = 0,
-            col_offset = 0,
-            side_padding = 1,
-            scrollbar = true,
-          },
-          documentation = {
-            border = 'rounded',
-            max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
-            max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
-            winhighlight = 'FloatBorder:NormalFloat',
-            scrollbar_winhighlight = 'EndOfBuffer:PmenuSbar,NormalFloat:PmenuSbar',
-            scrollbar_thumb_winhighlight = 'EndOfBuffer:PmenuThumb,NormalFloat:PmenuThumb',
-            winblend = vim.o.pumblend,
-            col_offset = 0,
-          },
-        },
-        matching = {
-          disallow_fuzzy_matching = false,
-          disallow_fullfuzzy_matching = false,
-          disallow_partial_fuzzy_matching = true,
-          disallow_partial_matching = false,
-          disallow_prefix_unmatching = false,
-          disallow_symbol_nonprefix_matching = true,
-        },
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'nvim_lua' },
-          { name = 'buffer' },
-          { name = 'async_path' },
-          { name = 'luasnip' },
-          { name = 'easy-dotnet' },
-          { name = 'calc' },
-        },
-        sorting = {
-          priority_weight = 2,
-          comparators = {
-            compare.offset,
-            compare.exact,
-            compare.score,
-            compare.recently_used,
-            compare.locality,
-            compare.length,
-          },
-        },
-      }
-    end,
-  },
-  { 'iguanacucumber/mag-nvim-lsp', name = 'cmp-nvim-lsp', opts = {} },
-  { 'iguanacucumber/mag-nvim-lua', name = 'cmp-nvim-lua' },
-  { 'iguanacucumber/mag-buffer', name = 'cmp-buffer' },
-  { 'iguanacucumber/mag-cmdline', name = 'cmp-cmdline' },
-  'https://codeberg.org/FelipeLema/cmp-async-path',
   {
     'Wansmer/symbol-usage.nvim',
     event = 'BufReadPre', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
@@ -774,5 +633,130 @@ return {
         neocodeium.cycle(-1)
       end)
     end,
+  },
+  {
+    'saghen/blink.cmp',
+    dependencies = 'rafamadriz/friendly-snippets',
+    version = '*',
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = {
+        preset = 'default',
+        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-y>'] = { 'select_and_accept', 'fallback' },
+        ['<C-n>'] = { 'select_next', 'fallback' },
+        ['<C-p>'] = { 'select_prev', 'fallback' },
+        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+        ['<C-l>'] = { 'snippet_forward', 'fallback' },
+        ['<C-h>'] = { 'snippet_backward', 'fallback' },
+      },
+      appearance = {
+        use_nvim_cmp_as_default = true,
+        -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+        -- Adjusts spacing to ensure icons are aligned
+        nerd_font_variant = 'mono',
+      },
+      completion = {
+        ghost_text = {
+          enabled = false,
+          show_with_selection = true,
+          show_without_selection = false,
+        },
+        keyword = {
+          range = 'prefix',
+        },
+        trigger = {
+          prefetch_on_insert = true,
+          show_in_snippet = false,
+          show_on_keyword = true,
+        },
+        list = {
+          max_items = 200,
+          selection = {
+            preselect = true,
+            auto_insert = false,
+          },
+        },
+        accept = {
+          auto_brackets = {
+            semantic_token_resolution = {
+              enabled = true,
+              timeout_ms = 400,
+            },
+          },
+        },
+        menu = {
+          border = 'rounded',
+          winblend = vim.o.pumblend,
+          auto_show = true,
+          scrolloff = 2,
+          scrollbar = false,
+          draw = {
+            gap = 1,
+            columns = {
+              { 'label', 'label_description', gap = 1 },
+              { 'kind_icon', 'kind', gap = 1 },
+            },
+          },
+        },
+        documentation = {
+          window = {
+            border = 'rounded',
+          },
+          auto_show = true,
+        },
+      },
+      signature = {
+        window = {
+          border = 'single',
+        },
+      },
+      sources = {
+        default = {
+          'lsp',
+          'path',
+          'snippets',
+          'buffer',
+          'lazydev',
+        },
+        providers = {
+          lsp = {
+            transform_items = function(_, items)
+              for _, item in ipairs(items) do
+                local cmp_item_kind = require('blink.cmp.types').CompletionItemKind
+
+                if item.kind == cmp_item_kind.Property then
+                  item.score_offset = item.score_offset + 1
+                end
+
+                if item.kind == cmp_item_kind.Operator then
+                  item.score_offset = item.score_offset - 1
+                end
+              end
+
+              return vim.tbl_filter(function(item)
+                return item.kind ~= require('blink.cmp.types').CompletionItemKind.Text
+              end, items)
+            end,
+            async = true,
+            timeout_ms = 300,
+          },
+          snippets = {
+            score_offset = -10,
+          },
+          lazydev = {
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
+            score_offset = 100,
+          },
+        },
+      },
+    },
+    signature = {
+      enabled = false,
+    },
+    opts_extend = { 'sources.default' },
   },
 }

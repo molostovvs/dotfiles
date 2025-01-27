@@ -68,8 +68,7 @@ require('lazy').setup({
         end,
       })
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
         lineFoldingOnly = false,
@@ -136,124 +135,6 @@ require('lazy').setup({
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
-        },
-      }
-    end,
-  },
-  {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
-    dependencies = {
-      {
-        'L3MON4D3/LuaSnip',
-        build = (function()
-          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-            return
-          end
-          return 'make install_jsregexp'
-        end)(),
-        dependencies = {
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
-          },
-        },
-      },
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-    },
-    config = function()
-      local cmp = require 'cmp'
-      local luasnip = require 'luasnip'
-      luasnip.config.setup {}
-
-      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
-      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-
-      cmp.register_source('easy-dotnet', require('easy-dotnet').package_completion_source)
-
-      cmp.setup {
-        view = {
-          entries = 'custom',
-          docs = {
-            auto_open = true,
-          },
-        },
-        formatting = {
-          format = function(entry, vim_item)
-            if vim.tbl_contains({ 'path' }, entry.source.name) then
-              local icon, hl_group = require('nvim-web-devicons').get_icon(entry.completion_item.label)
-              if icon then
-                vim_item.kind = icon
-                vim_item.kind_hl_group = hl_group
-                return vim_item
-              end
-            end
-            return require('lspkind').cmp_format { with_text = true }(entry, vim_item)
-          end,
-        },
-
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered {
-            max_width = 100,
-            max_height = 50,
-          },
-        },
-        completion = { completeopt = 'menu,menuone,noinsert' },
-        sources = {
-          { name = 'nvim_lsp', priority = 8 },
-          { name = 'buffer', priority = 7 },
-          { name = 'luasnip', priority = 6 },
-          { name = 'path', priority = 5 },
-          { name = 'nvim_lua', priority = 5 },
-          { name = 'easy-dotnet', priority = 4 },
-          { name = 'calc', priority = 6 },
-        },
-        sorting = {
-          priority_weight = 1,
-          comparators = {
-            cmp.config.compare.locality,
-            cmp.config.compare.recently_used,
-            cmp.config.compare.score,
-            cmp.config.compare.offset,
-            cmp.config.compare.order,
-          },
-        },
-
-        -- For an understanding of why these mappings were
-        -- chosen, you will need to read `:help ins-completion`
-        mapping = cmp.mapping {
-          ['<C-n>'] = cmp.mapping.select_next_item(),
-          ['<C-p>'] = cmp.mapping.select_prev_item(),
-          -- Scroll the documentation window [b]ack / [f]orward
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
-          ['<C-Space>'] = cmp.mapping.complete {},
-          -- <c-l> will move you to the right of each of the expansion locations.
-          -- <c-h> is similar, except moving you backwards.
-          ['<C-l>'] = cmp.mapping(function()
-            if luasnip.expand_or_locally_jumpable() then
-              luasnip.expand_or_jump()
-            end
-          end, { 'i', 's' }),
-          ['<C-h>'] = cmp.mapping(function()
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            end
-          end, { 'i', 's' }),
-
-          -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-          --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
       }
     end,
