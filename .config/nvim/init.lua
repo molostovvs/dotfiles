@@ -5,6 +5,10 @@ require 'autocommands'
 require 'lazy-boot'
 
 require('lazy').setup({
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
   {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -307,9 +311,6 @@ require('lazy').setup({
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.debug',
   { import = 'custom.plugins' },
-  change_detection = {
-    notify = false,
-  },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
