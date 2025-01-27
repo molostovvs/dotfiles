@@ -89,3 +89,6 @@ _dotnet_zsh_complete()
 
 compdef _dotnet_zsh_complete dotnet
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/mvs/.lmstudio/bin"
