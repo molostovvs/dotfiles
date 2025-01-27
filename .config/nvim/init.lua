@@ -307,6 +307,9 @@ require('lazy').setup({
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.debug',
   { import = 'custom.plugins' },
+  change_detection = {
+    notify = false,
+  },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
