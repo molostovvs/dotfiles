@@ -68,10 +68,10 @@ require('lazy').setup({
         end,
       })
 
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local capabilities = require('blink.cmp').get_lsp_capabilities(nil, true)
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
-        lineFoldingOnly = false,
+        lineFoldingOnly = true,
       }
 
       local servers = {
