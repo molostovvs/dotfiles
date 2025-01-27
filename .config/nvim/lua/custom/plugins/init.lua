@@ -586,6 +586,7 @@ return {
     'stevearc/oil.nvim',
     ---@module 'oil'
     ---@type oil.SetupOpts
+    enabled = false,
     opts = {},
     -- Optional dependencies
     -- dependencies = { { 'echasnovski/mini.icons', opts = {} } },
