@@ -384,8 +384,8 @@ return {
     },
   },
   {
-    -- TODO: add keymaps and config
     'ray-x/lsp_signature.nvim',
+    enabled = true,
     event = 'VeryLazy',
     opts = {
       floating_window = false,
@@ -403,7 +403,6 @@ return {
         border = 'rounded',
       },
       padding = '',
-      toggle_key = '<M-f>',
     },
     config = function(_, opts)
       require('lsp_signature').setup(opts)

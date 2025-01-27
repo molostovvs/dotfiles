@@ -19,6 +19,14 @@ wk.add {
     end,
     desc = '[T]oggle [D]iagnostic',
   },
+  {
+    '<A-f>',
+    function()
+      require('lsp_signature').toggle_float_win()
+    end,
+    mode = { 'i' },
+    desc = '[F]loat LSP signature',
+  },
   { '<esc>', '<cmd>nohlsearch<cr>', mode = 'n' },
   { '[d', vim.diagnostic.goto_prev, desc = 'Previous [D]iagnostic message' },
   { ']d', vim.diagnostic.goto_next, desc = 'Next [D]iagnostic message ' },
