@@ -1,0 +1,16 @@
+return {
+  require 'custom.plugins.tools.treesitter',
+  require 'custom.plugins.tools.telescope',
+  require 'custom.plugins.tools.formatter',
+  require 'custom.plugins.tools.comment',
+  require 'custom.plugins.tools.autopairs',
+  require 'custom.plugins.tools.folds',
+  require 'custom.plugins.tools.session-manager',
+  require 'custom.plugins.tools.git-links',
+  require 'custom.plugins.tools.file-manager',
+  require 'custom.plugins.tools.ai',
+  require 'custom.plugins.tools.indents',
+  require 'custom.plugins.tools.test-runner',
+  require 'custom.plugins.tools.mini',
+  require 'custom.plugins.tools.completions',
+}
