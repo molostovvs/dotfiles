@@ -4,6 +4,8 @@ export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 export DOTNET_ROOT=/usr/share/dotnet
 export DOTNET_RUNTIME_ID=linux-x64
 export ELECTRON_OZONE_PLATFORM_HINT=auto
+# https://stackoverflow.com/a/38980986/18877268
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 alias dotui='gitui -d $HOME/.cfg/ -w $HOME'
 alias orca="__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json /usr/bin/orca-slicer"
