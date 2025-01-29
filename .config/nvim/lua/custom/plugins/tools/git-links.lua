@@ -2,9 +2,18 @@ return {
   {
     'linrongbin16/gitlinker.nvim',
     cmd = 'GitLink',
-    opts = {},
-    keys = {
-      { '<leader>gY', '<cmd>GitLink!<cr>', mode = { 'n', 'v' }, desc = 'Open git link' },
+    opts = {
+      router = {
+        browse = {
+          ['^mindbox%.gitlab%.yandexcloud%.net'] = 'https://mindbox.gitlab.yandexcloud.net/'
+            .. '{_A.ORG}/'
+            .. '{_A.REPO}/blob/'
+            .. '{_A.CURRENT_BRANCH}/'
+            .. '{_A.FILE}'
+            .. '#L{_A.LSTART}'
+            .. "{(_A.LEND > _A.LSTART and ('-' .. _A.LEND) or '')}",
+        },
+      },
     },
   },
 }
