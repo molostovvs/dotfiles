@@ -53,6 +53,7 @@ return {
           },
         },
         menu = {
+          max_height = 15,
           border = 'rounded',
           winblend = vim.o.pumblend,
           auto_show = true,
