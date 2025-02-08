@@ -12,6 +12,8 @@ require('lazy').setup {
   },
   checker = {
     enabled = true,
+    concurrency = 12,
+    notify = false,
     frequency = 60 * 60 * 8,
   },
   profiling = {
