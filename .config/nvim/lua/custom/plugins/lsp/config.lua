@@ -62,8 +62,10 @@ return {
       local servers = {
         docker_compose_language_service = {},
         roslyn = {},
+        fsautocomplete = {},
         terraformls = {},
         bashls = {},
+        jsonls = {},
         lua_ls = {
           settings = {
             Lua = {
