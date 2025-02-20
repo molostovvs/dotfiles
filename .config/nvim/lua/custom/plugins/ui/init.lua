@@ -8,4 +8,5 @@ return {
   require 'custom.plugins.ui.indent',
   require 'custom.plugins.ui.bars-n-lines',
   require 'custom.plugins.ui.git-gutter',
+  require 'custom.plugins.ui.bigfile',
 }
