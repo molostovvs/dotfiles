@@ -2,13 +2,25 @@ return {
   {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
-    version = '*',
+    branch = 'main',
+    build = 'cargo build --release',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
+      enabled = function()
+        return vim.bo.buftype ~= 'prompt' and vim.b.completion ~= false
+      end,
+      fuzzy = {
+        sorts = { 'exact', 'score', 'sort_text' },
+        -- Proximity bonus boosts the score of items matching nearby words
+        use_proximity = true,
+        -- Frecency tracks the most recently/frequently used items and boosts the score of the item
+        use_frecency = true,
+      },
       keymap = {
         preset = 'default',
-        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-space>'] = { 'show', 'hide' },
+        ['<C-d>'] = { 'show_documentation', 'hide_documentation' },
         ['<C-y>'] = { 'select_and_accept', 'fallback' },
         ['<C-n>'] = { 'select_next', 'fallback' },
         ['<C-p>'] = { 'select_prev', 'fallback' },
@@ -16,6 +28,7 @@ return {
         ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
         ['<C-l>'] = { 'snippet_forward', 'fallback' },
         ['<C-h>'] = { 'snippet_backward', 'fallback' },
+        ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
       },
       appearance = {
         use_nvim_cmp_as_default = true,
@@ -26,8 +39,6 @@ return {
       completion = {
         ghost_text = {
           enabled = false,
-          show_with_selection = true,
-          show_without_selection = false,
         },
         keyword = {
           range = 'prefix',
@@ -36,6 +47,9 @@ return {
           prefetch_on_insert = true,
           show_in_snippet = false,
           show_on_keyword = true,
+          show_on_trigger_character = true,
+          show_on_blocked_trigger_characters = { '\t' },
+          show_on_x_blocked_trigger_characters = { "'", '"' },
         },
         list = {
           max_items = 200,
@@ -58,7 +72,7 @@ return {
           winblend = vim.o.pumblend,
           auto_show = true,
           scrolloff = 2,
-          scrollbar = false,
+          scrollbar = true,
           draw = {
             gap = 1,
             columns = {
@@ -72,11 +86,6 @@ return {
             border = 'rounded',
           },
           auto_show = true,
-        },
-      },
-      signature = {
-        window = {
-          border = 'single',
         },
       },
       sources = {
@@ -93,9 +102,11 @@ return {
               for _, item in ipairs(items) do
                 local cmp_item_kind = require('blink.cmp.types').CompletionItemKind
 
-                if item.kind == cmp_item_kind.Property then
+                if item.kind == cmp_item_kind.Property or item.kind == cmp_item_kind.Field then
                   item.score_offset = item.score_offset + 1
                 end
+
+                -- print(vim.inspect(item))
 
                 if item.kind == cmp_item_kind.Operator then
                   item.score_offset = item.score_offset - 1
@@ -107,10 +118,10 @@ return {
               end, items)
             end,
             async = true,
-            timeout_ms = 300,
+            timeout_ms = 400,
           },
           snippets = {
-            score_offset = -10,
+            -- score_offset = -10,
           },
           lazydev = {
             name = 'LazyDev',
@@ -118,11 +129,28 @@ return {
             score_offset = 100,
           },
         },
+        transform_items = function(_, items)
+          return items
+        end,
+      },
+      signature = {
+        enabled = true,
+        window = {
+          show_documentation = false,
+          border = 'rounded',
+        },
+        trigger = {
+          enabled = true,
+          show_on_trigger_character = true,
+          show_on_insert_on_trigger_character = true,
+        },
       },
     },
-    signature = {
-      enabled = false,
-    },
     opts_extend = { 'sources.default' },
+  },
+  {
+    'saghen/blink.compat',
+    lazy = true,
+    version = false,
   },
 }
