@@ -7,6 +7,8 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.showmode = false
 
+vim.o.pumblend = 15
+
 vim.opt.fixeol = false
 vim.opt.endoffile = false
 vim.opt.fileformats = 'unix,dos,mac'
