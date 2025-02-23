@@ -3,6 +3,8 @@ local wk = require 'which-key'
 local map = vim.keymap.set
 map('n', ';', ':')
 
+local minuet_actions = require('minuet.virtualtext').action
+
 wk.add {
   { '<leader>c', group = '[C]ode' },
   { '<leader>d', group = '[D]ocument' },
@@ -72,6 +74,17 @@ wk.add {
   { '<leader>vB', '<cmd>Gitsigns blame<cr>', mode = { 'n' }, desc = '[V]cs [B]lame' },
   { '<leader>vb', '<cmd>Gitsigns blame_line<cr>', mode = { 'n' }, desc = '[V]cs [B]lame line' },
   { '<leader>vp', '<cmd>Gitsigns preview_hunk<cr>', mode = { 'n' }, desc = '[V]cs [P]review hunk' },
+  { 'gd', vim.lsp.buf.definition, mode = { 'n' }, desc = '[G]oto [D]efinition' },
+  { 'gD', vim.lsp.buf.declaration, mode = { 'n' }, desc = '[G]oto [D]eclaration' },
+  { 'gt', vim.lsp.buf.type_definition, mode = { 'n' }, desc = '[G]oto [T]ype definition' },
+  { '<leader>rr', vim.lsp.buf.rename, mode = { 'n' }, desc = '[R]ename symbol' },
+  { '<leader>ca', vim.lsp.buf.code_action, mode = { 'n' }, desc = '[C]ode [A]ction' },
+  { '<leader>ds', require('telescope.builtin').lsp_document_symbols, mode = { 'n' }, desc = '[D]ocument [S]ymbols' },
+  { '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, mode = { 'n' }, desc = '[W]orkspace [S]ymbols' },
+  { '<A-t>', minuet_actions.accept, mode = { 'n', 'i' }, desc = '[M]inuet Accept Completion' },
+  { '<A-[>', minuet_actions.prev, mode = { 'n', 'i' }, desc = '[M]inuet Previous Completion' },
+  { '<A-]>', minuet_actions.next, mode = { 'n', 'i' }, desc = '[M]inuet Next Completion' },
+  { '<A-l>', minuet_actions.dismiss, mode = { 'n', 'i' }, desc = '[M]inuet Dismiss Completion' },
   {
     'zp',
     function()
