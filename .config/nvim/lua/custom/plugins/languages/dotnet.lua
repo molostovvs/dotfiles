@@ -14,7 +14,7 @@ return {
     },
   },
   {
-    'seblj/roslyn.nvim',
+    'seblyng/roslyn.nvim',
     opts = {
       filewatching = false,
       config = {

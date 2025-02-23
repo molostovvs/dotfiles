@@ -10,8 +10,9 @@ return {
         sql = { 'sqlfluff' },
         lua = {
           'selene',
-          -- 'luacheck',
+          'trivy',
         },
+        cs = { 'trivy' },
         terraform = { 'tflint' },
         dockerfile = { 'hadolint' },
         typescript = { 'eslint_d' },

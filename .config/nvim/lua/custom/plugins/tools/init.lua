@@ -13,4 +13,5 @@ return {
   require 'custom.plugins.tools.test-runner',
   require 'custom.plugins.tools.mini',
   require 'custom.plugins.tools.completions',
+  require 'custom.plugins.tools.obsidian',
 }
