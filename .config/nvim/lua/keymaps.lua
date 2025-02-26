@@ -15,6 +15,18 @@ wk.add {
   { '<leader>b', group = '[B]uffer' },
   { '<leader>tn', '<cmd>set relativenumber!<cr>', desc = '[T]oggle relative [N]umber lines' },
   {
+    'K',
+    function()
+      vim.lsp.buf.hover {
+        border = 'rounded',
+        title = 'docs',
+        max_width = math.floor(vim.fn.winwidth(0) / 1.3),
+        wrap = true,
+      }
+    end,
+    { desc = 'LSP Hover' },
+  },
+  {
     '<leader>td',
     function()
       vim.diagnostic.enable(not vim.diagnostic.is_enabled())
@@ -78,9 +90,6 @@ wk.add {
   { 'gD', vim.lsp.buf.declaration, mode = { 'n' }, desc = '[G]oto [D]eclaration' },
   { 'gt', vim.lsp.buf.type_definition, mode = { 'n' }, desc = '[G]oto [T]ype definition' },
   { '<leader>rr', vim.lsp.buf.rename, mode = { 'n' }, desc = '[R]ename symbol' },
-  { '<leader>ca', vim.lsp.buf.code_action, mode = { 'n' }, desc = '[C]ode [A]ction' },
-  { '<leader>ds', require('telescope.builtin').lsp_document_symbols, mode = { 'n' }, desc = '[D]ocument [S]ymbols' },
-  { '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, mode = { 'n' }, desc = '[W]orkspace [S]ymbols' },
   { '<A-t>', minuet_actions.accept, mode = { 'n', 'i' }, desc = '[M]inuet Accept Completion' },
   { '<A-[>', minuet_actions.prev, mode = { 'n', 'i' }, desc = '[M]inuet Previous Completion' },
   { '<A-]>', minuet_actions.next, mode = { 'n', 'i' }, desc = '[M]inuet Next Completion' },

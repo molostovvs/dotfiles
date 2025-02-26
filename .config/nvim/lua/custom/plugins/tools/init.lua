@@ -1,6 +1,5 @@
 return {
   require 'custom.plugins.tools.treesitter',
-  require 'custom.plugins.tools.telescope',
   require 'custom.plugins.tools.formatter',
   require 'custom.plugins.tools.comment',
   require 'custom.plugins.tools.autopairs',
@@ -14,4 +13,5 @@ return {
   require 'custom.plugins.tools.mini',
   require 'custom.plugins.tools.completions',
   require 'custom.plugins.tools.obsidian',
+  require 'custom.plugins.tools.fzf',
 }
