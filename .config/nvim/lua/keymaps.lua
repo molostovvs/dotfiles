@@ -5,6 +5,10 @@ map('n', ';', ':')
 
 local minuet_actions = require('minuet.virtualtext').action
 
+local get_max_width = function()
+  return math.floor(vim.fn.winwidth(0) / 1.3)
+end
+
 wk.add {
   { '<leader>c', group = '[C]ode' },
   { '<leader>d', group = '[D]ocument' },
@@ -20,7 +24,7 @@ wk.add {
       vim.lsp.buf.hover {
         border = 'rounded',
         title = 'docs',
-        max_width = math.floor(vim.fn.winwidth(0) / 1.3),
+        max_width = get_max_width(),
         wrap = true,
       }
     end,
@@ -42,9 +46,41 @@ wk.add {
     desc = '[F]loat LSP signature',
   },
   { '<esc>', '<cmd>nohlsearch<cr>', mode = 'n' },
-  { '[d', vim.diagnostic.goto_prev, desc = 'Previous [D]iagnostic message' },
-  { ']d', vim.diagnostic.goto_next, desc = 'Next [D]iagnostic message ' },
-  { '<leader>ce', vim.diagnostic.open_float, desc = 'Show [C]ode diagnostic [E]rror messages' },
+  {
+    '[d',
+    function()
+      vim.diagnostic.jump {
+        count = -1,
+        float = {
+          border = 'rounded',
+          max_width = get_max_width(),
+          title = 'diag',
+        },
+      }
+    end,
+    desc = 'Previous [D]iagnostic message',
+  },
+  {
+    ']d',
+    function()
+      vim.diagnostic.jump {
+        count = 1,
+        float = {
+          border = 'rounded',
+          max_width = get_max_width(),
+          title = 'diag',
+        },
+      }
+    end,
+    desc = 'Next [D]iagnostic message ',
+  },
+  {
+    '<leader>ce',
+    function()
+      vim.diagnostic.open_float { border = 'rounded', max_width = get_max_width(), title = 'my-title' }
+    end,
+    desc = 'Show [C]ode diagnostic [E]rror messages',
+  },
   { '<leader>cq', vim.diagnostic.setloclist, desc = 'Open [C]ode diagnostic [Q]uickfix' },
   { '<C-h>', '<cmd>BufferPrevious<cr>', desc = 'Previous buffer' },
   { '<C-l>', '<cmd>BufferNext<cr>', desc = 'Next buffer' },
