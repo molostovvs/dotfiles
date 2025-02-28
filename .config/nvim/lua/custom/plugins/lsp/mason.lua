@@ -54,7 +54,7 @@ return {
   },
   {
     'williamboman/mason-lspconfig',
-    dependencies = { 'saghen/blink.cmp', 'neovim/nvim-lspconfig', 'j-hui/fidget.nvim' },
+    dependencies = { 'saghen/blink.cmp', 'neovim/nvim-lspconfig' },
     opts = {
       handlers = {
         function(server_name)
@@ -75,5 +75,9 @@ return {
     opts = {
       ensure_installed = vim.list_extend(vim.tbl_keys(servers), tools),
     },
+  },
+  {
+    'j-hui/fidget.nvim',
+    opts = {},
   },
 }
