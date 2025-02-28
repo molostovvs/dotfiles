@@ -2,8 +2,9 @@ return {
   {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
-    branch = 'main',
-    build = 'cargo build --release',
+    version = '*',
+    -- branch = 'main',
+    -- build = 'cargo build --release',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -11,7 +12,8 @@ return {
         return vim.bo.buftype ~= 'prompt' and vim.b.completion ~= false
       end,
       fuzzy = {
-        sorts = { 'exact', 'score', 'sort_text' },
+        -- 'exact' also can be used here
+        sorts = { 'score', 'sort_text' },
         -- Proximity bonus boosts the score of items matching nearby words
         use_proximity = true,
         -- Frecency tracks the most recently/frequently used items and boosts the score of the item
@@ -143,6 +145,13 @@ return {
           enabled = true,
           show_on_trigger_character = true,
           show_on_insert_on_trigger_character = true,
+        },
+      },
+      cmdline = {
+        completion = {
+          menu = {
+            auto_show = true,
+          },
         },
       },
     },
