@@ -9,6 +9,15 @@ local get_max_width = function()
   return math.floor(vim.fn.winwidth(0) / 1.3)
 end
 
+map('n', 'K', function()
+  vim.lsp.buf.hover {
+    border = 'rounded',
+    title = 'docs',
+    max_width = get_max_width(),
+    wrap = true,
+  }
+end, { desc = 'Hover' })
+
 wk.add {
   { '<leader>c', group = '[C]ode' },
   { '<leader>d', group = '[D]ocument' },
@@ -18,18 +27,6 @@ wk.add {
   { '<leader>w', group = '[W]orkspace' },
   { '<leader>b', group = '[B]uffer' },
   { '<leader>tn', '<cmd>set relativenumber!<cr>', desc = '[T]oggle relative [N]umber lines' },
-  {
-    'K',
-    function()
-      vim.lsp.buf.hover {
-        border = 'rounded',
-        title = 'docs',
-        max_width = get_max_width(),
-        wrap = true,
-      }
-    end,
-    { desc = 'LSP Hover' },
-  },
   {
     '<leader>td',
     function()
