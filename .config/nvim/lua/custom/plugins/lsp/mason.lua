@@ -21,6 +21,7 @@ local servers = {
       },
     },
   },
+  clangd = {},
 }
 
 local tools = {
@@ -39,6 +40,7 @@ local tools = {
   'actionlint',
   'shfmt',
   'fantomas',
+  'clang-format',
 }
 
 return {

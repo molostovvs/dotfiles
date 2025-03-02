@@ -23,6 +23,7 @@ return {
         json = { 'jq' },
         typescript = { 'prettier' },
         typescriptreact = { 'prettier' },
+        c = { 'clang-format' },
       },
       formatters = {
         injected = {
