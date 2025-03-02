@@ -1,6 +1,7 @@
 return {
   'epwalsh/obsidian.nvim',
-  version = '*',
+  -- image pasting is broken in release version.
+  -- version = '*',
   lazy = true,
   event = {
     'BufReadPre ' .. vim.fn.expand '~' .. '/source/notes/*.md',
