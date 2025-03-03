@@ -9,8 +9,13 @@ return {
         noBuild = false,
         noRestore = false,
         enable_buffer_test_execution = true,
+        auto_bootstrap_namespace = {
+          type = 'file_scoped',
+          enabled = false,
+        },
       },
       enable_filetypes = true,
+      picker = 'fzf',
     },
   },
   {
