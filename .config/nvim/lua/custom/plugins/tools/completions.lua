@@ -12,6 +12,7 @@ return {
         return vim.bo.buftype ~= 'prompt' and vim.b.completion ~= false
       end,
       fuzzy = {
+        implementation = 'rust',
         -- 'exact' also can be used here
         sorts = { 'score', 'sort_text' },
         -- Proximity bonus boosts the score of items matching nearby words
