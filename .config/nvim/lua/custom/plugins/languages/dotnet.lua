@@ -1,6 +1,7 @@
 return {
   {
     'GustavEikaas/easy-dotnet.nvim',
+    event = 'VeryLazy',
     dependencies = { 'nvim-lua/plenary.nvim' },
     enabled = true,
     opts = {
