@@ -1,7 +1,5 @@
 return {
-  'epwalsh/obsidian.nvim',
-  -- image pasting is broken in release version.
-  -- version = '*',
+  'obsidian-nvim/obsidian.nvim',
   lazy = true,
   event = {
     'BufReadPre ' .. vim.fn.expand '~' .. '/source/notes/*.md',
@@ -9,6 +7,11 @@ return {
   },
   dependencies = { 'nvim-lua/plenary.nvim' },
   opts = {
+    completion = {
+      blink = true,
+      nvim_cmp = false,
+      min_chars = 2,
+    },
     workspaces = {
       {
         name = 'personal',
