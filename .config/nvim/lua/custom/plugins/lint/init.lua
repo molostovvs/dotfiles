@@ -9,7 +9,6 @@ return {
         json = { 'jsonlint' },
         sql = { 'sqlfluff' },
         lua = {
-          'luacheck',
           'selene',
           'trivy',
         },
@@ -19,11 +18,6 @@ return {
         typescript = { 'eslint_d' },
         typescriptreact = { 'eslint_d' },
         ghaction = { 'actionlint' },
-      }
-
-      lint.linters.luacheck.args = {
-        '--globals',
-        'vim',
       }
 
       local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })

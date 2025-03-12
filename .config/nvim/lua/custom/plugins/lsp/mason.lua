@@ -19,7 +19,6 @@ local tools = {
   'markdownlint',
   'netcoredbg',
   'hadolint',
-  'luacheck',
   'selene',
   'tflint',
   'actionlint',
