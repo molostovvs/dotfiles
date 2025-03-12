@@ -1,5 +1,4 @@
 return {
-  'folke/which-key.nvim',
   'stevearc/dressing.nvim',
   require 'custom.plugins.ui.theme',
   require 'custom.plugins.ui.md-preview',
