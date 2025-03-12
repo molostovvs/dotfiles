@@ -5,22 +5,7 @@ local servers = {
   terraformls = {},
   bashls = {},
   jsonls = {},
-  lua_ls = {
-    settings = {
-      Lua = {
-        completion = {
-          callSnippet = 'Both',
-        },
-        diagnostics = {
-          -- Get the language server to recognize the `vim` global
-          globals = { 'vim' },
-        },
-        hint = {
-          enable = true,
-        },
-      },
-    },
-  },
+  lua_ls = {},
   clangd = {},
 }
 
