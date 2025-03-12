@@ -9,6 +9,7 @@ return {
         json = { 'jsonlint' },
         sql = { 'sqlfluff' },
         lua = {
+          'luacheck',
           'selene',
           'trivy',
         },
