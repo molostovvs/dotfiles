@@ -21,8 +21,11 @@ return {
   },
   {
     'seblyng/roslyn.nvim',
+    ---@module 'roslyn.config'
+    ---@type RoslynNvimConfig
     opts = {
       filewatching = 'roslyn',
+      ---@diagnostic disable-next-line: missing-fields
       config = {
         settings = {
           ['csharp|inlay_hints'] = {
