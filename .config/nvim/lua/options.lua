@@ -24,14 +24,6 @@ vim.o.foldenable = true
 vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#ff0000', bold = true, underline = false })
 vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#ffffff', underline = true })
 
--- TODO: remove after 0.11 switch
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'rounded',
-  title = 'docs',
-  max_width = math.floor(vim.fn.winwidth(0) / 1.3),
-  wrap = true,
-})
-
 vim.filetype.add {
   pattern = {
     ['.*/.github/workflows/.*%.yml'] = 'yaml.ghaction',
