@@ -14,4 +14,5 @@ return {
   require 'custom.plugins.tools.completions',
   require 'custom.plugins.tools.obsidian',
   require 'custom.plugins.tools.fzf',
+  require 'custom.plugins.tools.mnemonic',
 }
