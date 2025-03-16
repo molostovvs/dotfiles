@@ -100,4 +100,33 @@ return {
     event = 'InsertEnter',
     opts = {},
   },
+  {
+    'yetone/avante.nvim',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+    },
+    enabled = true,
+    event = 'VeryLazy',
+    build = 'make',
+    version = false,
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = {
+      provider = 'gemini',
+      cursor_applying_provider = 'gemini',
+      behaviour = {
+        enable_cursor_planning_mode = true, -- enable cursor planning mode!
+      },
+      gemini = {
+        model = 'gemini-2.0-flash',
+        api_key_name = 'GEMINI_API_KEY',
+        endpoint = 'https://generativelanguage.googleapis.com/v1beta/models',
+        temperature = 0.5,
+        max_tokens = 62000,
+      },
+    },
+  },
 }
