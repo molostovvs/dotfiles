@@ -3,3 +3,5 @@ lazy-lock.json
 
 #Rider config 
 .config/JetBrains/
+
+.config/fish/fish_variables
