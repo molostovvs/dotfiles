@@ -72,6 +72,11 @@ return {
         desc = '[G]o to [I]mplementations',
       },
       {
+        'gd',
+        '<cmd>FzfLua lsp_definitions async_or_timeout=true includeDeclaration=false ignore_current_line=true path_shorten=1<cr> ',
+        desc = '[G]o to [I]mplementations',
+      },
+      {
         'gr',
         '<cmd>FzfLua lsp_references async_or_timeout=true includeDeclaration=false ignore_current_line=true path_shorten=1<cr>',
         desc = '[G]o to [R]eferences',
