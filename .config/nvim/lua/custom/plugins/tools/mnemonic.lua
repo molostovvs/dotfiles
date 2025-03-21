@@ -7,7 +7,7 @@ return {
     opts = {},
     keys = {
       {
-        'mt',
+        'mm',
         function()
           require('mnemonic.ui').add_bookmark()
         end,
