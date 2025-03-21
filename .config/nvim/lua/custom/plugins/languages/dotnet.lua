@@ -40,6 +40,57 @@ local function monkey_patch_semantic_tokens(client)
   end
 end
 
+---@class LineRange
+---@field line integer
+---@field character integer
+
+---@class VsRange
+---@field start LineRange
+---@field end LineRange
+
+---@class VsTextEdit
+---@field newText string
+---@field range VsRange
+
+---@param edit VsTextEdit
+local function apply_vs_text_edit(edit)
+  local bufnr = vim.api.nvim_get_current_buf()
+  local start_line = edit.range.start.line
+  local start_char = edit.range.start.character
+  local end_line = edit.range['end'].line
+  local end_char = edit.range['end'].character
+
+  local lines = vim.split(edit.newText, '\n')
+  vim.api.nvim_buf_set_text(bufnr, start_line, start_char, end_line, end_char, lines)
+end
+
+vim.api.nvim_create_autocmd('InsertCharPre', {
+  pattern = '*.cs',
+  callback = function()
+    local char = vim.v.char
+
+    if char ~= '/' then
+      return
+    end
+
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    row, col = row, col
+    local bufnr = vim.api.nvim_get_current_buf()
+    local uri = vim.uri_from_bufnr(bufnr)
+
+    print(row, col)
+
+    local params = {
+      _vs_textDocument = { uri = uri },
+      _vs_position = { line = row, character = col },
+      _vs_ch = char,
+      _vs_options = { tabSize = 4, insertSpaces = true },
+    }
+
+    vim.lsp.buf_request(bufnr, 'textDocument/_vs_onAutoInsert', params)
+  end,
+})
+
 return {
   {
     'GustavEikaas/easy-dotnet.nvim',
@@ -72,6 +123,19 @@ return {
         on_attach = function(client, _)
           monkey_patch_semantic_tokens(client)
         end,
+        capabilities = {
+          textDocument = {
+            _vs_onAutoInsert = { dynamicRegistration = false },
+          },
+        },
+        handlers = {
+          ['textDocument/_vs_onAutoInsert'] = function(err, result, _)
+            if err or not result then
+              return
+            end
+            apply_vs_text_edit(result._vs_textEdit)
+          end,
+        },
         settings = {
           ['csharp|inlay_hints'] = {
             csharp_enable_inlay_hints_for_imblicit_object_creation = true,
@@ -102,6 +166,12 @@ return {
           },
           ['navigation'] = {
             dotnet_navigate_to_decompiled_sources = true,
+          },
+          ['csharp|auto_insert'] = {
+            dotnet_enable_auto_insert = true,
+          },
+          ['csharp|formatting'] = {
+            dotnet_organize_imports_on_format = true,
           },
         },
       },
