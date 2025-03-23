@@ -55,13 +55,28 @@ end
 ---@param edit VsTextEdit
 local function apply_vs_text_edit(edit)
   local bufnr = vim.api.nvim_get_current_buf()
-  local start_line = edit.range.start.line
+  local start_line = edit.range.start.line -- zero-based
   local start_char = edit.range.start.character
   local end_line = edit.range['end'].line
   local end_char = edit.range['end'].character
 
   local lines = vim.split(edit.newText, '\n')
+
   vim.api.nvim_buf_set_text(bufnr, start_line, start_char, end_line, end_char, lines)
+  local placeholder_row = -1
+  local placeholder_row_text = ''
+
+  for index, line_edit in ipairs(lines) do
+    if string.find(line_edit, '$0') then
+      placeholder_row_text = line_edit
+      placeholder_row = start_line + index
+    end
+  end
+
+  local placeholder_col = string.find(placeholder_row_text, '$', 1, true)
+
+  local win = vim.api.nvim_get_current_win()
+  vim.api.nvim_win_set_cursor(win, { placeholder_row, placeholder_col - 1 })
 end
 
 vim.api.nvim_create_autocmd('InsertCharPre', {
@@ -74,11 +89,9 @@ vim.api.nvim_create_autocmd('InsertCharPre', {
     end
 
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-    row, col = row, col
+    row, col = row - 1, col + 1
     local bufnr = vim.api.nvim_get_current_buf()
     local uri = vim.uri_from_bufnr(bufnr)
-
-    print(row, col)
 
     local params = {
       _vs_textDocument = { uri = uri },
@@ -87,7 +100,10 @@ vim.api.nvim_create_autocmd('InsertCharPre', {
       _vs_options = { tabSize = 4, insertSpaces = true },
     }
 
-    vim.lsp.buf_request(bufnr, 'textDocument/_vs_onAutoInsert', params)
+    -- NOTE: we should send textDocument/_vs_onAutoInsert request only after buffer has changed.
+    vim.defer_fn(function()
+      vim.lsp.buf_request(bufnr, 'textDocument/_vs_onAutoInsert', params)
+    end, 1)
   end,
 })
 
