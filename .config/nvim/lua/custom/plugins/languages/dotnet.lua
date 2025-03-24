@@ -55,28 +55,32 @@ end
 ---@param edit VsTextEdit
 local function apply_vs_text_edit(edit)
   local bufnr = vim.api.nvim_get_current_buf()
-  local start_line = edit.range.start.line -- zero-based
+  local start_line = edit.range.start.line
   local start_char = edit.range.start.character
   local end_line = edit.range['end'].line
   local end_char = edit.range['end'].character
 
   local lines = vim.split(edit.newText, '\n')
-
-  vim.api.nvim_buf_set_text(bufnr, start_line, start_char, end_line, end_char, lines)
   local placeholder_row = -1
-  local placeholder_row_text = ''
+  local placeholder_col = -1
 
-  for index, line_edit in ipairs(lines) do
-    if string.find(line_edit, '$0') then
-      placeholder_row_text = line_edit
-      placeholder_row = start_line + index
+  -- placeholder handling
+  for i, line in ipairs(lines) do
+    local pos = string.find(line, '%$0')
+    if pos then
+      lines[i] = string.gsub(line, '%$0', '', 1)
+      placeholder_row = start_line + i - 1
+      placeholder_col = pos - 1
+      break
     end
   end
 
-  local placeholder_col = string.find(placeholder_row_text, '$', 1, true)
+  vim.api.nvim_buf_set_text(bufnr, start_line, start_char, end_line, end_char, lines)
 
-  local win = vim.api.nvim_get_current_win()
-  vim.api.nvim_win_set_cursor(win, { placeholder_row, placeholder_col - 1 })
+  if placeholder_row ~= -1 and placeholder_col ~= -1 then
+    local win = vim.api.nvim_get_current_win()
+    vim.api.nvim_win_set_cursor(win, { placeholder_row + 1, placeholder_col })
+  end
 end
 
 vim.api.nvim_create_autocmd('InsertCharPre', {
