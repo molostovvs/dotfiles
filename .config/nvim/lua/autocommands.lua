@@ -39,3 +39,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = '*',
+  callback = function()
+    vim.schedule(function()
+      local cursor_line = vim.fn.line '.'
+      if vim.fn.foldclosed(cursor_line) ~= -1 then
+        vim.cmd 'normal! zo'
+      end
+    end)
+  end,
+})
