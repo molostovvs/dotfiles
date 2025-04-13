@@ -48,29 +48,30 @@ map('n', '<leader>tc', function()
   end
 end, { desc = '[T]oggle color [C]olumn' })
 
+local reset_diagnostic_config_aucmd = vim.schedule_wrap(function()
+  vim.diagnostic.config { virtual_lines = { current_line = true } }
+  vim.api.nvim_create_autocmd('CursorMoved', {
+    once = true,
+    callback = function()
+      vim.diagnostic.config { virtual_lines = false }
+    end,
+  })
+end)
+
 map('n', '[d', function()
-  vim.diagnostic.jump {
-    count = -1,
-    float = {
-      border = 'rounded',
-      max_width = get_max_width(),
-      title = 'diag',
-    },
-  }
+  vim.diagnostic.jump { count = -1 }
+  reset_diagnostic_config_aucmd()
 end, { desc = 'Previous [D]iagnostic message' })
+
 map('n', ']d', function()
-  vim.diagnostic.jump {
-    count = 1,
-    float = {
-      border = 'rounded',
-      max_width = get_max_width(),
-      title = 'diag',
-    },
-  }
+  vim.diagnostic.jump { count = 1 }
+  reset_diagnostic_config_aucmd()
 end, { desc = 'Next [D]iagnostic message' })
+
 map('n', '<leader>ce', function()
   vim.diagnostic.open_float { border = 'rounded', max_width = get_max_width(), title = 'my-title' }
 end, { desc = 'Show [C]ode diagnostic [E]rror messages' })
+
 map('n', '<leader>cq', vim.diagnostic.setloclist, { desc = 'Open [C]ode diagnostic [Q]uickfix' })
 
 map('n', '<leader>cf', function()
