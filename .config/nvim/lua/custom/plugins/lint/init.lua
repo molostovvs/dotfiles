@@ -7,7 +7,6 @@ return {
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
         json = { 'jsonlint' },
-        sql = { 'sqlfluff' },
         lua = {
           'selene',
           'trivy',

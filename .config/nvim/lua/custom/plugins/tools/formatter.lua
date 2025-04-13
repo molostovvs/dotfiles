@@ -18,7 +18,6 @@ return {
         lua = { 'stylua' },
         fsharp = { 'fantomas' },
         markdown = { 'markdownlint' },
-        sql = { 'sqlfmt' },
         sh = { 'shfmt' },
         json = { 'jq' },
         typescript = { 'prettier' },
