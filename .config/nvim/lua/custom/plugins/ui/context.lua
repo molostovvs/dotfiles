@@ -4,7 +4,7 @@ return {
     enabled = true,
     opts = {
       max_lines = 10,
-      zindex = 5,
+      zindex = 1,
     },
   },
 }
