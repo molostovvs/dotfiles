@@ -120,8 +120,8 @@ return {
                 return item.kind ~= require('blink.cmp.types').CompletionItemKind.Text
               end, items)
             end,
-            async = true,
-            timeout_ms = 400,
+            -- async = true,
+            -- timeout_ms = 400,
           },
           snippets = {
             -- score_offset = -10,
