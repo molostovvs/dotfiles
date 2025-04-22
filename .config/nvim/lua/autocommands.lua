@@ -1,9 +1,3 @@
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -49,5 +43,20 @@ vim.api.nvim_create_autocmd('BufEnter', {
         vim.cmd 'normal! zo'
       end
     end)
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  pattern = { 'csproj', 'props', 'xml' },
+  callback = function()
+    local server_path = '/home/mvs/source/playground/CsprojLsp/src/Server/bin/Release/net9.0/linux-x64/publish/Server'
+
+    vim.lsp.start {
+      name = 'csproj-ls',
+      cmd = { server_path },
+      root_dir = vim.fn.getcwd(),
+    }
+
+    vim.lsp.set_log_level(vim.log.levels.TRACE)
   end,
 })
