@@ -1,7 +1,7 @@
 return {
   {
+    'molostovvs/mnemonic.nvim',
     lazy = false,
-    dir = '~/source/playground/mnemonic.nvim/',
     ---@module 'mnemonic.init'
     ---@type MnemonicConfig
     opts = {},
