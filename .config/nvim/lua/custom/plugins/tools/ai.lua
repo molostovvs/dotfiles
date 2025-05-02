@@ -19,26 +19,6 @@ local gemini_chat_input_template =
 
 return {
   {
-    'monkoose/neocodeium',
-    enabled = false,
-    event = 'VeryLazy',
-    config = function()
-      local neocodeium = require 'neocodeium'
-      neocodeium.setup {
-        manual = true,
-      }
-      vim.keymap.set('i', '<A-l>', function()
-        neocodeium.accept()
-      end)
-      vim.keymap.set('i', '<A-]>', function()
-        neocodeium.cycle_or_complete(1)
-      end)
-      vim.keymap.set('i', '<A-[>', function()
-        neocodeium.cycle(-1)
-      end)
-    end,
-  },
-  {
     'milanglacier/minuet-ai.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     event = 'VeryLazy',
@@ -85,20 +65,6 @@ return {
         },
       },
     },
-  },
-  {
-    'Davidyz/VectorCode',
-    event = 'VeryLazy',
-    version = '*', -- optional, depending on whether you're on nightly or release
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    build = 'pipx upgrade vectorcode',
-    opts = {},
-  },
-  {
-    'zbirenbaum/copilot.lua',
-    enabled = false,
-    event = 'InsertEnter',
-    opts = {},
   },
   {
     'yetone/avante.nvim',
