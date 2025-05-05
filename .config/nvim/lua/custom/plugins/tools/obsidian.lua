@@ -10,12 +10,12 @@ return {
     completion = {
       blink = true,
       nvim_cmp = false,
-      min_chars = 2,
+      min_chars = 0,
     },
     workspaces = {
       {
         name = 'personal',
-        path = '~/source/notes/',
+        path = '~/source/notes',
       },
     },
   },

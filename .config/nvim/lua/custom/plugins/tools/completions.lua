@@ -109,8 +109,6 @@ return {
                   item.score_offset = item.score_offset + 1
                 end
 
-                -- print(vim.inspect(item))
-
                 if item.kind == cmp_item_kind.Operator then
                   item.score_offset = item.score_offset - 1
                 end
