@@ -3,5 +3,16 @@ sort_dir_first = true
 
 [preview]
 wrap = "yes"
-image_delay = 30
+image_delay = 5
 image_filter = "catmull-rom"
+
+
+[plugin]
+  prepend_preloaders = [
+    { mime = "{audio,video,image}/*", run = "mediainfo" },
+    { mime = "application/subrip", run = "mediainfo" },
+  ]
+  prepend_previewers = [
+    { mime = "{audio,video,image}/*", run = "mediainfo"},
+    { mime = "application/subrip", run = "mediainfo" },
+  ]
