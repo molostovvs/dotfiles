@@ -8,6 +8,7 @@ vim.opt.number = true
 vim.opt.showmode = false
 
 vim.o.pumblend = 15
+vim.o.winborder = 'rounded'
 
 vim.opt.fixeol = false
 vim.opt.endoffile = false
