@@ -7,6 +7,7 @@ local servers = {
   jsonls = {},
   lua_ls = {},
   clangd = {},
+  yamlls = {},
 }
 
 local tools = {
