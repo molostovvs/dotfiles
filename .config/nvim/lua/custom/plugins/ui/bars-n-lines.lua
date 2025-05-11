@@ -29,6 +29,7 @@ return {
       tabpages = true,
       focus_on_close = 'previous',
       maximum_padding = 0,
+      hide = { extensions = true },
     },
   },
   {

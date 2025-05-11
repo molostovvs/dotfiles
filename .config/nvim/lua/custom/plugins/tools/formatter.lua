@@ -23,12 +23,12 @@ return {
         typescript = { 'prettier' },
         typescriptreact = { 'prettier' },
         c = { 'clang-format' },
+        yaml = { 'yamlfmt' },
       },
       formatters = {
         injected = {
           options = {
             ignore_errors = false,
-            -- map of treesitter language to file extension
             lang_to_ext = {
               json = 'json',
               bash = 'sh',

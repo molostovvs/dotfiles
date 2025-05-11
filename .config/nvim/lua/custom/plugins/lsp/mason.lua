@@ -26,6 +26,7 @@ local tools = {
   'shfmt',
   'fantomas',
   'clang-format',
+  'yamlfmt',
 }
 
 return {
@@ -41,6 +42,7 @@ return {
   },
   {
     'williamboman/mason-lspconfig',
+    event = 'VeryLazy',
     dependencies = { 'saghen/blink.cmp', 'neovim/nvim-lspconfig' },
     opts = {
       handlers = {
@@ -59,6 +61,7 @@ return {
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    event = 'VeryLazy',
     opts = {
       ensure_installed = vim.list_extend(vim.tbl_keys(servers), tools),
     },
