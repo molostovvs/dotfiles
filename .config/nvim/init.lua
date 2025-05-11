@@ -6,6 +6,9 @@ require('lazy').setup {
   spec = {
     require 'custom.plugins',
   },
+  ui = {
+    border = 'rounded',
+  },
   change_detection = {
     enabled = false,
     notify = false,
@@ -18,6 +21,7 @@ require('lazy').setup {
   },
   profiling = {
     loader = true,
+    require = true,
   },
 }
 
