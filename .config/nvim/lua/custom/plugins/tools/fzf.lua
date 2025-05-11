@@ -50,6 +50,22 @@ return {
         width = 0.98,
         height = 0.98,
         backdrop = 85,
+        preview = {
+          layout = 'vertical',
+          vertical = 'down:60%',
+          delay = 30,
+        },
+      },
+      files = {
+        path_shorten = 6,
+        git_icons = true,
+      },
+      previewers = {
+        builtin = {
+          title_fnamemodify = function(s)
+            return s
+          end,
+        },
       },
     },
     keys = {
@@ -57,6 +73,13 @@ return {
       { '<leader><leader>', '<cmd>FzfLua buffers<cr>', desc = 'Search open buffers' },
       { '<leader>sk', '<cmd>FzfLua keymaps<cr>', desc = '[S]earch [K]eymaps' },
       { '<leader>sf', '<cmd>FzfLua files git_icons=true<cr>', desc = '[S]earch [F]iles' },
+      {
+        '<leader>sF',
+        function()
+          require('fzf-lua').files { cwd = vim.fn.expand '%:p:h' }
+        end,
+        desc = '[S]earch [F]iles from current file cwd',
+      },
       { '<leader>sr', '<cmd>FzfLua resume<cr>', desc = '[S]earch [R]esume' },
       { '<leader>sd', '<cmd>FzfLua lsp_workspace_diagnostics<cr>', desc = '[S]earch [D]iagnostics' },
       { '<leader>sl', '<cmd>FzfLua lsp_live_workspace_symbols<cr>', desc = '[S]earch [L]ive workspace symbols' },
