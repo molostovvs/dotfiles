@@ -32,9 +32,11 @@ return {
         ['<C-l>'] = { 'snippet_forward', 'fallback' },
         ['<C-h>'] = { 'snippet_backward', 'fallback' },
         ['<C-d>'] = { 'show_signature', 'hide_signature', 'fallback' },
+        ['<Up>'] = { 'fallback_to_mappings' },
+        ['<Down>'] = { 'fallback_to_mappings' },
       },
       appearance = {
-        use_nvim_cmp_as_default = true,
+        use_nvim_cmp_as_default = false,
         -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = 'mono',
