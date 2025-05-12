@@ -19,6 +19,14 @@ window#waybar.termite { background-color: #3F3F3F; }
     background-color: transparent;
     color: #ffffff;
 }
+#workspaces button:first-child {
+    padding-left: 5px;
+    margin-left: 0;
+}
+#workspaces button:last-child {
+    padding-left: 5px;
+    padding-right: 10px;
+}
 #workspaces button:hover { background: rgba(0, 0, 0, 0.2); }
 #workspaces button.focused {
     background-color: #64727D;
@@ -26,23 +34,37 @@ window#waybar.termite { background-color: #3F3F3F; }
 }
 #workspaces button.urgent { background-color: #eb4d4b; }
 
-#window,
-#workspaces {
-    margin: 0px 5px;
-    padding: 0px 10px; /* Default padding for left modules */
+.modules-left {
+    background-color: #434c5e;
+    border-radius: 10px;
+    color: #eceff4;
+}
+
+#window {
+    margin: 0;
+    padding-left: 5px;
+    padding-right: 10px;
     background-color: transparent;
     color: #ffffff;
 }
-.modules-left > widget:first-child > #workspaces { margin-left: 0; padding: 0px }
+
+#workspaces {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+
+.modules-left > *:not(:last-child) {
+    border-right: 1px solid rgba(216, 222, 233, 0.3);
+}
 
 .modules-center,
 .modules-right {
     background-color: #434c5e;
     border-radius: 10px;
     color: #eceff4;
-}
-.modules-right {
-    background-color: #434c5e;
 }
 
 /* #privacy container within the center bubble */
@@ -61,7 +83,8 @@ window#waybar.termite { background-color: #3F3F3F; }
 #language {
     color: #8fbcbb;
     min-width: 16px;
-    padding: 0 10px;
+    padding-left: 5px;
+    padding-right: 10px;
 }
 
 #privacy-item,
@@ -75,7 +98,6 @@ window#waybar.termite { background-color: #3F3F3F; }
     background-color: transparent;
 }
 
-
 #cpu { color: #a3be8c; padding: 0 10px; }
 #memory { color: #b48ead; padding: 0 10px; }
 #network { color: #88c0d0; padding: 0 10px; }
@@ -85,12 +107,10 @@ window#waybar.termite { background-color: #3F3F3F; }
 #clock { padding: 0 10px; }
 #tray { padding: 0 10px; }
 
-
 .modules-center > *,
 .modules-right > * {
     background-color: transparent;
 }
-
 
 #pulseaudio:hover { color: #f1c40f; }
 @keyframes blink { to { color: #000000; } }
