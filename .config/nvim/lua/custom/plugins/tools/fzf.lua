@@ -68,6 +68,10 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      require('fzf-lua').setup(opts)
+      require('fzf-lua').register_ui_select()
+    end,
     keys = {
       { '<leader>sg', '<cmd>FzfLua live_grep<cr>', desc = '[S]earch [G]rep' },
       { '<leader><leader>', '<cmd>FzfLua buffers<cr>', desc = 'Search open buffers' },
