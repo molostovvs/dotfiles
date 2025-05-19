@@ -16,6 +16,9 @@ vim.opt.fileformats = 'unix,dos,mac'
 
 vim.lsp.set_log_level 'WARN'
 
+-- NOTE: disable fucking 'press enter' https://github.com/neovim/neovim/issues/1029#issuecomment-2848852784
+require('vim._extui').enable {}
+
 -- options for ufo
 vim.o.foldcolumn = '0'
 vim.o.foldlevel = 99
