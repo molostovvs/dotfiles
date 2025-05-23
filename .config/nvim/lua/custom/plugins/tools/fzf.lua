@@ -57,7 +57,7 @@ return {
         },
       },
       files = {
-        path_shorten = 6,
+        path_shorten = 10,
         git_icons = true,
       },
       previewers = {
