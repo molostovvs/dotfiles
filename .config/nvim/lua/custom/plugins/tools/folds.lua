@@ -9,7 +9,7 @@ return {
       end,
       close_fold_kinds_for_ft = {
         default = {
-          'implementation',
+          -- 'implementation', it is very badly implemented.
           'imports',
           'comment',
           'region',
