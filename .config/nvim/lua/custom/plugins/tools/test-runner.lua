@@ -6,14 +6,16 @@ return {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
-      'Issafalcon/neotest-dotnet',
+      'nsidorenco/neotest-vstest',
     },
     version = '*',
     config = function()
       require('neotest').setup {
         adapters = {
-          require 'neotest-dotnet' {
-            discovery_root = 'solution',
+          require 'neotest-vstest' {
+            dap_settings = {
+              type = 'netcoredbg',
+            },
           },
         },
         log_level = 5,
