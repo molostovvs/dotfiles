@@ -5,3 +5,7 @@ lazy-lock.json
 .config/JetBrains/
 
 .config/fish/fish_variables
+.claude/local
+.claude/projects
+.claude/statsig
+.claude/todos
