@@ -84,6 +84,13 @@ return {
         end,
         desc = '[S]earch [F]iles from current file cwd',
       },
+      {
+        '<leader>sG',
+        function()
+          require('fzf-lua').live_grep { cwd = vim.fn.expand '%:p:h' }
+        end,
+        desc = '[S]earch [G]rep from current file cwd',
+      },
       { '<leader>sr', '<cmd>FzfLua resume<cr>', desc = '[S]earch [R]esume' },
       { '<leader>sde', '<cmd>FzfLua lsp_workspace_diagnostics severity_limit=ERROR<cr>', desc = '[S]earch [D]iagnostics [E]rror' },
       { '<leader>sdw', '<cmd>FzfLua lsp_workspace_diagnostics severity_limit=WARN<cr>', desc = '[S]earch [D]iagnostics [W]arn' },
