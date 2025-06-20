@@ -85,6 +85,9 @@ return {
           type = 'file_scoped',
           enabled = false,
         },
+        mappings = {
+          run_test_from_buffer = { lhs = '<leader>tr', desc = 'trigger test run' },
+        },
       },
       enable_filetypes = true,
       picker = 'fzf',
@@ -133,7 +136,7 @@ return {
           },
           ['csharp|background_analysis'] = {
             dotnet_analyzer_diagnostics_scope = 'openFiles',
-            dotnet_compiler_diagnostics_scope = 'openFiles',
+            dotnet_compiler_diagnostics_scope = 'fullSolution',
           },
           ['csharp|code_lens'] = {
             dotnet_enable_references_code_lens = false,

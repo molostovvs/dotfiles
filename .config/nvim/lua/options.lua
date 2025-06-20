@@ -96,3 +96,5 @@ vim.opt.relativenumber = true
 vim.opt.spell = false
 
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
+vim.treesitter.language.register('c_sharp', 'csharp')
