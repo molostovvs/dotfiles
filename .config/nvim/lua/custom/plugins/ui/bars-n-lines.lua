@@ -32,14 +32,4 @@ return {
       hide = { extensions = true },
     },
   },
-  {
-    'Bekaboo/dropbar.nvim',
-    opts = {
-      sources = {
-        path = {
-          max_depth = 10,
-        },
-      },
-    },
-  },
 }
