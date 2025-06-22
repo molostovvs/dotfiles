@@ -1,6 +1,5 @@
 local map = vim.keymap.set
 
-local minuet_actions = require('minuet.virtualtext').action
 
 local get_max_width = function()
   return math.floor(vim.fn.winwidth(0) / 1.3)
@@ -22,6 +21,7 @@ map('n', '<leader>s', '', { desc = '[S]earch' })
 map('n', '<leader>c', '', { desc = '[C]ode' })
 map('n', '<leader>t', '', { desc = '[T]oggle' })
 map('n', '<leader>b', '', { desc = '[B]uffer' })
+map('n', '<leader>a', '', { desc = '[A]I' })
 
 map('n', '<leader>bp', '<Cmd>BufferMovePrevious<CR>', { desc = '[B]uffer [P]revious' })
 map('n', '<leader>bn', '<Cmd>BufferMoveNext<CR>', { desc = '[B]uffer [N]ext' })
@@ -89,10 +89,6 @@ map('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
 map('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype definition' })
 map('n', '<leader>rr', vim.lsp.buf.rename, { desc = '[R]ename symbol' })
 
-map({ 'n', 'i' }, '<A-t>', minuet_actions.accept, { desc = '[M]inuet Accept Completion' })
-map({ 'n', 'i' }, '<A-[>', minuet_actions.prev, { desc = '[M]inuet Previous Completion' })
-map({ 'n', 'i' }, '<A-]>', minuet_actions.next, { desc = '[M]inuet Next Completion' })
-map({ 'n', 'i' }, '<A-l>', minuet_actions.dismiss, { desc = '[M]inuet Dismiss Completion' })
 
 map('n', 'zp', function()
   require('ufo').peekFoldedLinesUnderCursor()

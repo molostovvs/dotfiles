@@ -1,5 +1,5 @@
 return {
-  {
+  --[[ {
     'milanglacier/minuet-ai.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     event = 'VeryLazy',
@@ -28,6 +28,40 @@ return {
             },
           },
         },
+      },
+    },
+    keys = {
+      {
+        '<A-t>',
+        function()
+          require('minuet.virtualtext').action.accept()
+        end,
+        mode = { 'n', 'i' },
+        desc = '[M]inuet Accept Completion',
+      },
+      {
+        '<A-[>',
+        function()
+          require('minuet.virtualtext').action.prev()
+        end,
+        mode = { 'n', 'i' },
+        desc = '[M]inuet Previous Completion',
+      },
+      {
+        '<A-]>',
+        function()
+          require('minuet.virtualtext').action.next()
+        end,
+        mode = { 'n', 'i' },
+        desc = '[M]inuet Next Completion',
+      },
+      {
+        '<A-l>',
+        function()
+          require('minuet.virtualtext').action.dismiss()
+        end,
+        mode = { 'n', 'i' },
+        desc = '[M]inuet Dismiss Completion',
       },
     },
   },
@@ -59,6 +93,7 @@ return {
         max_tokens = 62000,
       },
     },
+  }, ]]
   {
     'coder/claudecode.nvim',
     -- dependencies = { 'folke/snacks.nvim' },
