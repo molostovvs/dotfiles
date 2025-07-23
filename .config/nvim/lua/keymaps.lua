@@ -1,6 +1,5 @@
 local map = vim.keymap.set
 
-
 local get_max_width = function()
   return math.floor(vim.fn.winwidth(0) / 1.3)
 end
@@ -69,7 +68,7 @@ map('n', ']d', function()
 end, { desc = 'Next [D]iagnostic message' })
 
 map('n', '<leader>ce', function()
-  vim.diagnostic.open_float { border = 'rounded', max_width = get_max_width(), title = 'my-title' }
+  vim.diagnostic.open_float { border = 'rounded', max_width = get_max_width(), title = 'diagnostic' }
 end, { desc = 'Show [C]ode diagnostic [E]rror messages' })
 
 map('n', '<leader>cq', vim.diagnostic.setloclist, { desc = 'Open [C]ode diagnostic [Q]uickfix' })
@@ -88,7 +87,6 @@ map('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition' })
 map('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
 map('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype definition' })
 map('n', '<leader>rr', vim.lsp.buf.rename, { desc = '[R]ename symbol' })
-
 
 map('n', 'zp', function()
   require('ufo').peekFoldedLinesUnderCursor()
