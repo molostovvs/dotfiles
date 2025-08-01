@@ -75,7 +75,7 @@ return {
     keys = {
       { '<leader>sg', '<cmd>FzfLua live_grep<cr>', desc = '[S]earch [G]rep' },
       { '<leader><leader>', '<cmd>FzfLua buffers<cr>', desc = 'Search open buffers' },
-      { '<leader>sk', '<cmd>FzfLua keymaps<cr>', desc = '[S]earch [K]eymaps' },
+      { '<leader>sk', '<cmd>FzfLua keymaps path_shorten=10<cr>', desc = '[S]earch [K]eymaps' },
       { '<leader>sf', '<cmd>FzfLua files git_icons=true<cr>', desc = '[S]earch [F]iles' },
       {
         '<leader>sF',
