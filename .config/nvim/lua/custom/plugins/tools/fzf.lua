@@ -104,17 +104,17 @@ return {
       { '<leader>/', '<cmd>FzfLua lgrep_curbuf<cr>', desc = 'Live grep current buffer' },
       {
         'gi',
-        '<cmd>FzfLua lsp_implementations async_or_timeout=true includeDeclaration=false ignore_current_line=true<cr> ',
+        '<cmd>FzfLua lsp_implementations async=false includeDeclaration=false ignore_current_line=true<cr> ',
         desc = '[G]o to [I]mplementations',
       },
       {
         'gd',
-        '<cmd>FzfLua lsp_definitions async_or_timeout=true includeDeclaration=false ignore_current_line=true<cr> ',
-        desc = '[G]o to [I]mplementations',
+        '<cmd>FzfLua lsp_definitions async=false includeDeclaration=false ignore_current_line=true<cr> ',
+        desc = '[G]o to [D]efinitions',
       },
       {
         'gr',
-        '<cmd>FzfLua lsp_references async_or_timeout=true includeDeclaration=false ignore_current_line=true<cr>',
+        '<cmd>FzfLua lsp_references async=true includeDeclaration=false ignore_current_line=true<cr>',
         desc = '[G]o to [R]eferences',
       },
       { '<leader>sv', '<cmd>FzfLua grep_visual<cr>', mode = { 'v' }, desc = '[S]earch [V]isual selection' },
