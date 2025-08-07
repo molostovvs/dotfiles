@@ -30,6 +30,7 @@ map('n', '<leader>br', '<Cmd>BufferRestore<CR>', { desc = '[B]uffer [R]estore' }
 map('n', '<C-h>', '<cmd>BufferPrevious<cr>', { desc = 'Previous buffer' })
 map('n', '<C-l>', '<cmd>BufferNext<cr>', { desc = 'Next buffer' })
 map('n', '<leader>x', '<cmd>BufferClose<cr>', { desc = 'Close buffer' })
+map('n', '<leader>X', '<cmd>BufferClose!<cr>', { desc = 'Close buffer (force)' })
 
 map('n', '<leader>tn', '<cmd>set relativenumber!<cr>', { desc = '[T]oggle relative [N]umber lines' })
 map('n', '<leader>td', function()
