@@ -1,6 +1,5 @@
 local servers = {
   docker_compose_language_service = {},
-  roslyn = {},
   fsautocomplete = {},
   terraformls = {},
   bashls = {},

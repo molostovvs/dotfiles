@@ -99,8 +99,10 @@ return {
     ---@type RoslynNvimConfig
     opts = {
       filewatching = 'roslyn',
-      ---@diagnostic disable-next-line: missing-fields
-      config = {
+    },
+    config = function(_, opts)
+      -- Set up vim.lsp.config for roslyn
+      vim.lsp.config.roslyn = {
         capabilities = {
           textDocument = {
             _vs_onAutoInsert = { dynamicRegistration = false },
@@ -152,8 +154,11 @@ return {
             dotnet_organize_imports_on_format = true,
           },
         },
-      },
-    },
+      }
+      
+      -- Setup roslyn.nvim with the remaining opts
+      require('roslyn').setup(opts)
+    end,
   },
   {
     'ionide/ionide-vim',
