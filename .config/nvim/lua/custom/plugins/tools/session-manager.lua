@@ -47,6 +47,15 @@ return {
           interval = 15,
           notify = true,
         },
+        buf_filter = function(bufnr)
+          local bufname = vim.api.nvim_buf_get_name(bufnr)
+          -- Skip roslyn buffers
+          if bufname:match '/roslyn%-' or bufname:match '^roslyn%-' then
+            return false
+          end
+          -- Use default filter for other buffers
+          return require('resession').default_buf_filter(bufnr)
+        end,
       }
       local resession = require 'resession'
       resession.setup(cfg)
