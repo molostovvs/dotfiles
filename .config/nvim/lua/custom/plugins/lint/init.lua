@@ -9,9 +9,8 @@ return {
         json = { 'jsonlint' },
         lua = {
           'selene',
-          'trivy',
         },
-        cs = { 'trivy' },
+        cs = {},
         terraform = { 'tflint' },
         dockerfile = { 'hadolint' },
         typescript = { 'eslint_d' },
