@@ -7,6 +7,8 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.showmode = false
 
+vim.o.jumpoptions = 'stack'
+
 vim.o.pumblend = 15
 vim.o.winborder = 'rounded'
 
