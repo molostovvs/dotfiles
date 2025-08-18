@@ -40,6 +40,7 @@ return {
   },
   {
     'stevearc/resession.nvim',
+    dependencies = { 'romgrk/barbar.nvim' },
     config = function()
       local cfg = {
         autosave = {
@@ -56,6 +57,9 @@ return {
           -- Use default filter for other buffers
           return require('resession').default_buf_filter(bufnr)
         end,
+        extensions = {
+          barbar = {},
+        },
       }
       local resession = require 'resession'
       resession.setup(cfg)
