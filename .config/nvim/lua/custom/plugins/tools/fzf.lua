@@ -104,7 +104,7 @@ return {
       { '<leader>/', '<cmd>FzfLua lgrep_curbuf<cr>', desc = 'Live grep current buffer' },
       {
         'gi',
-        '<cmd>FzfLua lsp_implementations includeDeclaration=false ignore_current_line=true<cr> ',
+        '<cmd>FzfLua lsp_implementations async=true includeDeclaration=false ignore_current_line=true<cr> ',
         desc = '[G]o to [I]mplementations',
       },
       {
