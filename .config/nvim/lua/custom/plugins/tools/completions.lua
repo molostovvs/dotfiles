@@ -14,7 +14,7 @@ return {
       fuzzy = {
         implementation = 'rust',
         -- 'exact' also can be used here
-        sorts = { 'score', 'sort_text' },
+        sorts = { 'exact', 'score', 'sort_text' },
         -- Proximity bonus boosts the score of items matching nearby words
         use_proximity = true,
         -- Frecency tracks the most recently/frequently used items and boosts the score of the item
@@ -120,11 +120,12 @@ return {
                 return item.kind ~= require('blink.cmp.types').CompletionItemKind.Text
               end, items)
             end,
-            -- async = true,
-            -- timeout_ms = 400,
+            async = false,
           },
           snippets = {
-            -- score_offset = -10,
+            should_show_items = function (ctx)
+              return ctx.trigger.initial_kind ~= 'trigger_character'
+            end
           },
           lazydev = {
             name = 'LazyDev',
