@@ -14,11 +14,13 @@ return {
       fuzzy = {
         implementation = 'rust',
         -- 'exact' also can be used here
-        sorts = { 'exact', 'score', 'sort_text' },
+        sorts = { 'score', 'exact', 'sort_text' },
         -- Proximity bonus boosts the score of items matching nearby words
         use_proximity = true,
         -- Frecency tracks the most recently/frequently used items and boosts the score of the item
-        use_frecency = true,
+        frecency = {
+          enabled = true,
+        },
       },
       keymap = {
         preset = 'default',
@@ -123,9 +125,9 @@ return {
             async = false,
           },
           snippets = {
-            should_show_items = function (ctx)
+            should_show_items = function(ctx)
               return ctx.trigger.initial_kind ~= 'trigger_character'
-            end
+            end,
           },
           lazydev = {
             name = 'LazyDev',
