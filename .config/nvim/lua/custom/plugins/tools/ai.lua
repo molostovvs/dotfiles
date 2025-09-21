@@ -42,9 +42,10 @@ return {
       auto_start = true,
       log_level = 'info',
       track_selection = true,
+      focus_after_send = true,
       terminal = {
         split_side = 'right',
-        split_width_percentage = 0.30,
+        split_width_percentage = 0.35,
         provider = 'native',
         auto_close = true,
       },
