@@ -3,9 +3,11 @@
     "allow": [
       "Bash(ls:*)",
       "Bash(fd:*)",
+      "Bash(find:*)",
       "Bash(git:*)",
       "Bash(glab:*)"
     ],
     "deny": []
-  }
+  },
+  "model": "sonnet"
 }
