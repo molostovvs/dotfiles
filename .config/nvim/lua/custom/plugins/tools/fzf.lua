@@ -57,7 +57,7 @@ return {
         },
       },
       files = {
-        path_shorten = 10,
+        path_shorten = 30,
         git_icons = true,
       },
       previewers = {
@@ -97,8 +97,7 @@ return {
       { '<leader>sda', '<cmd>FzfLua lsp_workspace_diagnostics severity_bound=INFO<cr>', desc = '[S]earch [D]iagnostics [A]ll' },
       { '<leader>sl', '<cmd>FzfLua lsp_live_workspace_symbols<cr>', desc = '[S]earch [L]ive workspace symbols' },
       { '<leader>ca', '<cmd>FzfLua lsp_code_actions<cr>', desc = '[C]ode [A]ctions' },
-      { '<leader>ds', '<cmd>FzfLua lsp_document_symbols<cr>', desc = '[D]ocument [S]ymbols' },
-      { '<leader>ws', '<cmd>FzfLua lsp_workspace_symbols<cr>', desc = '[W]orkspace [S]ymbols' },
+      { '<leader>st', '<cmd>FzfLua lsp_document_symbols<cr>', desc = '[D]ocument [S]ymbols' },
       { '<leader>sw', '<cmd>FzfLua grep_cword<cr>', desc = '[S]earch [W]ord' },
       { '<leader>so', '<cmd>FzfLua oldfiles<cr>', desc = '[S]earch [O]ldfiles' },
       { '<leader>/', '<cmd>FzfLua lgrep_curbuf<cr>', desc = 'Live grep current buffer' },
