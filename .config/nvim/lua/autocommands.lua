@@ -47,6 +47,13 @@ vim.api.nvim_create_autocmd('BufEnter', {
 })
 
 vim.api.nvim_create_autocmd({ 'FileType' }, {
+  pattern = { 'cs' },
+  callback = function()
+    vim.cmd('compiler dotnet')
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'FileType' }, {
   pattern = { 'csproj', 'props', 'xml' },
   callback = function()
     local server_path = '/home/mvs/source/projects/CsprojLsp/src/Server/bin/Release/net10.0/linux-x64/publish/Server'
