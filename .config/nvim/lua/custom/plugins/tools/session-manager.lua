@@ -25,20 +25,6 @@ end
 
 return {
   {
-    'rmagatti/auto-session',
-    enabled = false,
-    lazy = false,
-    ---@module "auto-session"
-    ---@type AutoSession.Config
-    opts = {
-      suppressed_dirs = { '~/', '~/Downloads', '/' },
-      auto_save = true,
-      log_level = 'error',
-      use_git_branch = true,
-      close_unsupported_windows = true,
-    },
-  },
-  {
     'stevearc/resession.nvim',
     dependencies = { 'romgrk/barbar.nvim' },
     config = function()
