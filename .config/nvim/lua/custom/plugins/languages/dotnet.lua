@@ -76,6 +76,11 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     enabled = true,
     opts = {
+      lsp = {
+        enabled = false,
+        roslynator_enabled = false,
+        analyzer_assemblies = {},
+      },
       test_runner = {
         viewmode = 'float',
         noBuild = false,
@@ -87,6 +92,9 @@ return {
         },
         mappings = {
           run_test_from_buffer = { lhs = '<leader>tr', desc = 'trigger test run' },
+        },
+        debugger = {
+          bin_path = '~/.local/share/nvim/mason/packages/netcoredbg/libexec/netcoredbg/netcoredbg',
         },
       },
       enable_filetypes = true,
@@ -141,7 +149,7 @@ return {
             dotnet_compiler_diagnostics_scope = 'fullSolution',
           },
           ['csharp|code_lens'] = {
-            dotnet_enable_references_code_lens = false,
+            dotnet_enable_references_code_lens = true,
             dotnet_enable_tests_code_lens = false,
           },
           ['navigation'] = {
@@ -155,7 +163,7 @@ return {
           },
         },
       }
-      
+
       -- Setup roslyn.nvim with the remaining opts
       require('roslyn').setup(opts)
     end,
@@ -163,5 +171,10 @@ return {
   {
     'ionide/ionide-vim',
     event = 'VeryLazy',
+  },
+  {
+    'bosvik/roslyn-diagnostics.nvim',
+    ft = { 'cs', 'fs' },
+    opts = {},
   },
 }

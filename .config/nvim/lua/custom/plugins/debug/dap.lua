@@ -1,5 +1,3 @@
-local dotnet = require 'custom.plugins.debug.dotnet'
-
 return {
   {
     'mfussenegger/nvim-dap',
@@ -31,7 +29,7 @@ return {
         automatic_installation = true,
       }
 
-      dotnet.register_net_dap()
+      require('easy-dotnet.netcoredbg').register_dap_variables_viewer()
 
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
       vim.keymap.set('n', '<leader>dt', dapui.toggle, { desc = 'Debug: See last session result.' })

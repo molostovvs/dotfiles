@@ -8,6 +8,7 @@ local servers = {
   clangd = {},
   yamlls = {},
   marksman = {},
+  rust_analyzer = {},
 }
 
 local tools = {
@@ -65,9 +66,5 @@ return {
     opts = {
       ensure_installed = vim.list_extend(vim.tbl_keys(servers), tools),
     },
-  },
-  {
-    'j-hui/fidget.nvim',
-    opts = {},
   },
 }
