@@ -16,4 +16,5 @@ return {
   require 'custom.plugins.tools.fzf',
   require 'custom.plugins.tools.mnemonic',
   require 'custom.plugins.tools.rest-client',
+  { 'tpope/vim-dispatch' },
 }
