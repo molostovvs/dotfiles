@@ -44,7 +44,7 @@ return {
           concurrent = true,
         },
         discovery = {
-          concurrent = 1,
+          concurrent = 64,
           enabled = true,
         },
         adapters = {
