@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 })
 
 vim.api.nvim_create_autocmd({ 'FileType' }, {
-  pattern = { 'cs' },
+  pattern = { 'cs', 'csproj', 'sln', 'slnx' },
   callback = function()
     vim.cmd('compiler dotnet')
   end,
