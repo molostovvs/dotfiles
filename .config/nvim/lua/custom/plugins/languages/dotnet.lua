@@ -81,24 +81,25 @@ return {
         roslynator_enabled = false,
         analyzer_assemblies = {},
       },
+      debugger = {
+        bin_path = '/home/mvs/.local/share/nvim/mason/packages/netcoredbg/libexec/netcoredbg/netcoredbg',
+        auto_register_dap = false,
+      },
+      auto_bootstrap_namespace = {
+        type = 'file_scoped',
+        enabled = true,
+      },
       test_runner = {
         viewmode = 'float',
-        noBuild = false,
-        noRestore = false,
+        noBuild = true,
+        noRestore = true,
         enable_buffer_test_execution = true,
-        auto_bootstrap_namespace = {
-          type = 'file_scoped',
-          enabled = false,
-        },
         mappings = {
           run_test_from_buffer = { lhs = '<leader>tr', desc = 'trigger test run' },
         },
-        debugger = {
-          bin_path = '~/.local/share/nvim/mason/packages/netcoredbg/libexec/netcoredbg/netcoredbg',
-        },
       },
-      enable_filetypes = true,
       picker = 'fzf',
+      background_scanning = false,
     },
   },
   {
