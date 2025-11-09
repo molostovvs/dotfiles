@@ -88,7 +88,3 @@ map('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition' })
 map('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
 map('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype definition' })
 map('n', '<leader>rr', vim.lsp.buf.rename, { desc = '[R]ename symbol' })
-
-map('n', 'zp', function()
-  require('ufo').peekFoldedLinesUnderCursor()
-end, { desc = 'Peek fold' })

@@ -7,7 +7,7 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.showmode = false
 
-vim.o.jumpoptions = 'stack'
+vim.o.jumpoptions = 'clean'
 
 vim.o.pumblend = 15
 vim.o.winborder = 'rounded'
@@ -23,7 +23,7 @@ vim.lsp.set_log_level 'WARN'
 -- require('vim._extui').enable {}
 
 -- options for ufo
-vim.o.foldcolumn = '0'
+vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true

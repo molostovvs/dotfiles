@@ -67,3 +67,10 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
     vim.lsp.set_log_level(vim.log.levels.TRACE)
   end,
 })
+
+
+vim.api.nvim_create_autocmd("BufReadPre", {
+    callback = function()
+        vim.b.ufo_foldlevel = 0
+    end
+})
