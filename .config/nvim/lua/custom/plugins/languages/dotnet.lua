@@ -107,7 +107,7 @@ return {
     ---@module 'roslyn.config'
     ---@type RoslynNvimConfig
     opts = {
-      filewatching = 'off',
+      filewatching = 'auto',
     },
     config = function(_, opts)
       -- Set up vim.lsp.config for roslyn
