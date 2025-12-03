@@ -20,17 +20,6 @@ return {
       vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
       vim.fn.sign_define('DapBreakpointRejected', { text = '', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
 
-      require('mason-nvim-dap').setup {
-        automatic_setup = true,
-        handlers = {},
-        ensure_installed = {
-          'netcoredbg',
-        },
-        automatic_installation = true,
-      }
-
-      require('easy-dotnet.netcoredbg').register_dap_variables_viewer()
-
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
       vim.keymap.set('n', '<leader>dt', dapui.toggle, { desc = 'Debug: See last session result.' })
       vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Debug: Start/Continue' })
@@ -67,5 +56,13 @@ return {
       dap.listeners.before.event_terminated['dapui_config'] = dapui.close
       dap.listeners.before.event_exited['dapui_config'] = dapui.close
     end,
+  },
+  {
+    'igorlfs/nvim-dap-view',
+    -- dotnet-debug.nvim does not work without nvim-dap-ui
+    enabled = false,
+    ---@module 'dap-view'
+    ---@type dapview.Config
+    opts = {},
   },
 }

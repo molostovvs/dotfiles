@@ -74,7 +74,7 @@ return {
     'GustavEikaas/easy-dotnet.nvim',
     event = 'VeryLazy',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    enabled = true,
+    enabled = false,
     opts = {
       lsp = {
         enabled = false,
@@ -177,5 +177,20 @@ return {
     'bosvik/roslyn-diagnostics.nvim',
     ft = { 'cs', 'fs' },
     opts = {},
+  },
+  {
+    'kmiterror/dotnet-debug.nvim',
+    dependencies = { 'mfussenegger/nvim-dap' },
+    opts = {
+      -- Path to the signing module.
+      signer_path = '/opt/visual-studio-code/resources/app/node_modules.asar.unpacked/vsda/build/Release/vsda.node',
+      -- This path is often found within the ms-dotnettools.csharp extension for VS Code.
+      debugger_path = '~/.vscode/extensions/ms-dotnettools.csharp-2.100.11-linux-x64/.debugger/vsdbg-ui',
+      --
+      -- debugger_path = 'netcoredbg',
+    },
+    config = function(_, opts)
+      require('dotnet-debug').setup(opts)
+    end,
   },
 }
