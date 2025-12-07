@@ -27,4 +27,7 @@ return {
       vim.cmd 'colorscheme kanagawa-wave'
     end,
   },
+  {
+    'lunarvim/templeos.nvim',
+  },
 }
