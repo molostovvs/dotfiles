@@ -10,6 +10,7 @@ local servers = {
   yamlls = {},
   marksman = {},
   rust_analyzer = {},
+  tsgo = {},
 }
 
 local tools = {
@@ -47,6 +48,8 @@ return {
     event = 'VeryLazy',
     dependencies = { 'saghen/blink.cmp', 'neovim/nvim-lspconfig' },
     opts = {
+      ensure_installed = servers,
+      automatic_enable = true,
       handlers = {
         function(server_name)
           local capabilities = require('blink.cmp').get_lsp_capabilities(nil, true)
