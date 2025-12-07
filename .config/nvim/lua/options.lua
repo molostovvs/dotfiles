@@ -76,8 +76,8 @@ vim.opt.splitbelow = true
 --  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = {
-  --[[tab = '▸ ',]]
-  tab = '▎ ',
+  -- tab = '▎ ',
+  tab = '  ',
   trail = '·',
   nbsp = '␣',
 }

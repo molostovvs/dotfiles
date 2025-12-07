@@ -8,7 +8,6 @@ return {
   require 'custom.plugins.tools.git-links',
   require 'custom.plugins.tools.file-manager',
   require 'custom.plugins.tools.ai',
-  require 'custom.plugins.tools.indents',
   require 'custom.plugins.tools.test-runner',
   require 'custom.plugins.tools.mini',
   require 'custom.plugins.tools.completions',
