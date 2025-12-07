@@ -2,7 +2,6 @@ return {
   require 'custom.plugins.tools.treesitter',
   require 'custom.plugins.tools.formatter',
   require 'custom.plugins.tools.comment',
-  require 'custom.plugins.tools.autopairs',
   require 'custom.plugins.tools.folds',
   require 'custom.plugins.tools.session-manager',
   require 'custom.plugins.tools.git-links',
