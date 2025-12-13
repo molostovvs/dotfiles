@@ -48,7 +48,9 @@ return {
     event = 'VeryLazy',
     dependencies = { 'saghen/blink.cmp', 'neovim/nvim-lspconfig' },
     opts = {
-      ensure_installed = servers,
+      ensure_installed = vim.tbl_filter(function(name)
+        return name ~= 'rust_analyzer'
+      end, vim.tbl_keys(servers)),
       automatic_enable = true,
       handlers = {
         function(server_name)
