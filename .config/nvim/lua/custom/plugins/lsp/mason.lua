@@ -1,18 +1,15 @@
-local servers = {
-  docker_compose_language_service = {},
-  docker_language_server = {},
-  fsautocomplete = {},
-  terraformls = {},
-  bashls = {},
-  jsonls = {},
-  lua_ls = {},
-  clangd = {},
-  yamlls = {},
-  marksman = {},
-  tsgo = {},
-}
-
 local tools = {
+  'docker-compose-language-service',
+  'docker-language-server',
+  'fsautocomplete',
+  'terraform-ls',
+  'bash-language-server',
+  'json-lsp',
+  'lua-language-server',
+  'clangd',
+  'yaml-language-server',
+  'marksman',
+  'tsgo',
   'stylua',
   'jq',
   'prettier',
@@ -47,9 +44,8 @@ return {
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    event = 'VeryLazy',
     opts = {
-      ensure_installed = vim.list_extend(vim.tbl_keys(servers), tools),
+      ensure_installed = tools,
     },
   },
 }
