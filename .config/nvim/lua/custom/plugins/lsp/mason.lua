@@ -9,7 +9,6 @@ local servers = {
   clangd = {},
   yamlls = {},
   marksman = {},
-  rust_analyzer = {},
   tsgo = {},
 }
 
@@ -44,27 +43,7 @@ return {
     },
   },
   {
-    'williamboman/mason-lspconfig',
-    event = 'VeryLazy',
-    dependencies = { 'saghen/blink.cmp', 'neovim/nvim-lspconfig' },
-    opts = {
-      ensure_installed = vim.tbl_filter(function(name)
-        return name ~= 'rust_analyzer'
-      end, vim.tbl_keys(servers)),
-      automatic_enable = true,
-      handlers = {
-        function(server_name)
-          local capabilities = require('blink.cmp').get_lsp_capabilities(nil, true)
-          capabilities.textDocument.foldingRange = {
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
-          }
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
-    },
+    'neovim/nvim-lspconfig'
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',

@@ -112,3 +112,5 @@ vim.diagnostic.config({
   },
   severity_sort = true,
 })
+
+vim.lsp.enable('rust_analyzer')
