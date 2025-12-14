@@ -23,7 +23,7 @@ vim.lsp.log.set_level(vim.log.levels.WARN)
 -- require('vim._extui').enable {}
 
 -- options for ufo
-vim.o.foldcolumn = '1'
+vim.o.foldcolumn = '0'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
