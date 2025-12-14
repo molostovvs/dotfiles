@@ -16,7 +16,7 @@ vim.opt.fixeol = false
 vim.opt.endoffile = false
 vim.opt.fileformats = 'unix,dos,mac'
 
-vim.lsp.set_log_level 'WARN'
+vim.lsp.log.set_level(vim.log.levels.WARN)
 
 -- NOTE: disable fucking 'press enter' https://github.com/neovim/neovim/issues/1029#issuecomment-2848852784
 -- it works starting with 0.12-nightly only
@@ -112,3 +112,5 @@ vim.diagnostic.config({
   },
   severity_sort = true,
 })
+
+vim.lsp.enable('rust_analyzer')

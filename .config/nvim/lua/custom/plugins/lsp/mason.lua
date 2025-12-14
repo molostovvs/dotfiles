@@ -1,19 +1,15 @@
-local servers = {
-  docker_compose_language_service = {},
-  docker_language_server = {},
-  fsautocomplete = {},
-  terraformls = {},
-  bashls = {},
-  jsonls = {},
-  lua_ls = {},
-  clangd = {},
-  yamlls = {},
-  marksman = {},
-  rust_analyzer = {},
-  tsgo = {},
-}
-
 local tools = {
+  'docker-compose-language-service',
+  'docker-language-server',
+  'fsautocomplete',
+  'terraform-ls',
+  'bash-language-server',
+  'json-lsp',
+  'lua-language-server',
+  'clangd',
+  'yaml-language-server',
+  'marksman',
+  'tsgo',
   'stylua',
   'jq',
   'prettier',
@@ -44,31 +40,12 @@ return {
     },
   },
   {
-    'williamboman/mason-lspconfig',
-    event = 'VeryLazy',
-    dependencies = { 'saghen/blink.cmp', 'neovim/nvim-lspconfig' },
-    opts = {
-      ensure_installed = servers,
-      automatic_enable = true,
-      handlers = {
-        function(server_name)
-          local capabilities = require('blink.cmp').get_lsp_capabilities(nil, true)
-          capabilities.textDocument.foldingRange = {
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
-          }
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
-    },
+    'neovim/nvim-lspconfig'
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    event = 'VeryLazy',
     opts = {
-      ensure_installed = vim.list_extend(vim.tbl_keys(servers), tools),
+      ensure_installed = tools,
     },
   },
 }
