@@ -4,8 +4,14 @@ local get_max_width = function()
   return math.floor(vim.fn.winwidth(0) / 1.3)
 end
 
-map('n', ';', ':')
 map('n', '<esc>', '<cmd>nohlsearch<cr>')
+
+-- move blocks of code
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
+
+map('n', 'n', 'nzzzv')
+map('n', 'N', 'Nzzzv')
 
 map('n', 'K', function()
   vim.lsp.buf.hover {
