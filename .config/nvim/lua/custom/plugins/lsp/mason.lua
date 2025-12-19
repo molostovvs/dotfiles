@@ -26,6 +26,7 @@ local tools = {
   'fantomas',
   'clang-format',
   'yamlfmt',
+  'kube-linter'
 }
 
 return {
