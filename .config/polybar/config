@@ -40,7 +40,7 @@ separator-foreground = ${colors.disabled}
 font-0 = "JetBrainsMono Nerd Font:style=Regular:size=12"
 
 ;MODULES LAYOUT
-modules-left = xworkspaces xwindow
+modules-left = xworkspaces
 modules-center = xkeyboard date
 modules-right = memory cpu wired-network network pulseaudio-control-output pulseaudio-control-input tray
 
