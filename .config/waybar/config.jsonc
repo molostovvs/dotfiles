@@ -5,7 +5,6 @@
     "spacing": 4, // Gaps between modules (4px)
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/window",
     ],
     "modules-center": [
         "clock",
