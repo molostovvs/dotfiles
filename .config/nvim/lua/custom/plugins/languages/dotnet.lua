@@ -175,6 +175,7 @@ return {
   },
   {
     'bosvik/roslyn-diagnostics.nvim',
+    enabled = false,
     ft = { 'cs', 'fs' },
     opts = {},
   },
