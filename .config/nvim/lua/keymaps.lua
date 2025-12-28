@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 local get_max_width = function()
-  return math.floor(vim.fn.winwidth(0) / 1.3)
+  return math.floor(vim.fn.winwidth(0) * 0.8)
 end
 
 map('n', '<esc>', '<cmd>nohlsearch<cr>')
