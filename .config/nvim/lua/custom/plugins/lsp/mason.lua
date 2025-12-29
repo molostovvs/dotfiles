@@ -26,7 +26,8 @@ local tools = {
   'fantomas',
   'clang-format',
   'yamlfmt',
-  'kube-linter'
+  'kube-linter',
+  'tombi',
 }
 
 return {
@@ -41,7 +42,7 @@ return {
     },
   },
   {
-    'neovim/nvim-lspconfig'
+    'neovim/nvim-lspconfig',
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',

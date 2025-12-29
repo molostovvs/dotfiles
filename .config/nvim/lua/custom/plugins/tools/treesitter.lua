@@ -3,7 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'c_sharp', 'sql', 'css', 'json', 'xml' },
+      ensure_installed = { 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'c_sharp', 'sql', 'css', 'json', 'xml', 'rust', 'toml' },
       auto_install = true,
       highlight = {
         enable = true,
