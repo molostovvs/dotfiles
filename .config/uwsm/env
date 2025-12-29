@@ -7,3 +7,4 @@ export NVD_BACKEND=direct
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export EDITOR=nvim
 export GTK_USE_PORTAL=1
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
