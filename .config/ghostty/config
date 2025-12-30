@@ -1,0 +1,13 @@
+#theme = Retro Legends
+theme = Dark+
+
+window-padding-x = 0
+window-padding-y = 0
+
+font-size = 13
+font-family = "Iosevka Term"
+
+background-opacity = 0.8
+
+shell-integration-features = no-cursor
+cursor-style = block_hollow
