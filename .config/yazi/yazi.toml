@@ -1,18 +1,14 @@
 [mgr]
 sort_dir_first = true
+sort_by = "mtime"
+sort_reverse = true
+linemode = 'size'
 
 [preview]
-wrap = "yes"
+wrap = "no"
 image_delay = 5
 image_filter = "catmull-rom"
 
-
-[plugin]
-  prepend_preloaders = [
-    { mime = "{audio,video,image}/*", run = "mediainfo" },
-    { mime = "application/subrip", run = "mediainfo" },
-  ]
-  prepend_previewers = [
-    { mime = "{audio,video,image}/*", run = "mediainfo"},
-    { mime = "application/subrip", run = "mediainfo" },
-  ]
+[tasks]
+image_alloc = 0
+image_bound = [0,0]
