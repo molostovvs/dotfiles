@@ -10,6 +10,7 @@ return {
             NormalFloat = { bg = 'none' },
             FloatBorder = { bg = 'none' },
             FloatTitle = { bg = 'none' },
+	    Visual = {bg = '#444444'}
           }
         end,
         theme = 'wave',
