@@ -43,7 +43,7 @@ return {
       },
       completion = {
         ghost_text = {
-          enabled = false,
+          enabled = true,
         },
         keyword = {
           range = 'prefix',
@@ -91,6 +91,7 @@ return {
             border = 'rounded',
           },
           auto_show = true,
+          auto_show_delay_ms = 300,
         },
       },
       sources = {
@@ -132,6 +133,11 @@ return {
             module = 'lazydev.integrations.blink',
             score_offset = 100,
           },
+          cmdline = {
+            min_keyword_length = function(_)
+              return 2
+            end,
+          },
         },
         transform_items = function(_, items)
           return items
@@ -147,10 +153,17 @@ return {
           enabled = true,
           show_on_trigger_character = true,
           show_on_insert_on_trigger_character = true,
+          show_on_insert = true,
         },
       },
       cmdline = {
+        keymap = {
+          ['<CR>'] = { 'accept_and_enter', 'fallback' },
+        },
         completion = {
+          ghost_text = {
+            enabled = true,
+          },
           menu = {
             auto_show = true,
           },
