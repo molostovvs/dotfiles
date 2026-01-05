@@ -43,7 +43,7 @@ return {
       },
       completion = {
         ghost_text = {
-          enabled = true,
+          enabled = false,
         },
         keyword = {
           range = 'prefix',
@@ -161,9 +161,6 @@ return {
           ['<CR>'] = { 'accept_and_enter', 'fallback' },
         },
         completion = {
-          ghost_text = {
-            enabled = true,
-          },
           menu = {
             auto_show = true,
           },
