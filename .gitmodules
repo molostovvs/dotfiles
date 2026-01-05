@@ -1,3 +1,6 @@
 [submodule ".config/alacritty/themes"]
 	path = .config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule ".config/ghostty/shaders"]
+	path = .config/ghostty/shaders
+	url = git@github.com:sahaj-b/ghostty-cursor-shaders.git
