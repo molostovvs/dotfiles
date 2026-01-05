@@ -37,6 +37,7 @@ return {
   },
   {
     'coder/claudecode.nvim',
+    enabled = false,
     event = 'VeryLazy',
     opts = {
       auto_start = true,
