@@ -28,6 +28,11 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
+-- NOTE: required for cmdline blink.pairs, unstable with fzf-lua
+-- require('vim._extui').enable({
+--   enable = true
+-- })
+
 vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#ff0000', bold = true, underline = false })
 vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#ffffff', underline = true })
 

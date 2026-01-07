@@ -14,7 +14,11 @@ return {
       fuzzy = {
         implementation = 'rust',
         -- 'exact' also can be used here
-        sorts = { 'score', 'exact', 'sort_text' },
+        sorts = {
+          'score',
+          'exact',
+          'sort_text',
+        },
         -- Proximity bonus boosts the score of items matching nearby words
         use_proximity = true,
         -- Frecency tracks the most recently/frequently used items and boosts the score of the item
@@ -133,11 +137,6 @@ return {
             module = 'lazydev.integrations.blink',
             score_offset = 100,
           },
-          cmdline = {
-            min_keyword_length = function(_)
-              return 2
-            end,
-          },
         },
         transform_items = function(_, items)
           return items
@@ -157,9 +156,6 @@ return {
         },
       },
       cmdline = {
-        keymap = {
-          ['<CR>'] = { 'accept_and_enter', 'fallback' },
-        },
         completion = {
           menu = {
             auto_show = true,
@@ -173,5 +169,31 @@ return {
     'saghen/blink.compat',
     lazy = true,
     version = false,
+  },
+  {
+    'saghen/blink.pairs',
+    version = '*',
+    dependencies = 'saghen/blink.download',
+    --- @module 'blink.pairs'
+    --- @type blink.pairs.Config
+    opts = {
+      mappings = {
+        enabled = true,
+        cmdline = false,
+        disabled_filetypes = {},
+        pairs = {},
+      },
+      highlights = {
+        enabled = true,
+        -- NOTE: see options.lua for details why it is disabled
+        -- requires require('vim._extui').enable({}), otherwise has no effect
+        cmdline = false,
+        matchparen = {
+          enabled = false,
+          cmdline = false,
+        },
+      },
+      debug = false,
+    },
   },
 }
