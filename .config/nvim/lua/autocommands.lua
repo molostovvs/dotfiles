@@ -2,15 +2,22 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank { higroup = 'CurSearch', timeout = 300 }
   end,
 })
 
+local lsp_attach_group = vim.api.nvim_create_augroup('lsp-attach', { clear = true })
+local lsp_codelens_group = vim.api.nvim_create_augroup('lsp-codelens', { clear = true })
+
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+  group = lsp_attach_group,
   callback = function(event)
     local client = vim.lsp.get_client_by_id(event.data.client_id)
-    if client and client.server_capabilities.documentHighlightProvider then
+    if not client then
+      return
+    end
+
+    if client.server_capabilities.documentHighlightProvider then
       vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
         buffer = event.buf,
         callback = vim.lsp.buf.document_highlight,
@@ -22,14 +29,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
     end
 
-    if client and client.server_capabilities.codeLensProvider then
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
-        buffer = 0,
-        group = vim.api.nvim_create_augroup('lsp-autocommands', { clear = true }),
-        callback = function()
-          vim.lsp.codelens.refresh { bufnr = 0 }
-        end,
+    if client.server_capabilities.codeLensProvider then
+      local function refresh_codelens()
+        vim.schedule(function()
+          if vim.api.nvim_buf_is_valid(event.buf) then
+            vim.lsp.codelens.refresh { bufnr = event.buf }
+          end
+        end)
+      end
+
+      vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'BufWritePost' }, {
+        buffer = event.buf,
+        group = lsp_codelens_group,
+        callback = refresh_codelens,
       })
+
+      refresh_codelens()
     end
   end,
 })
@@ -49,7 +64,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 vim.api.nvim_create_autocmd({ 'FileType' }, {
   pattern = { 'cs', 'csproj', 'sln', 'slnx' },
   callback = function()
-    vim.cmd('compiler dotnet')
+    vim.cmd 'compiler dotnet'
   end,
 })
 
@@ -68,9 +83,8 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
   end,
 })
 
-
-vim.api.nvim_create_autocmd("BufReadPre", {
-    callback = function()
-        vim.b.ufo_foldlevel = 0
-    end
+vim.api.nvim_create_autocmd('BufReadPre', {
+  callback = function()
+    vim.b.ufo_foldlevel = 0
+  end,
 })
