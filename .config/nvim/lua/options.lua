@@ -106,19 +106,34 @@ vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 vim.treesitter.language.register('c_sharp', 'csharp')
 
-vim.diagnostic.config({
+vim.diagnostic.config {
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "✘",
-      [vim.diagnostic.severity.WARN] = "▲",
-      [vim.diagnostic.severity.HINT] = "⚑",
-      [vim.diagnostic.severity.INFO] = "»",
+      [vim.diagnostic.severity.ERROR] = '✘',
+      [vim.diagnostic.severity.WARN] = '▲',
+      [vim.diagnostic.severity.HINT] = '⚑',
+      [vim.diagnostic.severity.INFO] = '»',
     },
   },
   severity_sort = true,
+}
+
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ['rust-analyzer'] = {
+      lens = {
+        debug = {
+          enable = false,
+        },
+        run = {
+          enable = false,
+        },
+      },
+    },
+  },
 })
 
-vim.lsp.enable('rust_analyzer')
-vim.lsp.enable('tsgo')
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('tombi')
+vim.lsp.enable 'rust_analyzer'
+vim.lsp.enable 'tsgo'
+vim.lsp.enable 'lua_ls'
+vim.lsp.enable 'tombi'
