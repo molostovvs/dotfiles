@@ -4,6 +4,7 @@ default:
   repository: "s3:https://s3.ru1.storage.beget.cloud/96fc6fc42208-powerpc-backups"
   initialize: true
   compression: auto
+  status-file: /home/mvs/backup-status.json
   # NOTE: secret-tool setup happens with ./sync-restic-secrets.sh script
   password-command: "secret-tool lookup service s3_backup type password"
   env_command:
@@ -11,7 +12,7 @@ default:
     AWS_SECRET_ACCESS_KEY: "secret-tool lookup service s3_backup type secret_key"
     AWS_DEFAULT_REGION: "echo ru-1"
   backup:
-    run-before: 'yay -Qqe >> .backup-metadata/pacman-pkglist.txt'
+    run-before: 'yay -Qqe >> /home/mvs/.backup-metadata/pacman-pkglist.txt'
     schedule: "hourly"
     schedule-permission: user_logged_on
     exclude-caches: true
