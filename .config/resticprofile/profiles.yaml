@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://creativeprojects.github.io/resticprofile/jsonschema/config.json
+version: "1"
+default:
+  repository: "s3:https://s3.ru1.storage.beget.cloud/96fc6fc42208-powerpc-backups"
+  initialize: true
+  compression: auto
+  # NOTE: secret-tool setup happens with ./sync-restic-secrets.sh script
+  password-command: "secret-tool lookup service s3_backup type password"
+  env_command:
+    AWS_ACCESS_KEY_ID: "secret-tool lookup service s3_backup type access_key"
+    AWS_SECRET_ACCESS_KEY: "secret-tool lookup service s3_backup type secret_key"
+    AWS_DEFAULT_REGION: "echo ru-1"
+  backup:
+    run-before: 'yay -Qqe >> .backup-metadata/pacman-pkglist.txt'
+    schedule: "hourly"
+    schedule-permission: user_logged_on
+    exclude-caches: true
+    exclude-file:
+      - /home/mvs/.config/resticprofile/resticignore
+    source:
+      - /home/mvs/Documents/
+      - /home/mvs/Pictures/
+      - /home/mvs/Downloads/
+      - /home/mvs/source/
+      - /home/mvs/global.json
+      - /home/mvs/.backup-metadata/
+      - /etc/pacman.conf
+      - /etc/pacman.d/mirrorlist
+      - /etc/default/grub
+      - /etc/hostname
+      - /etc/systemd/
+      - /etc/fstab
+  retention:
+    before-backup: false
+    after-backup: true
+    keep-daily: 7
+    keep-weekly: 4
+    keep-monthly: 6
+    prune: true
