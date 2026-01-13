@@ -1,0 +1,18 @@
+[credential]
+	helper = !/usr/bin/gh auth git-credential
+	helper = !/usr/bin/glab auth git-credential
+[user]
+	name = Victor Molostov
+	email = 86685532+molostovvs@users.noreply.github.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+; [difftool]
+;     prompt = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[alias]
+	mupdate = !b=$(git rev-parse --verify main >/dev/null 2>&1 && echo main || echo master) && git fetch origin $b:$b && git rebase $b
