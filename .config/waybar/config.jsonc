@@ -17,6 +17,7 @@
         "memory",
         "network",
         "pulseaudio",
+        "custom/zmk",
         "tray",
     ],
     "hyprland/window": {
@@ -192,7 +193,8 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "$HOME/.config/waybar/audio_toggle.sh"
     },
     "custom/media": {
         "format": "{icon} {}",
@@ -205,6 +207,13 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/zmk": {
+        "format": " {}",
+        "tooltip": true,
+        "interval": 300,
+        "exec": "$HOME/opt/ZmkBatteryClient E1:10:43:1A:DB:A8",
+        "return-type": "json"
     },
     "custom/power": {
         "format": "⏻ ",
