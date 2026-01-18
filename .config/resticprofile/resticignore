@@ -1,0 +1,32 @@
+# --- Build Artifacts ---
+bin/
+obj/
+out/
+build/
+dist/
+target/
+*.dll
+*.exe
+*.pdb
+*.o
+*.a
+*.so
+*.dylib
+*.class
+*.pyc
+__pycache__/
+go.mod
+go.sum
+
+# --- Dependencies & Caches ---
+node_modules/
+venv/
+.venv/
+.cache/
+*.cache
+*.log
+
+# --- OS & Editor Junk ---
+.vscode/
+.idea/
+*.swp
