@@ -73,7 +73,6 @@ vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
-vim.opt.updatetime = 250
 vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
@@ -86,7 +85,7 @@ vim.opt.listchars = {
   trail = '·',
   nbsp = '␣',
 }
-vim.opt.fillchars = { eob = " " }
+vim.opt.fillchars = { eob = ' ' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -117,11 +116,19 @@ vim.diagnostic.config {
     },
   },
   severity_sort = true,
+  update_in_insert = false,
 }
 
 vim.lsp.config('rust_analyzer', {
   settings = {
     ['rust-analyzer'] = {
+      diagnostics = {
+        enable = true,
+        experimental = {
+          enable = true,
+        },
+      },
+      checkOnSave = false,
       lens = {
         debug = {
           enable = false,
