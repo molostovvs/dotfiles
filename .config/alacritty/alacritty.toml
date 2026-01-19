@@ -1,15 +1,16 @@
-import = [
-  "~/.config/alacritty/themes/themes/github_dark_high_contrast.toml"
-]
-
+[general]
 live_config_reload = true
+import = ["~/.config/alacritty/themes/themes/github_dark_high_contrast.toml"]
 
 [env]
-TERM= "xterm-256color"
+TERM = "xterm-256color"
+
+[scrolling]
+history = 2000
 
 [window]
 opacity = 0.8
-decorations = "None"
+decorations = "none"
 blur = true
 dynamic_padding = true
 
@@ -23,23 +24,23 @@ unfocused_hollow = true
 
 [cursor.style]
 blinking = "Always"
-shape = "Beam"
+shape = "Block"
 
 [font]
-size = 12
+size = 13
 
 [font.bold]
-family = "FiraCode Nerd Font Mono"
+family = "Iosevka Term"
 style = "Bold"
 
 [font.bold_italic]
-family = "FiraCode Nerd Font Mono"
+family = "Iosevka Term"
 style = "Bold Italic"
 
 [font.italic]
-family = "FiraCode Nerd Font Mono"
-style = "italic"
+family = "Iosevka Term"
+style = "Italic"
 
 [font.normal]
-family = "FiraCode Nerd Font Mono"
-style = "Regular"
+family = "Iosevka Term"
+
