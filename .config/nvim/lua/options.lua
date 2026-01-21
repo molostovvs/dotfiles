@@ -7,6 +7,8 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.showmode = false
 
+vim.o.swapfile = false
+
 vim.o.jumpoptions = 'clean'
 
 vim.o.pumblend = 15
