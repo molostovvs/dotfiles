@@ -15,11 +15,19 @@
     "modules-right": [
         "cpu",
         "memory",
+        "custom/vpn",
         "network",
         "pulseaudio",
         "custom/zmk",
         "tray",
     ],
+    "custom/vpn": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/vpn_status.py",
+        "return-type": "json",
+        "interval": 60,
+        "tooltip": true
+    },
     "hyprland/window": {
         "format": "{initialTitle}"
     },
@@ -126,6 +134,7 @@
         "format-alt": "{:%A, %B %d, %Y (%R)}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
+	    "locale": "ru_RU.UTF-8",
             "mode": "year",
             "mode-mon-col": 3,
             "weeks-pos": "right",

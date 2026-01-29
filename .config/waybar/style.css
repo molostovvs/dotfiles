@@ -108,6 +108,22 @@ window#waybar.termite { background-color: #3F3F3F; }
 #tray { padding: 0 10px; }
 #custom-zmk { padding: 0 10px; color: #d08770; }
 
+#custom-vpn {
+    padding: 0 10px;
+}
+
+#custom-vpn.connected {
+    color: #a3be8c; /* Green-ish */
+}
+
+#custom-vpn.disconnected {
+    color: #ebcb8b; /* Yellow-ish/Warning */
+}
+
+#custom-vpn.error {
+    color: #bf616a; /* Red */
+}
+
 .modules-center > *,
 .modules-right > * {
     background-color: transparent;
