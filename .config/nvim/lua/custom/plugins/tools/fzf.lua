@@ -46,8 +46,6 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     event = 'VeryLazy',
     opts = {
-      fzf_bin = "sk",
-      fzf_opts = {["--algo"] = "frizbee", ["--color"] = "current_match:255"},
       winopts = {
         width = 0.98,
         height = 0.98,
