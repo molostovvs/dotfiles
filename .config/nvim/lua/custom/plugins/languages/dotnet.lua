@@ -112,6 +112,12 @@ return {
     config = function(_, opts)
       -- Set up vim.lsp.config for roslyn
       vim.lsp.config.roslyn = {
+        cmd = {
+          'roslyn-language-server',
+          '--logLevel=Information',
+          '--extensionLogDirectory=' .. vim.fs.dirname(vim.lsp.log.get_filename()),
+          '--stdio',
+        },
         capabilities = {
           textDocument = {
             _vs_onAutoInsert = { dynamicRegistration = false },

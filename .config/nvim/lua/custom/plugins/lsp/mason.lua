@@ -37,7 +37,6 @@ return {
       ui = { border = 'rounded' },
       registries = {
         'github:mason-org/mason-registry',
-        'github:crashdummyy/mason-registry',
       },
     },
   },
