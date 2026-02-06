@@ -121,29 +121,30 @@ vim.diagnostic.config {
   update_in_insert = false,
 }
 
-vim.lsp.config('rust_analyzer', {
-  settings = {
-    ['rust-analyzer'] = {
-      diagnostics = {
-        enable = true,
-        experimental = {
+vim.g.rustaceanvim = {
+  server = {
+    default_settings = {
+      ['rust-analyzer'] = {
+        diagnostics = {
           enable = true,
+          experimental = {
+            enable = true,
+          },
         },
-      },
-      checkOnSave = false,
-      lens = {
-        debug = {
-          enable = false,
-        },
-        run = {
-          enable = false,
+	check_on_save = false,
+        lens = {
+          debug = {
+            enable = false,
+          },
+          run = {
+            enable = false,
+          },
         },
       },
     },
   },
-})
+}
 
-vim.lsp.enable 'rust_analyzer'
 vim.lsp.enable 'tsgo'
 vim.lsp.enable 'lua_ls'
 vim.lsp.enable 'tombi'
