@@ -7,7 +7,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 local lsp_attach_group = vim.api.nvim_create_augroup('lsp-attach', { clear = true })
-local lsp_codelens_group = vim.api.nvim_create_augroup('lsp-codelens', { clear = true })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_attach_group,
@@ -30,21 +29,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     if client.server_capabilities.codeLensProvider then
-      local function refresh_codelens()
-        vim.schedule(function()
-          if vim.api.nvim_buf_is_valid(event.buf) then
-            vim.lsp.codelens.refresh { bufnr = event.buf }
-          end
-        end)
-      end
-
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'BufWritePost' }, {
-        buffer = event.buf,
-        group = lsp_codelens_group,
-        callback = refresh_codelens,
-      })
-
-      refresh_codelens()
+      vim.lsp.codelens.enable(true, { bufnr = event.buf })
     end
   end,
 })
