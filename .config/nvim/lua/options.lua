@@ -132,9 +132,6 @@ vim.g.rustaceanvim = {
           },
         },
         checkOnSave = true,
-        check = {
-          command = 'check', -- faster while learning
-        },
         lens = {
           debug = {
             enable = false,
