@@ -48,7 +48,8 @@ vim.filetype.add {
 vim.opt.mouse = nil
 vim.opt.mousescroll = 'ver:0,hor:0'
 
-vim.opt.smartindent = true
+vim.opt.smartindent = false
+vim.opt.autoindent = true
 
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = 'unnamedplus'
