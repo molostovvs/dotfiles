@@ -28,9 +28,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
     end
 
-    if client.server_capabilities.codeLensProvider then
-      vim.lsp.codelens.enable(true, { bufnr = event.buf })
-    end
   end,
 })
 
