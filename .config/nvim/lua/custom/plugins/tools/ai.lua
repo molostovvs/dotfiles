@@ -36,6 +36,112 @@ return {
     end,
   },
   {
+    'folke/sidekick.nvim',
+    ---@class sidekick.Config
+    opts = {
+      nes = {
+        enabled = false,
+      },
+      cli = {
+        picker = 'fzf-lua',
+        mux = {
+          backend = 'tmux',
+          enabled = true,
+        },
+        tools = {
+          codex = { cmd = { 'codex' } },
+          opencode = {
+            cmd = { 'opencode' },
+            env = { OPENCODE_THEME = 'system' },
+          },
+        },
+      },
+    },
+    keys = {
+      {
+        '<M-.>',
+        function()
+          require('sidekick.cli').toggle()
+        end,
+        mode = { 'n', 't', 'i', 'x' },
+        desc = 'Sidekick toggle terminal (alt)',
+      },
+      {
+        '<leader>aa',
+        function()
+          require('sidekick.cli').toggle()
+        end,
+        desc = '[A]I Sidekick toggle',
+      },
+      {
+        '<leader>a.',
+        function()
+          require('sidekick.cli').toggle()
+        end,
+        desc = '[A]I toggle terminal',
+      },
+      {
+        '<leader>as',
+        function()
+          require('sidekick.cli').select { filter = { installed = true } }
+        end,
+        desc = '[A]I [S]elect CLI',
+      },
+      {
+        '<leader>ac',
+        function()
+          require('sidekick.cli').toggle { name = 'codex', focus = true }
+        end,
+        desc = '[A]I toggle [C]odex',
+      },
+      {
+        '<leader>ao',
+        function()
+          require('sidekick.cli').toggle { name = 'opencode', focus = true }
+        end,
+        desc = '[A]I toggle [O]penCode',
+      },
+      {
+        '<leader>ap',
+        function()
+          require('sidekick.cli').prompt()
+        end,
+        mode = { 'n', 'x' },
+        desc = '[A]I [P]rompt',
+      },
+      {
+        '<leader>at',
+        function()
+          require('sidekick.cli').send { msg = '{this}' }
+        end,
+        mode = { 'n', 'x' },
+        desc = '[A]I send [T]his',
+      },
+      {
+        '<leader>af',
+        function()
+          require('sidekick.cli').send { msg = '{file}' }
+        end,
+        desc = '[A]I send [F]ile',
+      },
+      {
+        '<leader>av',
+        function()
+          require('sidekick.cli').send { msg = '{selection}' }
+        end,
+        mode = { 'x' },
+        desc = '[A]I send [V]isual selection',
+      },
+      {
+        '<leader>ad',
+        function()
+          require('sidekick.cli').close()
+        end,
+        desc = '[A]I [D]etach terminal',
+      },
+    },
+  },
+  {
     'coder/claudecode.nvim',
     enabled = false,
     event = 'VeryLazy',
