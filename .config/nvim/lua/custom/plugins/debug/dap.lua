@@ -62,12 +62,4 @@ return {
       dap.listeners.before.event_exited['dapui_config'] = dapui.close
     end,
   },
-  {
-    'igorlfs/nvim-dap-view',
-    -- dotnet-debug.nvim does not work without nvim-dap-ui
-    enabled = false,
-    ---@module 'dap-view'
-    ---@type dapview.Config
-    opts = {},
-  },
 }
