@@ -6,29 +6,40 @@ return {
       require('minuet').setup {
         provider = 'openai_fim_compatible',
         n_completions = 1,
-        context_window = 2000,
-        request_timeout = 1,
-        throttle = 500,
-        debounce = 500,
+        context_window = 4096,
+        request_timeout = 3,
         notify = 'warn',
         virtualtext = {
+          auto_trigger_ft = { '*' },
           keymap = {
             accept = '<A-t>',
             accept_line = '<A-l>',
             next = '<A-]>',
             prev = '<A-[>',
-            dismiss = '<A-e>'
+            dismiss = '<A-e>',
           },
         },
         provider_options = {
           openai_fim_compatible = {
             api_key = 'TERM',
-            name = 'Ollama',
-            end_point = 'http://localhost:11434/v1/completions',
-            model = 'qwen2.5-coder:7b',
+            name = 'Llama.cpp',
+            end_point = 'http://localhost:8012/v1/completions',
+            model = 'qwen2.5-coder-7b-instruct',
             optional = {
-              max_tokens = 128,
-              top_p = 0.95,
+              max_tokens = 512,
+            },
+            template = {
+              prompt = function(context_before_cursor, context_after_cursor, _)
+                local system_prompt = '<|im_start|>system\n'
+                  .. 'You are a code completion tool. '
+                  .. 'Complete the code naturally. If the cursor is inside a function, finish the logic. '
+                  .. 'If the cursor is at the class level, you may suggest a new method. '
+                  .. 'Stop immediately after completing one logical unit.\n'
+                  .. '<|im_end|>\n'
+
+                return system_prompt .. '<|fim_prefix|>' .. context_before_cursor .. '<|fim_suffix|>' .. context_after_cursor .. '<|fim_middle|>'
+              end,
+              suffix = false,
             },
           },
         },
@@ -74,32 +85,11 @@ return {
         desc = '[A]I Sidekick toggle',
       },
       {
-        '<leader>a.',
-        function()
-          require('sidekick.cli').toggle()
-        end,
-        desc = '[A]I toggle terminal',
-      },
-      {
         '<leader>as',
         function()
           require('sidekick.cli').select { filter = { installed = true } }
         end,
         desc = '[A]I [S]elect CLI',
-      },
-      {
-        '<leader>ac',
-        function()
-          require('sidekick.cli').toggle { name = 'codex', focus = true }
-        end,
-        desc = '[A]I toggle [C]odex',
-      },
-      {
-        '<leader>ao',
-        function()
-          require('sidekick.cli').toggle { name = 'opencode', focus = true }
-        end,
-        desc = '[A]I toggle [O]penCode',
       },
       {
         '<leader>ap',
@@ -139,37 +129,6 @@ return {
         end,
         desc = '[A]I [D]etach terminal',
       },
-    },
-  },
-  {
-    'coder/claudecode.nvim',
-    enabled = false,
-    event = 'VeryLazy',
-    opts = {
-      auto_start = true,
-      log_level = 'info',
-      track_selection = true,
-      focus_after_send = true,
-      terminal = {
-        split_side = 'right',
-        split_width_percentage = 0.35,
-        provider = 'native',
-        auto_close = true,
-      },
-      diff_opts = {
-        auto_close_on_accept = true,
-        vertical_split = true,
-        open_in_current_tab = true,
-      },
-    },
-    keys = {
-      { '<leader>ac', '<cmd>ClaudeCode<cr>', desc = '[A]I [C]laude toggle' },
-      { '<leader>af', '<cmd>ClaudeCodeFocus<cr>', desc = '[A]I [F]ocus Claude' },
-      { '<leader>as', '<cmd>ClaudeCodeSend<cr>', mode = 'v', desc = '[A]I [S]end selection' },
-      { '<leader>ar', '<cmd>ClaudeCode --resume<cr>', desc = '[A]I [R]esume Claude' },
-      { '<leader>aC', '<cmd>ClaudeCode --continue<cr>', desc = '[A]I [C]ontinue Claude' },
-      { '<leader>aa', '<cmd>ClaudeCodeDiffAccept<cr>', desc = '[A]I [A]ccept diff' },
-      { '<leader>ad', '<cmd>ClaudeCodeDiffDeny<cr>', desc = '[A]I [D]eny diff' },
     },
   },
 }
