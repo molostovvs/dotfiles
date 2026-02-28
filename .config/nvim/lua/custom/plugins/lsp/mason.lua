@@ -28,6 +28,7 @@ local tools = {
   'yamlfmt',
   'kube-linter',
   'tombi',
+  'postgres-language-server',
 }
 
 return {
