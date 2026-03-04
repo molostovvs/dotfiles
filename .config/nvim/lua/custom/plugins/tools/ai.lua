@@ -7,10 +7,11 @@ return {
         provider = 'openai_fim_compatible',
         n_completions = 1,
         context_window = 4096,
-        request_timeout = 3,
+        request_timeout = 2,
+        after_cursor_filter_length = 2,
         notify = 'warn',
         virtualtext = {
-          auto_trigger_ft = { '*' },
+          auto_trigger_ft = {},
           keymap = {
             accept = '<A-t>',
             accept_line = '<A-l>',
@@ -26,16 +27,19 @@ return {
             end_point = 'http://localhost:8012/v1/completions',
             model = 'qwen2.5-coder-7b-instruct',
             optional = {
-              max_tokens = 512,
+              max_tokens = 64,
+              temperature = 0.1,
             },
             template = {
               prompt = function(context_before_cursor, context_after_cursor, _)
-                local system_prompt = '<|im_start|>system\n'
-                  .. 'You are a code completion tool. '
-                  .. 'Complete the code naturally. If the cursor is inside a function, finish the logic. '
-                  .. 'If the cursor is at the class level, you may suggest a new method. '
-                  .. 'Stop immediately after completing one logical unit.\n'
-                  .. '<|im_end|>\n'
+                -- local system_prompt = '<|im_start|>system\n'
+                --   .. 'You are a code completion tool. '
+                --   .. 'Complete the code naturally. If the cursor is inside a function, finish the logic. '
+                --   .. 'If the cursor is at the class level, you may suggest a new method. '
+                --   .. 'Stop immediately after completing one logical unit.\n'
+                --   .. '<|im_end|>\n'
+
+                local system_prompt = ''
 
                 return system_prompt .. '<|fim_prefix|>' .. context_before_cursor .. '<|fim_suffix|>' .. context_after_cursor .. '<|fim_middle|>'
               end,
