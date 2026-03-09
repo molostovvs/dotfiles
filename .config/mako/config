@@ -31,3 +31,10 @@ border-color=#33ccffee
 text-color=#ff9999ff
 default-timeout=0
 
+[app-name=blueman summary=Cradio body=Connected]
+invisible=1
+history=0
+
+[app-name=blueman summary=Cradio body=Disconnected]
+invisible=1
+history=0
