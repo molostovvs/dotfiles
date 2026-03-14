@@ -90,7 +90,4 @@ map('n', '<leader>vB', '<cmd>Gitsigns blame<cr>', { desc = '[V]cs [B]lame' })
 map('n', '<leader>vb', '<cmd>Gitsigns blame_line<cr>', { desc = '[V]cs [B]lame line' })
 map('n', '<leader>vp', '<cmd>Gitsigns preview_hunk<cr>', { desc = '[V]cs [P]review hunk' })
 
-map('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition' })
-map('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
-map('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype definition' })
 map('n', '<leader>rr', vim.lsp.buf.rename, { desc = '[R]ename symbol' })

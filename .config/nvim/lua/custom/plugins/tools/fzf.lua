@@ -112,6 +112,16 @@ return {
         desc = '[G]o to [D]efinitions',
       },
       {
+        'gD',
+        '<cmd>FzfLua lsp_declarations async=false ignore_current_line=true<cr>',
+        desc = '[G]o to [D]eclarations',
+      },
+      {
+        'gt',
+        '<cmd>FzfLua lsp_typedefs async=false ignore_current_line=true<cr>',
+        desc = '[G]o to [T]ype definitions',
+      },
+      {
         'gr',
         '<cmd>FzfLua lsp_references async=true includeDeclaration=false ignore_current_line=true<cr>',
         desc = '[G]o to [R]eferences',
